@@ -163,6 +163,10 @@ local NotificationTitle
 local NotificationText
 local NotificationIcon
 
+local OHNotificationTitle
+local OHNotificationText
+local OHNotificationIcon
+
 --[[
 local BlurOnLeave = true -- Blurs your screen when your focus goes off of your Roblox app, ONE TIME USE
 local DisableRenderingOnLeave = true -- Disables 3D rendering when your focus goes off of your Roblox app, ONE TIME USE
@@ -1842,6 +1846,18 @@ ConsoleSection:AddButton({
 end    
 })
 
+ConsoleSection:AddButton({
+	Name = "Orion Hub Notification",
+	Callback = function()
+	OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set DesiredCharacter to " .. Value .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end    
+})
+
 SettingsSection:AddTextbox({
 	Name = "Desired Character",
 	Default = DesiredCharacter,
@@ -2043,6 +2059,51 @@ SettingsSection:AddTextbox({
 	TextDisappear = false,
 	Callback = function(Value)
 		NotificationIcon = Value
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set NotificationIcon to " .. "'" .. Value .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "Orion Hub Notification Title",
+	Default = NotificationTitle,
+	TextDisappear = false,
+	Callback = function(Value)
+		OHNotificationTitle = Value
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set NotificationTitle to " .. "'" .. Value .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "Orion Hub Notification Text",
+	Default = NotificationText,
+	TextDisappear = false,
+	Callback = function(Value)
+		OHNotificationText = Value
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set NotificationText to " .. "'" .. Value .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "Orion Hub Notification Icon",
+	Default = NotificationIcon,
+	TextDisappear = false,
+	Callback = function(Value)
+		OHNotificationIcon = Value
 				OrionLib:MakeNotification({
 	Name = "Done!",
 	Content = "Set NotificationIcon to " .. "'" .. Value .. "'" .. "!",
