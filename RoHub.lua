@@ -3166,7 +3166,7 @@ local YPosLabel = Section11:AddLabel("Current Y Position = " .. CurrentCharacter
 local ZPosLabel = Section11:AddLabel("Current Z Position = " .. CurrentCharacter.HumanoidRootPart.Position.Z)
 local CurrentCharacterLabel = Section11:AddLabel("Current Character = " .. CurrentCharacter.Name)
 
-Section11:AddParagraph("Warning!","Positions and your Current Character labels may break if you use the Custom Humanoid, Custom Character and Change Character (while you still haven't turned back to your own character) function/feature, so if it does, re-execute the script again!")
+Section11:AddParagraph("Warning!","Positions and your Current Character labels may break if you use the Custom Humanoid, Custom Character and Change Character (while you still haven't turned back to your own character) functions/features, so if it does, re-execute the script again!")
 	
 --[[
 if CurrentCharacter == nil and DesiredCharacter == nil then
