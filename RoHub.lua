@@ -3260,7 +3260,7 @@ end
 --]]
 
 if DesiredCharacter == nil then
-warn("Desired Character is nil!")
+warn("DesiredCharacter = nil!")
 elseif DesiredCharacter == not nil then
 Section11:AddLabel("DesiredCharacter = " .. DesiredCharacter)
 end
