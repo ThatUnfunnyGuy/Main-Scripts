@@ -546,8 +546,12 @@ WSection:AddButton({
 	Name = "Alternative Reset 4",
 	Callback = function()
 	local Humanoid = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid")
-Humanoid.RigType = Enum.HumanoidRigType.R15
-end    
+	if Humanoid.RigType == Enum.HumanoidRigType.R6 then
+		Humanoid.RigType = Enum.HumanoidRigType.R15
+	elseif Humanoid.RigType == Enum.HumanoidRigType.R15 then
+		Humanoid.RigType = Enum.HumanoidRigType.R6
+	end
+end
 })
 
 WSection:AddButton({
@@ -560,9 +564,9 @@ game:GetService("Players").LocalPlayer.Character:WaitForChild("Head"):Destroy()
 WSection:AddButton({
 	Name = "Loop Reset",
 	Callback = function()
-	while wait() do
+	game:GetService("RunService").Heartbeat:Connect(function()
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
-	end
+	end)
 end    
 })
 
@@ -570,13 +574,13 @@ WSection:AddButton({
 	Name = "Kill Everyone/Kill Aura (?) (NOT FE)",
 	Callback = function()
 		spawn(function()
-			repeat wait()
+			repeat task.wait()
 				for _,v in pairs(workspace:GetDescendants()) do
 					if v:IsA("Model") then
 						v:BreakJoints()
 					end
 				end
-			until wait(1)
+			until task.wait(1)
 		end)
   	end    
 })
