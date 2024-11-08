@@ -624,14 +624,14 @@ end
 })
 
 WSection:AddButton({
-	Name = "Platform Stand",
+	Name = "PlatformStand",
 	Callback = function()
 game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Size = Vector3.new(game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Size.X, 5, game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Size.Z)
 end    
 })
 
 WSection:AddButton({
-	Name = "Un-Platform Stand",
+	Name = "Un-PlatformStand",
 	Callback = function()
 game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Size = Vector3.new(game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Size.X, 2, game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Size.Z)
 end    
@@ -639,14 +639,14 @@ end
 
 
 WSection:AddButton({
-	Name = "Alternative Platform Stand",
+	Name = "Alternative PlatformStand",
 	Callback = function()
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").HipHeight = 1.6
 end    
 })
 
 WSection:AddButton({
-	Name = "Alternative Un-Platform Stand",
+	Name = "Alternative Un-PlatformStand",
 	Callback = function()
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").HipHeight = 0
 end    
@@ -662,9 +662,9 @@ end
 WSection:AddButton({
 	Name = "Loop Force Jump (Jump)",
 	Callback = function()
-	while wait() do
+	game:GetService("RunService").Heartbeat:Connect(function()
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Jump = true
-	end
+	end)
 end    
 })
 
@@ -1488,7 +1488,7 @@ game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Sit = 
 })
 
 LSection:AddToggle({
-	Name = "Break Joints On Death",
+	Name = "BreakJointsOnDeath",
 	Default = game:GetService("Players").LocalPlayer.Character.Humanoid.BreakJointsOnDeath,
 	Callback = function(Value)
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").BreakJointsOnDeath = Value
@@ -1496,7 +1496,7 @@ game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").BreakJ
 })
 
 LSection:AddToggle({
-	Name = "Character Auto Loads",
+	Name = "CharacterAutoLoads",
 	Default = game:GetService("Players").CharacterAutoLoads,
 	Callback = function(Value)
 game:GetService("Players").CharacterAutoLoads = Value
