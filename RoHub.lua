@@ -2070,7 +2070,7 @@ end
 
 SettingsSection:AddTextbox({
 	Name = "Orion Hub Notification Title",
-	Default = NotificationTitle,
+	Default = OHNotificationTitle,
 	TextDisappear = false,
 	Callback = function(Value)
 		OHNotificationTitle = Value
@@ -2085,7 +2085,7 @@ end
 
 SettingsSection:AddTextbox({
 	Name = "Orion Hub Notification Text",
-	Default = NotificationText,
+	Default = OHNotificationText,
 	TextDisappear = false,
 	Callback = function(Value)
 		OHNotificationText = Value
@@ -2100,7 +2100,7 @@ end
 
 SettingsSection:AddTextbox({
 	Name = "Orion Hub Notification Icon",
-	Default = NotificationIcon,
+	Default = OHNotificationIcon,
 	TextDisappear = false,
 	Callback = function(Value)
 		OHNotificationIcon = Value
