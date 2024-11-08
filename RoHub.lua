@@ -49,6 +49,11 @@ local MusicTable = {
 	[10] = "rbxassetid://1843404009" -- Happy Song
 }
 
+for num, item in AnimationsTable do
+	local Animation = Instance.new("Animation")
+	Animation.AnimationId = item
+end
+
 for num, item in MusicTable do
 	local Song = Instance.new("Sound")
 	Song.ContentId = 0
