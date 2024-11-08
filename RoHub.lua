@@ -3,7 +3,7 @@ if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
 
---[[Suppoted Games List]]--
+--[[Supported Games List]]--
 --// DOORS
 --// Lucky Block Battlegrounds
 --// Ski Race
