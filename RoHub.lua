@@ -26,6 +26,37 @@ local SoundService = game:GetService("SoundService")
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").UseJumpPower = true
 game:GetService("StarterPlayer").CharacterUseJumpPower = true
 
+local AnimationsTable = {
+	[1] = "rbxassetid://183294396", -- Zombie Arms
+	[2] = "rbxassetid://33796059", -- Insanity
+	[3] = "rbxassetid://121572214", -- Floating Head
+	[4] = "rbxassetid://27789359", -- Moon Dance
+	[5] = "rbxassetid://429703734", -- Charleston
+	[6] = "rbxassetid://87986341", -- Insane Legs
+	[7] = "rbxassetid://188632011", -- Spin
+	[8] = "rbxassetid://136801964" -- Rotation
+}
+local MusicTable = {
+	[1] = "rbxassetid://1848354536", -- Relaxed Scene
+	[2] = "rbxassetid://1837879082", -- Paradise Falls
+	[3] = "rbxassetid://9048375035", -- All-Dropping 8-Bit Beats
+	[4] = "rbxassetid://9047105533", -- No Smoking
+	[5] = "rbxassetid://1843497734", -- Chaos
+	[6] = "rbxassetid://142376088", -- Raining
+	[7] = "rbxassetid://9043887091", -- Lo-Fi Chill
+	[8] = "rbxassetid://9044565954", -- Smooth Vibes
+	[9] = "rbxassetid://9048518373", -- Slow Boat
+	[10] = "rbxassetid://1843404009" -- Happy Song
+}
+
+for num, item in MusicTable do
+	local Song = Instance.new("Sound")
+	Song.SoundId = item.SoundId
+	Song.Looped = true
+	Song.Parent = SoundService
+end
+
+--[[
 -- Animations
     local ZArms = Instance.new("Animation")
         ZArms.AnimationId = "rbxassetid://183294396"
@@ -50,7 +81,9 @@ game:GetService("StarterPlayer").CharacterUseJumpPower = true
 
     local Rotation = Instance.new("Animation")
         Rotation.AnimationId = "rbxassetid://136801964"
+--]]
 
+--[[
 -- Music
     local RelaxedScene = Instance.new("Sound", SoundService)
     RelaxedScene.Name = "RelaxedScene"
@@ -101,6 +134,7 @@ game:GetService("StarterPlayer").CharacterUseJumpPower = true
     HappySong.Name = "HappySong"
     HappySong.SoundId = "rbxassetid://1843404009"
     HappySong.Looped = true
+--]]
 
 -- Character Variables
 local CurrentCharacter = game:GetService("Players").LocalPlayer.Character
@@ -1622,7 +1656,7 @@ end
 AnimationsSection:AddButton({
 	Name = "Zombie Arms",
 	Callback = function()
-    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(ZArms)
+    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(AnimationsTable[1])
         k:Play()
 end 
 })
@@ -1630,7 +1664,7 @@ end
 AnimationsSection:AddButton({
 	Name = "Insanity",
 	Callback = function()
-    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Insanity)
+    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(AnimationsTable[2])
         k:Play()
 end   
 })
@@ -1638,7 +1672,7 @@ end
 AnimationsSection:AddButton({
 	Name = "Floating Head",
 	Callback = function()
-    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(FHead)
+    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(AnimationsTable[3])
         k:Play()
 end    
 })
@@ -1646,7 +1680,7 @@ end
 AnimationsSection:AddButton({
 	Name = "Moon Dance",
 	Callback = function()
-    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(MoonDance)
+    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(AnimationsTable[4])
         k:Play()
 end   
 })
@@ -1654,7 +1688,7 @@ end
 AnimationsSection:AddButton({
 	Name = "Charleston",
 	Callback = function()
-    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Charleston)
+    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(AnimationsTable[5])
         k:Play()
 end    
 })
@@ -1662,7 +1696,7 @@ end
 AnimationsSection:AddButton({
 	Name = "Insane Legs",
 	Callback = function()
-    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(InsaneLegs)
+    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(AnimationsTable[6])
         k:Play()
 end   
 })
@@ -1670,7 +1704,7 @@ end
 AnimationsSection:AddButton({
 	Name = "Spin",
 	Callback = function()
-    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Spin)
+    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(AnimationsTable[7])
         k:Play()
 end    
 })
@@ -1678,7 +1712,7 @@ end
 AnimationsSection:AddButton({
 	Name = "Rotation",
 	Callback = function()
-    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Rotation)
+    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(AnimationsTable[8])
         k:Play()
 end    
 })
@@ -1697,7 +1731,8 @@ MusicSection:AddToggle({
 	Name = "Relaxed Scene",
     Default = false,
 	Callback = function(Value)
-    RelaxedScene.Playing = Value
+MusicTable[1].Playing = Value
+    --RelaxedScene.Playing = Value
 end    
 })
 
@@ -1706,7 +1741,8 @@ MusicSection:AddToggle({
 	Name = "Lo-Fi Chill",
     Default = false,
 	Callback = function(Value)
-    LoFiChill.Playing = Value
+MusicTable[7].Playing = Value
+   --LoFiChill.Playing = Value
 end    
 })
 
@@ -1714,7 +1750,8 @@ MusicSection:AddToggle({
 	Name = "Smooth Vibes",
     Default = false,
 	Callback = function(Value)
-    SmoothVibes.Playing = Value
+MusicTable[8].Playing = Value
+    --SmoothVibes.Playing = Value
 end    
 })
 
@@ -1722,7 +1759,8 @@ MusicSection:AddToggle({
 	Name = "Slow Boat",
     Default = false,
 	Callback = function(Value)
-    SlowBoat.Playing = Value
+MusicTable[9].Playing = Value
+    --SlowBoat.Playing = Value
 end    
 })
 
@@ -1730,7 +1768,8 @@ MusicSection:AddToggle({
 	Name = "Paradise Falls",
     Default = false,
 	Callback = function(Value)
-    ParadiseFalls.Playing = Value
+MusicTable[2].Playing = Value
+    --ParadiseFalls.Playing = Value
 end    
 })
 
@@ -1738,7 +1777,8 @@ MusicSection:AddToggle({
 	Name = "Happy Song",
     Default = false,
 	Callback = function(Value)
-    HappySong.Playing = Value
+MusicTable[10].Playing = Value
+    --HappySong.Playing = Value
 end    
 })
 
@@ -1746,6 +1786,7 @@ MusicSection:AddToggle({
 	Name = "All Dropping 8 Bit Beats",
     Default = false,
 	Callback = function(Value)
+MusicTable[3].Playing = Value
     AllDropping8BitBeats.Playing = Value
 end    
 })
@@ -1754,6 +1795,7 @@ MusicSection:AddToggle({
 	Name = "No Smoking",
     Default = false,
 	Callback = function(Value)
+MusicTable[4].Playing = Value
     NoSmoking.Playing = Value
 end    
 })
@@ -1762,7 +1804,8 @@ MusicSection:AddToggle({
 	Name = "Chaos",
     Default = false,
 	Callback = function(Value)
-    Chaos.Playing = Value
+MusicTable[5].Playing = Value
+    --Chaos.Playing = Value
 end    
 })
 
@@ -1770,6 +1813,7 @@ MusicSection:AddToggle({
 	Name = "Raining (It's Raining Tacos)",
     Default = false,
 	Callback = function(Value)
+MusicTable[6].Playing = Value			
     Raining.Playing = Value
 end    
 })
