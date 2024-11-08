@@ -51,7 +51,7 @@ local MusicTable = {
 
 for num, item in MusicTable do
 	local Song = Instance.new("Sound")
-	Song.SoundId = item.SoundId
+	Song.SoundId = item
 	Song.Looped = true
 	Song.Parent = SoundService
 end
