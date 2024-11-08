@@ -56,7 +56,6 @@ end
 
 for num, item in MusicTable do
 	local Song = Instance.new("Sound")
-	Song.ContentId = 0
 	Song.SoundId = item
 	Song.Looped = true
 	Song.Parent = SoundService
