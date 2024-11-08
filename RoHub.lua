@@ -1670,6 +1670,7 @@ AnimationsSection:AddButton({
 end    
 })
 
+--[[
 AnimationsSection:AddButton({
 	Name = "Custom Animation",
 	Callback = function()
@@ -1677,6 +1678,7 @@ AnimationsSection:AddButton({
         k:Play()
 end    
 })
+--]]
 
 MusicSection:AddToggle({
 	Name = "Relaxed Scene",
