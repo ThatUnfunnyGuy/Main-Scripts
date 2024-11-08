@@ -1224,9 +1224,9 @@ end
 LSection:AddButton({
 	Name = "Neon Body (Head) (?) (NOT FE)",
 	Callback = function()
-local Character = game:GetService("Players").LocalPlayer.Character
+local Character = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
 
-Character.Torso.Material = Enum.Material.Neon
+Character:WaitForChild("Torso").Material = Enum.Material.Neon
 Character.Head.Material = Enum.Material.Neon
 Character["Left Arm"].Material = Enum.Material.Neon
 Character["Left Leg"].Material = Enum.Material.Neon
