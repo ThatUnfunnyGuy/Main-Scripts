@@ -177,7 +177,7 @@ end
 --]]
 
 local Tab0 = Window:MakeTab({
-	Name = "Universal Stuff",
+	Name = "Universal",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
