@@ -757,7 +757,7 @@ GoofySection:AddButton({
 })
 
 GoofySection:AddButton({
-	Name = "Hydroxide (Remote Spy)",
+	Name = "Hydroxide",
 	Callback = function()
 		local owner = "Upbolt"
 		local branch = "revision"
