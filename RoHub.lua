@@ -1734,8 +1734,8 @@ MusicSection:AddToggle({
 	Name = "Relaxed Scene",
     Default = false,
 	Callback = function(Value)
-MusicTable[1].Playing = Value
-    --RelaxedScene.Playing = Value
+--MusicTable[1].Playing = Value
+    RelaxedScene.Playing = Value
 end    
 })
 
@@ -1744,8 +1744,8 @@ MusicSection:AddToggle({
 	Name = "Lo-Fi Chill",
     Default = false,
 	Callback = function(Value)
-MusicTable[7].Playing = Value
-   --LoFiChill.Playing = Value
+--MusicTable[7].Playing = Value
+   LoFiChill.Playing = Value
 end    
 })
 
@@ -1753,8 +1753,8 @@ MusicSection:AddToggle({
 	Name = "Smooth Vibes",
     Default = false,
 	Callback = function(Value)
-MusicTable[8].Playing = Value
-    --SmoothVibes.Playing = Value
+--MusicTable[8].Playing = Value
+    SmoothVibes.Playing = Value
 end    
 })
 
@@ -1762,8 +1762,8 @@ MusicSection:AddToggle({
 	Name = "Slow Boat",
     Default = false,
 	Callback = function(Value)
-MusicTable[9].Playing = Value
-    --SlowBoat.Playing = Value
+--MusicTable[9].Playing = Value
+    SlowBoat.Playing = Value
 end    
 })
 
@@ -1771,8 +1771,8 @@ MusicSection:AddToggle({
 	Name = "Paradise Falls",
     Default = false,
 	Callback = function(Value)
-MusicTable[2].Playing = Value
-    --ParadiseFalls.Playing = Value
+--MusicTable[2].Playing = Value
+    ParadiseFalls.Playing = Value
 end    
 })
 
@@ -1780,8 +1780,8 @@ MusicSection:AddToggle({
 	Name = "Happy Song",
     Default = false,
 	Callback = function(Value)
-MusicTable[10].Playing = Value
-    --HappySong.Playing = Value
+--MusicTable[10].Playing = Value
+    HappySong.Playing = Value
 end    
 })
 
@@ -1789,7 +1789,7 @@ MusicSection:AddToggle({
 	Name = "All Dropping 8 Bit Beats",
     Default = false,
 	Callback = function(Value)
-MusicTable[3].Playing = Value
+--MusicTable[3].Playing = Value
     AllDropping8BitBeats.Playing = Value
 end    
 })
@@ -1798,7 +1798,7 @@ MusicSection:AddToggle({
 	Name = "No Smoking",
     Default = false,
 	Callback = function(Value)
-MusicTable[4].Playing = Value
+--MusicTable[4].Playing = Value
     NoSmoking.Playing = Value
 end    
 })
@@ -1807,8 +1807,8 @@ MusicSection:AddToggle({
 	Name = "Chaos",
     Default = false,
 	Callback = function(Value)
-MusicTable[5].Playing = Value
-    --Chaos.Playing = Value
+--MusicTable[5].Playing = Value
+    Chaos.Playing = Value
 end    
 })
 
@@ -1816,7 +1816,7 @@ MusicSection:AddToggle({
 	Name = "Raining (It's Raining Tacos)",
     Default = false,
 	Callback = function(Value)
-MusicTable[6].Playing = Value			
+--MusicTable[6].Playing = Value			
     Raining.Playing = Value
 end    
 })
