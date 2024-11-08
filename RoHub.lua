@@ -1,7 +1,10 @@
+-- "Expected identifier when parsing method name, got '//'"
+--[[
 -- Wait until game is loaded
 if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
+--]]
 
 --[[Supported Games List]]--
 --// DOORS
