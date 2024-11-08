@@ -1440,9 +1440,9 @@ coroutine.wrap(RONYXQO_fake_script)()
 LSection:AddButton({
 	Name = "Weird Movement",
 	Callback = function()
-while wait() do
+game:GetService("RunService").Heartbeat:Connect(function()
 		game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Sit = not game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Sit
-	end
+	end)
 end
 })
 
