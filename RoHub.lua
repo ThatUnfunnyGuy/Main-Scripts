@@ -26,6 +26,8 @@ local SoundService = game:GetService("SoundService")
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").UseJumpPower = true
 game:GetService("StarterPlayer").CharacterUseJumpPower = true
 
+-- roblox shenanigans wont allow this to work as it should
+--[[
 local AnimationsTable = {
 	[1] = "rbxassetid://183294396", -- Zombie Arms
 	[2] = "rbxassetid://33796059", -- Insanity
@@ -60,8 +62,8 @@ for num, item in MusicTable do
 	Song.Looped = true
 	Song.Parent = SoundService
 end
+--]]
 
---[[
 -- Animations
     local ZArms = Instance.new("Animation")
         ZArms.AnimationId = "rbxassetid://183294396"
@@ -86,9 +88,6 @@ end
 
     local Rotation = Instance.new("Animation")
         Rotation.AnimationId = "rbxassetid://136801964"
---]]
-
---[[
 -- Music
     local RelaxedScene = Instance.new("Sound", SoundService)
     RelaxedScene.Name = "RelaxedScene"
@@ -139,7 +138,6 @@ end
     HappySong.Name = "HappySong"
     HappySong.SoundId = "rbxassetid://1843404009"
     HappySong.Looped = true
---]]
 
 -- Character Variables
 local CurrentCharacter = game:GetService("Players").LocalPlayer.Character
