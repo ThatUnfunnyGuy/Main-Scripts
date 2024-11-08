@@ -1441,13 +1441,13 @@ LSection:AddButton({
 	Name = "Weird Movement",
 	Callback = function()
 game:GetService("RunService").Heartbeat:Connect(function()
-		game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").PlatformStand = not game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").PlatformStand
+		game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Sit = not game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Sit
 	end)
 end
 })
 
 LSection:AddButton({
-	Name = "Weird Movement V2",
+	Name = "Alternative Weird Movement",
 	Callback = function()
 game:GetService("RunService").Heartbeat:Connect(function()
 		game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").PlatformStand = not game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").PlatformStand
