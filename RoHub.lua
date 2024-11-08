@@ -862,44 +862,6 @@ if key.KeyCode == Enum.KeyCode.Space then
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Jump = true
 end
 end)
-  	end    
-})
-
-LSection:AddButton({
-	Name = "Custom Character (Ghost)",
-	Callback = function()
-
-game:GetService("Players").LocalPlayer.Character.Archivable = true
-NewCharacter = game:GetService("Players").LocalPlayer.Character:Clone()
-NewCharacter.Name = "New " .. game:GetService("Players").LocalPlayer.Name
-NewCharacter.Parent = workspace
-game:GetService("Players").LocalPlayer.Character.Archivable = false
-
-NewCharacter.Archivable = false
-
-game:GetService("Players").LocalPlayer.Character:Destroy()
-game:GetService("Players").LocalPlayer.Character = NewCharacter
-
-workspace.Camera.CameraSubject = NewCharacter:WaitForChild("Humanoid")
-
-NewCharacter:WaitForChild("Animate").Disabled = true
-wait(0.25)
-NewCharacter:WaitForChild("Animate").Disabled = false
-end    
-})
-
-LSection:AddButton({
-	Name = "Weird Rotation (NON-FE) (Speedhack...?)",
-	Callback = function()
-spawn(function()
-    repeat wait()
-for _, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-if v:IsA("Part") and v.Name == "HumanoidRootPart" then
-v.Position -= Vector3.new(0.01, 0.01, 0.01)
-            end
-        end
-    until Value == false
-    end)
 end 
 })
 
@@ -1269,7 +1231,7 @@ end
 })
 
 LSection:AddButton({
-	Name = "Semi-Fly",
+	Name = "High Jump",
 	Callback = function()
 	local BV = Instance.new("BodyVelocity")
 	BV.Velocity = Vector3.new(0, 100, 0)
@@ -1282,7 +1244,7 @@ end
 })
 
 LSection:AddButton({
-	Name = "Semi-Fly (On Click)",
+	Name = "High Jump (On Click)",
 	Callback = function()
 local mouse = game:GetService("Players").LocalPlayer:GetMouse()	
 
@@ -3228,9 +3190,9 @@ Tab8:AddLabel("Total Features: 139+")
 Tab8:AddLabel("Total Supported Games: 10 (13)")
 
 -- Changes
-Section13:AddParagraph("12/1/2023","(GUI)\n[-] BlurOnLeave and DisableRenderingOnLeave since both were annoying\n(Universal Stuff)\n[+] Hydroxide")
+Section13:AddParagraph("11/8/2024","[/] Re-coded some features in order to optimize them.")
 Section13:AddParagraph("Meanings","[+] = Added, [-] = Removed/Disabled, [/] = Miscellaneous Change")
-Section13:AddParagraph("Announcement (s)","RoHub is back. Expect more updates soon! (I forgot this paragraph existed lol, that's why I didn't put anything on v1.6.0).")
+Section13:AddParagraph("Announcement (s)","None.")
 
 OrionLib:Init()
 
