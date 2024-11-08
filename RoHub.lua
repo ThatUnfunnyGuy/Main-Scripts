@@ -1441,7 +1441,7 @@ LSection:AddButton({
 	Name = "Weird Movement",
 	Callback = function()
 game:GetService("RunService").Heartbeat:Connect(function()
-		game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Sit = not game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Sit
+		game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").PlatformStand = not game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").PlatformStand
 	end)
 end
 })
