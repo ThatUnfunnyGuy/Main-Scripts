@@ -1341,7 +1341,7 @@ end
 })
 
 LSection:AddButton({
-	Name = "Fill Inventory (NOT FE)",
+	Name = "Fill Inventory",
 	Callback = function()
 	local Character = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
 	spawn(function()
