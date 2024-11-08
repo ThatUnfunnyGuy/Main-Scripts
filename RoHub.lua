@@ -866,7 +866,7 @@ end
 })
 
 LSection:AddButton({
-	Name = "Weird Rotation V2 (NON-FE)",
+	Name = "Weird Rotation (NON-FE)",
 	Callback = function()
 local Player = game:GetService("Players").LocalPlayer or game:GetService("Players").PlayerAdded:Wait()
 local Character = Player.Character or Player.CharacterAdded:Wait()
