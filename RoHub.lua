@@ -1446,6 +1446,15 @@ game:GetService("RunService").Heartbeat:Connect(function()
 end
 })
 
+LSection:AddButton({
+	Name = "Weird Movement V2",
+	Callback = function()
+game:GetService("RunService").Heartbeat:Connect(function()
+		game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").PlatformStand = not game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").PlatformStand
+	end)
+end
+})
+
 LSection:AddToggle({
 	Name = "Toggle HumanoidRootPart Anchor",
 	Default = false,
