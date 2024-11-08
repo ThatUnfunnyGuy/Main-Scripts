@@ -51,7 +51,7 @@ local MusicTable = {
 	[10] = "rbxassetid://1843404009" -- Happy Song
 }
 
-for num, item in AnimationsTable do
+for num, item in  do
 	local Animation = Instance.new("Animation")
 	Animation.AnimationId = item
 end
@@ -1659,7 +1659,7 @@ end
 AnimationsSection:AddButton({
 	Name = "Zombie Arms",
 	Callback = function()
-    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(AnimationsTable[1])
+    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(ZArms)
         k:Play()
 end 
 })
@@ -1667,7 +1667,7 @@ end
 AnimationsSection:AddButton({
 	Name = "Insanity",
 	Callback = function()
-    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(AnimationsTable[2])
+    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Insanity)
         k:Play()
 end   
 })
@@ -1675,7 +1675,7 @@ end
 AnimationsSection:AddButton({
 	Name = "Floating Head",
 	Callback = function()
-    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(AnimationsTable[3])
+    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(FHead)
         k:Play()
 end    
 })
@@ -1683,7 +1683,7 @@ end
 AnimationsSection:AddButton({
 	Name = "Moon Dance",
 	Callback = function()
-    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(AnimationsTable[4])
+    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(MoonDance)
         k:Play()
 end   
 })
@@ -1691,7 +1691,7 @@ end
 AnimationsSection:AddButton({
 	Name = "Charleston",
 	Callback = function()
-    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(AnimationsTable[5])
+    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Charleston)
         k:Play()
 end    
 })
@@ -1699,7 +1699,7 @@ end
 AnimationsSection:AddButton({
 	Name = "Insane Legs",
 	Callback = function()
-    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(AnimationsTable[6])
+    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(InsaneLegs)
         k:Play()
 end   
 })
@@ -1707,7 +1707,7 @@ end
 AnimationsSection:AddButton({
 	Name = "Spin",
 	Callback = function()
-    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(AnimationsTable[7])
+    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Spin)
         k:Play()
 end    
 })
@@ -1715,7 +1715,7 @@ end
 AnimationsSection:AddButton({
 	Name = "Rotation",
 	Callback = function()
-    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(AnimationsTable[8])
+    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Rotation)
         k:Play()
 end    
 })
