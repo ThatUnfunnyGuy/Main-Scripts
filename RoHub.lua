@@ -3,11 +3,24 @@ if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
 
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+--[[Suppoted Games List]]--
+--// DOORS
+--// Lucky Block Battlegrounds
+--// Ski Race
+--// Spirit Defenders (you need to be in the game for the section to appear for technical reasons)
+--// Possible Squid Game
+--// Clicker Fighting Simulator
+--// One Money Every Click
+--// Ability Wars
+--// Slap Battles KillStreak Remake
+--// Computer Tycoon
 
-local Window = OrionLib:MakeWindow({Name = "RoHub", HidePremium = false, SaveConfig = true, ConfigFolder = "RoHub", IntroEnabled = true})
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ThatUnfunnyGuy/Main-Scripts/refs/heads/main/Orion%20Hub%20(Fix%20Attempt)')))()
+
+local Window = OrionLib:MakeWindow({Name = "RoHub (v1.6.2)", HidePremium = false, SaveConfig = true, ConfigFolder = "RoHub", IntroEnabled = true})
 
 local Chat = game:GetService("Chat")
+local SoundService = game:GetService("SoundService")
 
 -- Set UseJumpPower
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").UseJumpPower = true
@@ -39,61 +52,61 @@ game:GetService("StarterPlayer").CharacterUseJumpPower = true
         Rotation.AnimationId = "rbxassetid://136801964"
 
 -- Music
-    local RelaxedScene = Instance.new("Sound", game.SoundService)
+    local RelaxedScene = Instance.new("Sound", SoundService)
     RelaxedScene.Name = "RelaxedScene"
     RelaxedScene.SoundId = "rbxassetid://1848354536"
     RelaxedScene.Looped = true
 
-    local ParadiseFalls = Instance.new("Sound", game.SoundService)
+    local ParadiseFalls = Instance.new("Sound", SoundService)
     ParadiseFalls.Name = "ParadiseFalls"
     ParadiseFalls.SoundId = "rbxassetid://1837879082"
     ParadiseFalls.Looped = true
 
-    local AllDropping8BitBeats = Instance.new("Sound", game.SoundService)
+    local AllDropping8BitBeats = Instance.new("Sound", SoundService)
     AllDropping8BitBeats.Name = "AllDropping8BitBeats"
     AllDropping8BitBeats.SoundId = "rbxassetid://9048375035"
     AllDropping8BitBeats.Looped = true
 
-    local NoSmoking = Instance.new("Sound", game.SoundService)
+    local NoSmoking = Instance.new("Sound", SoundService)
     NoSmoking.Name = "NoSmoking"
     NoSmoking.SoundId = "rbxassetid://9047105533"
     NoSmoking.Looped = true
 
-    local Chaos = Instance.new("Sound", game.SoundService)
+    local Chaos = Instance.new("Sound", SoundService)
     Chaos.Name = "Chaos"
     Chaos.SoundId = "rbxassetid://1843497734"
     Chaos.Looped = true
     
-    local Raining = Instance.new("Sound", game.SoundService)
+    local Raining = Instance.new("Sound", SoundService)
     Raining.Name = "Raining"
     Raining.SoundId = "rbxassetid://142376088"
     Raining.Looped = true
 
-    local LoFiChill = Instance.new("Sound", game.SoundService)
+    local LoFiChill = Instance.new("Sound", SoundService)
     LoFiChill.Name = "LoFiChill"
     LoFiChill.SoundId = "rbxassetid://9043887091"
     LoFiChill.Looped = true
     
-    local SmoothVibes = Instance.new("Sound", game.SoundService)
+    local SmoothVibes = Instance.new("Sound", SoundService)
     SmoothVibes.Name = "SmoothVibes"
     SmoothVibes.SoundId = "rbxassetid://9044565954"
     SmoothVibes.Looped = true
     
-    local SlowBoat = Instance.new("Sound", game.SoundService)
+    local SlowBoat = Instance.new("Sound", SoundService)
     SlowBoat.Name = "SlowBoat"
     SlowBoat.SoundId = "rbxassetid://9048518373"
     SlowBoat.Looped = true
 
-    local HappySong = Instance.new("Sound", game.SoundService)
+    local HappySong = Instance.new("Sound", SoundService)
     HappySong.Name = "HappySong"
     HappySong.SoundId = "rbxassetid://1843404009"
     HappySong.Looped = true
 
--- Character Configuration
+-- Character Variables
 local CurrentCharacter = game:GetService("Players").LocalPlayer.Character
 local DesiredCharacter
 
--- Text Configuration
+-- Text Variables
 
 -- Old
 --local PrintText = "YOUR TEXT HERE" -- Self-Explaining
@@ -142,9 +155,26 @@ local PlayerCharacter = game:GetService("Players").LocalPlayer.Character -- Chan
 local PlayerCharacterAppearance = "0" -- Leave this the same as the user ID
 
 -- Unused
---local TargetPlayer = game.Players.LocalPlayer -- Set this to the player you want to "borrow" their children from
+--local TargetPlayer = game.Players.LocalPlayer -- Set this to the player you want to "borrow" their children instances from
 
 local KickReason
+
+local NotificationTitle
+local NotificationText
+local NotificationIcon
+
+--[[
+local BlurOnLeave = true -- Blurs your screen when your focus goes off of your Roblox app, ONE TIME USE
+local DisableRenderingOnLeave = true -- Disables 3D rendering when your focus goes off of your Roblox app, ONE TIME USE
+
+if game.Lighting:FindFirstChild("BOLBlur") then warn("BOL Blur already got added!")
+else
+local BOLEffect = Instance.new("BlurEffect", game.Lighting)
+BOLEffect.Name = "BOLBlur"
+BOLEffect.Size = 24
+BOLEffect.Enabled = false
+end
+--]]
 
 local Tab0 = Window:MakeTab({
 	Name = "Universal Stuff",
@@ -181,7 +211,7 @@ local MusicSection = Tab0:AddSection({
 })
 
 local ConsoleSection = Tab0:AddSection({
-	Name = "Console"
+	Name = "Core"
 })
 
 local SettingsSection = Tab0:AddSection({
@@ -471,6 +501,13 @@ end
 --]]
 
 WSection:AddButton({
+	Name = "Crash Roblox",
+	Callback = function()
+    while true do end
+  	end    
+})
+
+WSection:AddButton({
 	Name = "Rejoin",
 	Callback = function()
     game:GetService("TeleportService"):Teleport(game.PlaceId,game.Players.LocalPlayer)
@@ -499,7 +536,14 @@ game:GetService("Players").LocalPlayer.Character:WaitForChild("Torso").Neck:Dest
 })
 
 WSection:AddButton({
-	Name = "Alternative Reset V3/Slide V4",
+	Name = "Alternative Reset 3",
+	Callback = function()
+game.Players.LocalPlayer.Character:BreakJoints()
+  	end    
+})
+
+WSection:AddButton({
+	Name = "Alternative Reset 4",
 	Callback = function()
 	local Humanoid = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid")
 Humanoid.RigType = Enum.HumanoidRigType.R15
@@ -510,6 +554,30 @@ WSection:AddButton({
 	Name = "Delete Head (Reset in most games)",
 	Callback = function()
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Head"):Destroy()
+  	end    
+})
+
+WSection:AddButton({
+	Name = "Loop Reset",
+	Callback = function()
+	while wait() do
+game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+	end
+end    
+})
+
+WSection:AddButton({
+	Name = "Kill Everyone/Kill Aura (?) (NOT FE)",
+	Callback = function()
+		spawn(function()
+			repeat wait()
+				for _,v in pairs(workspace:GetDescendants()) do
+					if v:IsA("Model") then
+						v:BreakJoints()
+					end
+				end
+			until wait(1)
+		end)
   	end    
 })
 
@@ -594,6 +662,17 @@ game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Jump =
 end    
 })
 
+WSection:AddButton({
+	Name = "Jump Hack",
+	Callback = function()
+while wait() do
+game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):SetStateEnabled("GettingUp", false)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState("Swimming")
+game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):SetStateEnabled("GettingUp", true)
+	end
+end
+})
+
 WSection:AddToggle({
 	Name = "Toggle Reset Button",
     Default = true,
@@ -665,16 +744,52 @@ Character:SetPrimaryPartCFrame(DesiredCharacter.HumanoidRootPart.CFrame)
 })
 
 GoofySection:AddButton({
+	Name = "Infinite Yield",
+	Callback = function()
+    	loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()  	
+    end    
+})
+
+GoofySection:AddButton({
+	Name = "Hydroxide (Remote Spy)",
+	Callback = function()
+		local owner = "Upbolt"
+		local branch = "revision"
+
+		local function webImport(file)
+    		return loadstring(game:HttpGetAsync(("https://raw.githubusercontent.com/%s/Hydroxide/%s/%s.lua"):format(owner, branch, file)), file .. '.lua')()
+		end
+
+		webImport("init")
+		webImport("ui/main")
+    end    
+})
+
+GoofySection:AddButton({
 	Name = "Server Finder",
 	Callback = function()
     loadstring(game:HttpGet("https://www.scriptblox.com/raw/Server-Browser_80"))()  	
     end    
 })
 
+GoofySection:AddButton({
+	Name = "Dark Dex V3",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua"))()    
+	end    
+})
+
+GoofySection:AddButton({
+	Name = "Dark Dex V3 (Updated Icons)",
+	Callback = function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/YREfugjX"))()
+	end    
+})
+
 LSection:AddButton({
 	Name = "Custom Humanoid (BUGGY)",
 	Callback = function()
-   local OldHumanoid = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid")
+local OldHumanoid = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid")
 
 local NewHumanoid = Instance.new("Humanoid")
 NewHumanoid.MaxHealth = 100
@@ -754,12 +869,16 @@ NewCharacter.Name = "New " .. game:GetService("Players").LocalPlayer.Name
 NewCharacter.Parent = workspace
 game:GetService("Players").LocalPlayer.Character.Archivable = false
 
---NewCharacter.Archivable = true
+NewCharacter.Archivable = false
 
 game:GetService("Players").LocalPlayer.Character:Destroy()
 game:GetService("Players").LocalPlayer.Character = NewCharacter
 
 workspace.Camera.CameraSubject = NewCharacter:WaitForChild("Humanoid")
+
+NewCharacter:WaitForChild("Animate").Disabled = true
+wait(0.25)
+NewCharacter:WaitForChild("Animate").Disabled = false
 end    
 })
 
@@ -805,13 +924,17 @@ end
 LSection:AddButton({
 	Name = "Dash/Slide V2",
 	Callback = function()
-local BV = Instance.new("BodyVelocity")
-BV.Velocity = Vector3.new(0, 0, -20)
-BV.P = Vector3.new(0, 0, 0)
-BV.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
-BV.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
-wait(1)
-BV:Destroy()
+	local HRP = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+	local HRPCF = HRP.CFrame
+	local HRPLV = HRPCF.LookVector
+
+	local BV = Instance.new("BodyVelocity")
+	BV.MaxForce = Vector3.new(1, 1, 1) * math.huge
+	BV.Velocity = (HRPLV * Vector3.new(25, 25, 25))
+
+	BV.Parent =  game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").RootPart
+	wait(1)
+	BV:Destroy()
 end    
 })
 
@@ -868,17 +991,51 @@ LSection:AddButton({
 	Callback = function()
 	game:GetService("Players").LocalPlayer.Character.Archivable = true
 	Clone = game:GetService("Players").LocalPlayer.Character:Clone()
-	Clone.Name = 	game:GetService("Players").LocalPlayer.Name .. " Clone"
+	Clone.Name = game:GetService("Players").LocalPlayer.Name .. "'s Clone"
 	Clone.Parent = workspace
 	game:GetService("Players").LocalPlayer.Character.Archivable = false
+	
+	-- Not working
+	Clone:WaitForChild("Animate").Enabled = false
+	wait(1)
+	Clone:WaitForChild("Animate").Enabled = true
+end    
+})
+
+LSection:AddButton({
+	Name = "Loop Clone Yourself (NOT FE)",
+	Callback = function()
+	while wait() do
+	game:GetService("Players").LocalPlayer.Character.Archivable = true
+	Clone = game:GetService("Players").LocalPlayer.Character:Clone()
+	Clone.Name = game:GetService("Players").LocalPlayer.Name .. "'s Clone"
+	Clone.Parent = workspace
+	game:GetService("Players").LocalPlayer.Character.Archivable = false
+	
+	-- Not working
+	Clone:WaitForChild("Animate").Enabled = false
+	wait(1)
+	Clone:WaitForChild("Animate").Enabled = true
+	end
 end    
 })
 
 LSection:AddButton({
 	Name = "Delete Clone",
 	Callback = function()
-	if workspace:FindFirstChild(game.Players.LocalPlayer.Name .. " Clone") then
-	workspace:WaitForChild(game.Players.LocalPlayer.Name .. " Clone"):Destroy()
+	if workspace:FindFirstChild(game.Players.LocalPlayer.Name .. "'s Clone") then
+	workspace:WaitForChild(game.Players.LocalPlayer.Name .. "'s Clone"):Destroy()
+	end
+end
+})
+
+LSection:AddButton({
+	Name = "Loop Delete Clone",
+	Callback = function()
+	while wait() do
+	if workspace:FindFirstChild(game.Players.LocalPlayer.Name .. "'s Clone") then
+	workspace:WaitForChild(game.Players.LocalPlayer.Name .. "'s Clone"):Destroy()
+		end
 	end
 end
 })
@@ -1152,17 +1309,6 @@ end
 })
 
 LSection:AddButton({
-	Name = "Infinite Jump/Jump Hack/Fly",
-	Callback = function()
-while wait() do
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):SetStateEnabled("GettingUp", false)
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState("Swimming")
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):SetStateEnabled("GettingUp", true)
-	end
-end
-})
-
-LSection:AddButton({
 	Name = "Kick Yourself (With custom reason)",
 	Callback = function()
 game:GetService("Players").LocalPlayer:Kick(KickReason)
@@ -1322,6 +1468,15 @@ coroutine.wrap(RONYXQO_fake_script)()
 	end    
 })
 
+LSection:AddButton({
+	Name = "Weird Movement",
+	Callback = function()
+while wait() do
+		game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Sit = not game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Sit
+	end
+end
+})
+
 LSection:AddToggle({
 	Name = "Toggle HumanoidRootPart Anchor",
 	Default = false,
@@ -1370,6 +1525,7 @@ game:GetService("Players").CharacterAutoLoads = Value
 	end    
 })
 
+if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Animate") then
 LSection:AddToggle({
 	Name = "Animations",
 	Default = game:GetService("Players").LocalPlayer.Character.Animate.Enabled,
@@ -1379,6 +1535,7 @@ game:GetService("Players").LocalPlayer.Character.Animate.Enabled = Value
 	end
 end    
 })
+end
 
 LSection:AddSlider({
 	Name = "Set Max Players (NOT FE)",
@@ -1544,6 +1701,14 @@ AnimationsSection:AddButton({
 end    
 })
 
+AnimationsSection:AddButton({
+	Name = "Custom Animation",
+	Callback = function()
+    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Rotation)
+        k:Play()
+end    
+})
+
 MusicSection:AddToggle({
 	Name = "Relaxed Scene",
     Default = false,
@@ -1683,6 +1848,17 @@ ConsoleSection:AddButton({
 	Name = "Error",
 	Callback = function()
 	error(ErrorText)
+end    
+})
+
+ConsoleSection:AddButton({
+	Name = "Notification",
+	Callback = function()
+	game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = NotificationTitle,
+	Text = NotificationText,
+	Icon = NotificationIcon
+})
 end    
 })
 
@@ -1845,6 +2021,51 @@ SettingsSection:AddTextbox({
 				OrionLib:MakeNotification({
 	Name = "Done!",
 	Content = "Set CFSNotificationText to " .. "'" .. Value .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "Notification Title",
+	Default = NotificationTitle,
+	TextDisappear = false,
+	Callback = function(Value)
+		NotificationTitle = Value
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set NotificationTitle to " .. "'" .. Value .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "Notification Text",
+	Default = NotificationText,
+	TextDisappear = false,
+	Callback = function(Value)
+		NotificationText = Value
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set NotificationText to " .. "'" .. Value .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "Notification Icon",
+	Default = NotificationIcon,
+	TextDisappear = false,
+	Callback = function(Value)
+		NotificationIcon = Value
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set NotificationIcon to " .. "'" .. Value .. "'" .. "!",
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
@@ -2823,6 +3044,7 @@ game:GetService("Players").LocalPlayer.Music.Value = Value
 end
 })
 
+--[[
 KSUSection:AddToggle({
 	Name = "Kill Button (Works)",
 	Default = false,
@@ -2832,7 +3054,9 @@ game:GetService("Players").LocalPlayer.PlayerGui["kill button"].Enabled = Value
 	end
 end
 })
+--]]
 
+--[[
 KSUSection:AddToggle({
 	Name = "Error Glove Button (Works too)",
 	Default = false,
@@ -2842,6 +3066,7 @@ game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("error").Enabled
 	end
 end
 })
+--]]
 
 KSUSection:AddToggle({
 	Name = "Godmode Button (Works aswell)",
@@ -2853,6 +3078,7 @@ game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("invinc button")
 end
 })
 
+--[[
 KSUSection:AddToggle({
 	Name = "Glove Selector Button (Also works)",
 	Default = false,
@@ -2862,6 +3088,7 @@ game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("glove selector"
 	end
 end
 })
+--]]
 
 KSUSection:AddButton({
 	Name = "Renewed UI",
@@ -2905,8 +3132,6 @@ game:GetService("Players").LocalPlayer.PlayerGui["glove selector"].Frame.TextBut
 end
 })
 
-
-
 --[[
 AWSection:AddButton({
 	Name = "Punch Aura (All Players)",
@@ -2919,9 +3144,9 @@ end
 })
 --]]
 
--- Extra
+--(Extra)--
 
--- Information
+--[[Information]]--
 Section11:AddLabel("Game's Name = " .. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name)
 
 if game:GetService("SoundService").RespectFilteringEnabled == true then
@@ -2936,6 +3161,7 @@ local ZPosLabel = Section11:AddLabel("Current Z Position = " .. CurrentCharacter
 local CurrentCharacterLabel = Section11:AddLabel("Current Character = " .. CurrentCharacter.Name)
 
 Section11:AddParagraph("Warning!","Positions and your Current Character labels may break if you use the Custom Humanoid, Custom Character and Change Character (while you still haven't turned back to your own character) function/feature, so if it does, re-execute the script again!")
+	
 --[[
 if CurrentCharacter == nil and DesiredCharacter == nil then
 CurrentCharacterLabel:Set("Current Character = " .. "New " .. game.Players.LocalPlayer.Name)
@@ -2946,26 +3172,59 @@ end
 --]]
 
 if DesiredCharacter == nil then
-
+warn("Desired Character is nil!")
 elseif DesiredCharacter == not nil then
 Section11:AddLabel("DesiredCharacter = " .. DesiredCharacter)
 end
--- Credits
+
+--[[
+if BlurOnLeave then
+	local InputServ = game:GetService("UserInputService")
+
+	InputServ.WindowFocusReleased:Connect(function()
+		game:GetService("Lighting"):WaitForChild("BOLBlur").Enabled = true
+		--BOLEffect.Enabled = true
+	end)
+
+	InputServ.WindowFocused:Connect(function()
+		game:GetService("Lighting"):WaitForChild("BOLBlur").Enabled = false
+		--BOLEffect.Enabled = false
+	end)
+end
+
+if DisableRenderingOnLeave then
+	local InputServ = game:GetService("UserInputService")
+	local RunService = game:GetService("RunService")
+
+	InputServ.WindowFocusReleased:Connect(function()
+		RunService:Set3dRenderingEnabled(false)
+	end)
+
+	InputServ.WindowFocused:Connect(function()
+		RunService:Set3dRenderingEnabled(true)
+	end)
+end
+--]]
+
+--[[Credits]]--
 Section12:AddParagraph("UI Library","shlexware (GitHub)")
 Section12:AddParagraph("Server Finder","Fedoratum (YouTube) (?)")
+Section12:AddParagraph("Infinite Yield","EdgeIY (AKA Edge, Zwolf and Moon) (GitHub)")
+Section12:AddParagraph("Dark Dex V3","Moon (and Courtney I guess) (GitHub) (?)")
+Section12:AddParagraph("Hydroxide","Upbolt (GitHub)")
 Section12:AddParagraph("Doors Anti-Cheat Bypass","sashaa#5351 (Discord ofc)")
 Section12:AddParagraph("Features (except the two credited ones above)","idk.#5293 (Discord ofc 2x)")
 
--- Update Log
+--[[Update Log]]--
 
 -- Features & Games Count
 Tab8:AddLabel("Total Features: 139+")
 Tab8:AddLabel("Total Supported Games: 10 (13)")
 
 -- Changes
-Section13:AddParagraph("5/26/2023","(Universal Stuff)                                                                                           [+] Set Max Slope Angle                                                                                        [+] Remove Animations                                                                                        [+] Toggle Animations                                                                                                                                                                                                          [+] Print All RemoteEvents                                                                                                                                                                               [/] Tweaked Camera Weight a bit                                                                                        [/] Tweaked some code to be more reliable                                                                                            (Doors)                                                                                                             [+] Infinite Coins + Minus Coins + Minus NaN Coins + No Coins (Remove Coins GUI)                                                                                                                       [+] Restored toggles + added ALL ambiences and some jumpscares                                                                                         (LB Battlegrounds/Lucky Blocks Battlegrounds)                                                                                        [+] Loop Versions of all Lucky Blocks                                                                                                                                                                                [I couldn't add any more patch notes/changes so I sadly had to refuse to put all the new features, tabs/supported games, etc. here]")
+Section13:AddParagraph("12/1/2023","(GUI)                                                                                                [-] BlurOnLeave and DisableRenderingOnLeave since both were annoying                                                                                                             (Universal Stuff)                                                                                                        [+] Hydroxide (a remote spy)")
 Section13:AddParagraph("Meanings","[+] = Added, [-] = Removed/Disabled, [/] = Miscellaneous Change")
-Section13:AddParagraph("Announcement (s)","[None]")
+Section13:AddParagraph("Announcement (s)","RoHub is back. Expect more updates soon! (I forgot this paragraph existed lol, that's why I didn't put anything on v1.6.0).")
 
 OrionLib:Init()
 
