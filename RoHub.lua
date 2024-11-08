@@ -2182,7 +2182,7 @@ end
 })
 
 Section3:AddButton({
-	Name = "Semi-Infinite Coins (Visual)",
+	Name = "Alternative Semi-Infinite Coins (Visual)",
 	Callback = function()
 game:GetService("Players").LocalPlayer.Gold.Value = 9999999
 end    
