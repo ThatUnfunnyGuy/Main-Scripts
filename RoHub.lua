@@ -1850,9 +1850,9 @@ ConsoleSection:AddButton({
 	Name = "Orion Hub Notification",
 	Callback = function()
 	OrionLib:MakeNotification({
-	Name = "Done!",
-	Content = "Set DesiredCharacter to " .. Value .. "!",
-	Image = "rbxassetid://4483345998",
+	Name = OHNotificationTitle,
+	Content = OHNotificationText,
+	Image = OHNotificationIcon,
 	Time = 5
 })
 end    
