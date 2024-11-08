@@ -1042,6 +1042,7 @@ LSection:AddButton({
 end    
 })
 
+-- idk why i added this lmao
 LSection:AddButton({
 	Name = "Free Dominus Aureus (NOT FE)",
 	Callback = function()
