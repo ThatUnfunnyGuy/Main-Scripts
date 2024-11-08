@@ -3228,7 +3228,7 @@ Tab8:AddLabel("Total Features: 139+")
 Tab8:AddLabel("Total Supported Games: 10 (13)")
 
 -- Changes
-Section13:AddParagraph("12/1/2023","(GUI)                                                                                                [-] BlurOnLeave and DisableRenderingOnLeave since both were annoying                                                                                                             (Universal Stuff)                                                                                                        [+] Hydroxide (a remote spy)")
+Section13:AddParagraph("12/1/2023","(GUI)\n[-] BlurOnLeave and DisableRenderingOnLeave since both were annoying\n(Universal Stuff)\n[+] Hydroxide")
 Section13:AddParagraph("Meanings","[+] = Added, [-] = Removed/Disabled, [/] = Miscellaneous Change")
 Section13:AddParagraph("Announcement (s)","RoHub is back. Expect more updates soon! (I forgot this paragraph existed lol, that's why I didn't put anything on v1.6.0).")
 
