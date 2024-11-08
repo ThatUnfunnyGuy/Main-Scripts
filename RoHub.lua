@@ -564,8 +564,10 @@ game:GetService("Players").LocalPlayer.Character:WaitForChild("Head"):Destroy()
 WSection:AddButton({
 	Name = "Loop Reset",
 	Callback = function()
+	game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function()
 	game:GetService("RunService").Heartbeat:Connect(function()
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+		end)
 	end)
 end    
 })
