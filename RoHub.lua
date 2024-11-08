@@ -2076,7 +2076,7 @@ SettingsSection:AddTextbox({
 		OHNotificationTitle = Value
 				OrionLib:MakeNotification({
 	Name = "Done!",
-	Content = "Set NotificationTitle to " .. "'" .. Value .. "'" .. "!",
+	Content = "Set OHNotificationTitle to " .. "'" .. Value .. "'" .. "!",
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
@@ -2091,7 +2091,7 @@ SettingsSection:AddTextbox({
 		OHNotificationText = Value
 				OrionLib:MakeNotification({
 	Name = "Done!",
-	Content = "Set NotificationText to " .. "'" .. Value .. "'" .. "!",
+	Content = "Set OHNotificationText to " .. "'" .. Value .. "'" .. "!",
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
@@ -2106,7 +2106,7 @@ SettingsSection:AddTextbox({
 		OHNotificationIcon = Value
 				OrionLib:MakeNotification({
 	Name = "Done!",
-	Content = "Set NotificationIcon to " .. "'" .. Value .. "'" .. "!",
+	Content = "Set OHNotificationIcon to " .. "'" .. Value .. "'" .. "!",
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
