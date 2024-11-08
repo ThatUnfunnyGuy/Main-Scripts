@@ -17,7 +17,7 @@ end
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ThatUnfunnyGuy/Main-Scripts/refs/heads/main/Orion%20Hub%20(Fix%20Attempt)')))()
 
-local Window = OrionLib:MakeWindow({Name = "RoHub (v1.6.2)", HidePremium = false, SaveConfig = true, ConfigFolder = "RoHub", IntroEnabled = true})
+local Window = OrionLib:MakeWindow({Name = "RoHub (v1.6.3)", HidePremium = false, SaveConfig = true, ConfigFolder = "RoHub", IntroEnabled = true})
 
 local Chat = game:GetService("Chat")
 local SoundService = game:GetService("SoundService")
