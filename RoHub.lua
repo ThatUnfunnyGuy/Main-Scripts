@@ -1559,7 +1559,7 @@ end
 
 LSection:AddToggle({
 	Name = "Toggle HumanoidRootPart Anchor",
-	Default = false,
+	Default = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored,
 	Callback = function(Value)
 game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = Value
 end
@@ -1567,15 +1567,23 @@ end
 
 LSection:AddToggle({
 	Name = "Toggle Collision With HumanoidRootPart",
-	Default = false,
+	Default = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CanCollide,
 	Callback = function(Value)
 game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CanCollide = Value
 end
 })
 
 LSection:AddToggle({
+	Name = "Toggle AutoJump",
+	Default = game:GetService("Players").LocalPlayer.Character.Humanoid.AutoJumpEnabled,
+	Callback = function(Value)
+game:GetService("Players").LocalPlayer.Character.Humanoid.AutoJumpEnabled = Value
+end
+})
+
+LSection:AddToggle({
 	Name = "Platform Stand (Stun)",
-	Default = false,
+	Default = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").PlatformStand,
 	Callback = function(Value)
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").PlatformStand = Value
 	end    
@@ -1583,7 +1591,7 @@ game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Platfo
 
 LSection:AddToggle({
 	Name = "Sit",
-	Default = false,
+	Default = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Sit,
 	Callback = function(Value)
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Sit = Value
 	end    
@@ -1640,10 +1648,10 @@ CameraSection:AddDropdown({
 })
 
 CameraSection:AddSlider({
-	Name = "Set Field Of View",
+	Name = "Set FieldOfView",
 	Min = 0,
 	Max = 120,
-	Default = 70,
+	Default = workspace.Camera.FieldOfView,
 	Color = Color3.fromRGB(0, 200, 200),
 	Increment = 1,
 	ValueName = "FOV",
