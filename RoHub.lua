@@ -1534,9 +1534,10 @@ Humanoid.Changed:Connect(function()
 Part.Position = HumanoidRootPart.Position + Vector3.new(0, 1, 0)
 Part.Anchored = true
 Part.Parent = workspace
-})
-	end
+end
 end)
+end
+})
 
 LSection:AddToggle({
 	Name = "Toggle HumanoidRootPart Anchor",
@@ -3351,9 +3352,9 @@ Section13:AddParagraph("Announcement (s)","None.")
 
 OrionLib:Init()
 
-while wait() do
-XPosLabel:Set("Current X Position = " .. CurrentCharacter.HumanoidRootPart.Position.X or NewCharacter.Torso.Position.X)
+game:GetService("RunService").RenderStepped:Connect(function()
+	XPosLabel:Set("Current X Position = " .. CurrentCharacter.HumanoidRootPart.Position.X or NewCharacter.Torso.Position.X)
 YPosLabel:Set("Current Y Position = " .. CurrentCharacter.HumanoidRootPart.Position.Y or NewCharacter.Torso.Position.Y)
 ZPosLabel:Set("Current Z Position = " .. CurrentCharacter.HumanoidRootPart.Position.Z or NewCharacter.Torso.Position.Z)
 --CurrentCharacterLabel:Set("Current Character = CurrentCharacter)
-end
+end)
