@@ -3307,14 +3307,14 @@ Section12:AddParagraph("Server Finder","Fedoratum (YouTube) (?)")
 Section12:AddParagraph("Infinite Yield","EdgeIY (AKA Edge, Zwolf and Moon) (GitHub)")
 Section12:AddParagraph("Dark Dex V3","Moon (and Courtney I guess) (GitHub) (?)")
 Section12:AddParagraph("Hydroxide","Upbolt (GitHub)")
-Section12:AddParagraph("Doors Anti-Cheat Bypass","sashaa#5351 (Discord ofc)")
-Section12:AddParagraph("Features (except the two credited ones above)","idk.#5293 (Discord ofc 2x)")
+Section12:AddParagraph("Doors Anti-Cheat Bypass","sashaa#5351 (Discord)")
+Section12:AddParagraph("Features (except the two credited ones above)","idk.#5293 (Discord)")
 
 --[[Update Log]]--
 
 -- Features & Games Count
-Tab8:AddLabel("Total Features: 139+")
-Tab8:AddLabel("Total Supported Games: 10 (13)")
+Tab8:AddLabel("Total Features: 141+")
+Tab8:AddLabel("Total Supported Games: 10")
 
 -- Changes
 Section13:AddParagraph("11/8/2024","[/] Re-coded some features in order to optimize them.")
