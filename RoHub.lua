@@ -3417,7 +3417,7 @@ Tab8:AddLabel("Total Features: 141+")
 Tab8:AddLabel("Total Supported Games: 11")
 
 -- Changes
-Section13:AddParagraph("11/8/2024","[/] Re-coded some features in order to optimize them\[/] Moved the Stuff Section to the Universal tab & renamed it to 'Extra'\n[/] Moved the Universal SoulHub feature to the Universal tab, in the Extra section(Universal)\n[+] Set WalkSpeed/JumpPower/Gravity/FallenPartsDestroyHeight/MaxSlopeAngle Endlessly\n[+] SoulHub\n[/] Renamed 'Semi-Fly' & 'Semi-Fly (On Click' to 'High Jump' & 'High Jump (On Click)'\n[-] Custom Animation\n[+] Orion Hub Notification + Settings\n")
+Section13:AddParagraph("11/8/2024","[/] Re-coded some features in order to optimize them\[/] Moved the Stuff Section to the Universal tab & renamed it to 'Extra'\n[/] Moved the Universal SoulHub feature to the Universal tab, in the Extra section(Universal)\n[+] Set WalkSpeed/JumpPower/Gravity/FallenPartsDestroyHeight/MaxSlopeAngle Endlessly\n[+] Create Part & Activate Part Trail\n[+] SoulHub\n[/] Renamed 'Semi-Fly' & 'Semi-Fly (On Click' to 'High Jump' & 'High Jump (On Click)'\n[-] Custom Animation\n[+] Orion Hub Notification + Settings\n")
 Section13:AddParagraph("Meanings","[+] = Added, [-] = Removed/Disabled, [/] = Miscellaneous Change")
 Section13:AddParagraph("Announcement (s)","None.")
 
