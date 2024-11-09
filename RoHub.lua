@@ -1510,6 +1510,34 @@ game:GetService("RunService").Heartbeat:Connect(function()
 end
 })
 
+LSection:AddButton({
+	Name = "Create Part",
+	Callback = function()
+local Part = Instance.new("Part")
+Part.Parent = workspace
+end
+})
+
+LSection:AddButton({
+	Name = "Activate Part Trail",
+	Callback = function()
+local Players = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
+local Player = Players.LocalPlayer or Players:GetPlayers()[1]
+local Character = Player.Character or Player.CharacterAdded:Wait()
+local Humanoid = Character:WaitForChild("Humanoid")
+local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
+
+Humanoid.Changed:Connect(function()
+	if Humanoid.MoveDirection.Magnitude > 0 then
+		local Part = Instance.new("Part")
+Part.Position = HumanoidRootPart.Position + Vector3.new(0, 1, 0)
+Part.Anchored = true
+Part.Parent = workspace
+})
+	end
+end)
+
 LSection:AddToggle({
 	Name = "Toggle HumanoidRootPart Anchor",
 	Default = false,
