@@ -1531,7 +1531,7 @@ local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
 Humanoid.Changed:Connect(function()
 	if Humanoid.MoveDirection.Magnitude > 0 then
 		local Part = Instance.new("Part")
-Part.Position = HumanoidRootPart.Position + Vector3.new(0, 1, 0)
+Part.Position = HumanoidRootPart.Position + Vector3.new(0, -1, 0)
 Part.Anchored = true
 Part.Parent = workspace
 end
