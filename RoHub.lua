@@ -1534,6 +1534,8 @@ Humanoid.Changed:Connect(function()
 Part.Position = HumanoidRootPart.Position + Vector3.new(0, -1, 0)
 Part.Anchored = true
 Part.Parent = workspace
+task.wait(0.3)
+Part:Destroy()
 end
 end)
 end
