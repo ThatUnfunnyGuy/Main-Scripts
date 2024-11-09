@@ -259,6 +259,10 @@ local SettingsSection = Tab0:AddSection({
 	Name = "Settings"
 })
 
+local Section10 = Tab0:AddSection({
+	Name = "Extra"
+})
+
 local Tab = Window:MakeTab({
 	Name = "Doors",
 	Icon = "rbxassetid://4483345998",
@@ -417,10 +421,6 @@ local Tab6 = Window:MakeTab({
 	Name = "Extra",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
-})
-
-local Section10 = Tab6:AddSection({
-	Name = "Stuff"
 })
 
 local Tab7 = Window:MakeTab({
@@ -831,6 +831,20 @@ GoofySection:AddButton({
 	Callback = function()
 		loadstring(game:HttpGet("https://pastebin.com/raw/YREfugjX"))()
 	end    
+})
+
+GoofySection:AddButton({
+	Name = "SoulHub",
+	Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ThatUnfunnyGuy/Main-Scripts/refs/heads/main/SoulHub"))()  	
+    end    
+})
+
+GoofySection:AddButton({
+	Name = "Universal SoulHub",
+	Callback = function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/ZRQijshE"))()  	
+    end    
 })
 
 LSection:AddButton({
@@ -2887,13 +2901,6 @@ end
 SunRays:Destroy()
 end
 end
-})
-
-Section10:AddButton({
-	Name = "Universal SoulHub",
-	Callback = function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/ZRQijshE"))()  	
-    end    
 })
 
 --[[
