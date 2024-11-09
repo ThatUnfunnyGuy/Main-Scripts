@@ -476,8 +476,17 @@ Section0:AddSlider({
 	Increment = 1,
 	ValueName = "WalkSpeed",
 	Callback = function(Value)
+		SetWalkSpeed = Value
 		game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = Value
 	end    
+})
+
+Section0:AddButton({
+	Name = "Set WalkSpeed Endlessly",
+	Callback = function()
+game:GetService("RunService").Heartbeat:Connect(function()
+	game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = SetWalkSpeed
+end)
 })
 
 Section0:AddSlider({
@@ -489,10 +498,18 @@ Section0:AddSlider({
 	Increment = 1,
 	ValueName = "JumpPower",
 	Callback = function(Value)
+		SetJumpPower = Value		
 		game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").JumpPower = Value
 	end    
 })
 
+Section0:AddButton({
+	Name = "Set JumpPower Endlessly",
+	Callback = function()
+game:GetService("RunService").Heartbeat:Connect(function()
+	game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").JumpPower = SetJumpPower
+end)
+})
 
 Section0:AddSlider({
 	Name = "Set Gravity",
@@ -503,8 +520,17 @@ Section0:AddSlider({
 	Increment = 1,
 	ValueName = "Gravity",
 	Callback = function(Value)
+SetGravity = Value
 workspace.Gravity = Value
 end    
+})
+
+Section0:AddButton({
+	Name = "Set Gravity Endlessly",
+	Callback = function()
+game:GetService("RunService").Heartbeat:Connect(function()
+	workspace.Gravity = SetGravity
+end)
 })
 
 Section0:AddSlider({
@@ -516,9 +542,18 @@ Section0:AddSlider({
 	Increment = 1,
 	ValueName = "FPDH",
 	Callback = function(Value)
-workspace.Gravity = Value
+	SetFPDH = Value
+workspace.FallenPartsDestroyHeight = Value
 end    
 })
+
+Section0:AddButton({
+	Name = "Set FallenPartsDestroyHeight Endlessly",
+	Callback = function()
+game:GetService("RunService").Heartbeat:Connect(function()
+	workspace.FallenPartsDestroyHeight = SetFPDH
+end)
+})			
 
 Section0:AddSlider({
 	Name = "Set MaxSlopeAngle",
@@ -529,8 +564,17 @@ Section0:AddSlider({
 	Increment = 1,
 	ValueName = "MSA",
 	Callback = function(Value)
+SetMaxSlopeAngle = Value
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").MaxSlopeAngle = Value
 end    
+})
+
+Section0:AddButton({
+	Name = "Set MaxSlopeAngle Endlessly",
+	Callback = function()
+game:GetService("RunService").Heartbeat:Connect(function()
+	game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").MaxSlopeAngle = SetMaxSlopeAngle
+end)
 })
 
 --[[
