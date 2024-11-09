@@ -6,7 +6,8 @@ local Character = Player.Character or Player.CharacterAdded:Wait()
 local Humanoid = Character:WaitForChild("Humanoid")
 local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
 
-local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+--local RunService = game:GetService("RunService")
 
 -- unfinished, doesnt work anyways
 --[[
@@ -18,6 +19,8 @@ Unknown.IconButton.IconLabel.TextColor3 = Color3.new(255, 255, 255)
 Unknown.IconButton.IconImage.Image = "rbxassetid://15476451176"
 --]]
 
+-- more unused stuff
+--[[
 local OldHumanoid = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid")
 
 local NewHumanoid = Instance.new("Humanoid")
@@ -92,9 +95,18 @@ if UIS:IsKeyDown(Enum.KeyCode.Space) then
 end
 --]]
 
+--[[
 -- make it so you dont fall to the ground
 local Platform = Instance.new("Part")
 
 RunService.RenderStepped:Connect(function()
     Platform.Position = HumanoidRootPart.Position + Vector3.new(0, -2, 0)
+end)
+--]]
+
+UserInputService.InputBegan:Connect(function(key, typing)
+    if typing then return end
+    if key.KeyCode == Enum.KeyCode.One then
+        print("Attack 1")
+        end
 end)
