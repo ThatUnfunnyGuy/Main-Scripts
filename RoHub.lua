@@ -64,6 +64,12 @@ for num, item in MusicTable do
 end
 --]]
 
+local TextTable = {
+	[1] = "hi",
+	[2] = "im a cool user",
+	[3] = "how r u doing?"
+}
+
 -- Animations
     local ZArms = Instance.new("Animation")
         ZArms.AnimationId = "rbxassetid://183294396"
@@ -1538,6 +1544,16 @@ task.wait(0.3)
 Part:Destroy()
 end
 end)
+end
+})
+
+LSection:AddButton({
+	Name = "Say Text",
+	Callback = function()
+for num, item in TextTable do
+	game.Chat:Chat(game.Players.LocalPlayer.Character, item)
+	task.wait(2)
+end
 end
 })
 
