@@ -1,0 +1,729 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local h = Instance.new("ScreenGui")
+local mainomg = Instance.new("Frame")
+local protitle = Instance.new("TextLabel")
+local separatoromgreal = Instance.new("Frame")
+local closeomgnoway = Instance.new("TextButton")
+local omgcustoms = Instance.new("TextButton")
+local skinsfrfr = Instance.new("TextButton")
+local customsfolderveryreal = Instance.new("Folder")
+local scrollingframefrfr = Instance.new("ScrollingFrame")
+local unfinishedomgwhy = Instance.new("TextLabel")
+local mainfolderfr = Instance.new("Folder")
+local real2 = Instance.new("TextButton")
+local lbsans = Instance.new("TextButton")
+local sakuya = Instance.new("TextButton")
+local real3 = Instance.new("TextButton")
+local unknown = Instance.new("TextButton")
+local real = Instance.new("TextButton")
+local main = Instance.new("TextLabel")
+local genericskidgomgggggg = Instance.new("TextButton")
+local real2_2 = Instance.new("TextButton")
+local real3_2 = Instance.new("TextButton")
+local real4 = Instance.new("TextButton")
+local real_2 = Instance.new("TextButton")
+local defaultgloveoml = Instance.new("TextButton")
+local skinsfolderomgomg = Instance.new("Folder")
+local scrollingframefrfr_2 = Instance.new("ScrollingFrame")
+local underfellfrisk = Instance.new("TextButton")
+local autsans = Instance.new("TextButton")
+local wipongod = Instance.new("TextButton")
+local real3_3 = Instance.new("TextButton")
+local real2_3 = Instance.new("TextButton")
+local real_3 = Instance.new("TextButton")
+local miscfolderfrfrfrfrfrfrfrfr = Instance.new("Folder")
+local scrollingframefrfr_3 = Instance.new("ScrollingFrame")
+local infrangeandnocdandinfmanauwu = Instance.new("TextButton")
+local nothingwa = Instance.new("TextButton")
+local wipongod_2 = Instance.new("TextButton")
+local real3_4 = Instance.new("TextButton")
+local real2_4 = Instance.new("TextButton")
+local real_4 = Instance.new("TextButton")
+local omgmiscfr = Instance.new("TextButton")
+
+--Properties:
+
+h.Name = "h"
+h.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+h.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+mainomg.Name = "mainomg"
+mainomg.Parent = h
+mainomg.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+mainomg.BorderColor3 = Color3.fromRGB(255, 255, 255)
+mainomg.BorderSizePixel = 3
+mainomg.Position = UDim2.new(0.304381847, 0, 0.0629370511, 0)
+mainomg.Size = UDim2.new(0, 500, 0, 500)
+
+protitle.Name = "protitle"
+protitle.Parent = mainomg
+protitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+protitle.BackgroundTransparency = 1.000
+protitle.Size = UDim2.new(0, 500, 0, 27)
+protitle.Font = Enum.Font.Arcade
+protitle.Text = "SoulHub V1.1"
+protitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+protitle.TextScaled = true
+protitle.TextSize = 14.000
+protitle.TextWrapped = true
+
+separatoromgreal.Name = "separatoromgreal"
+separatoromgreal.Parent = protitle
+separatoromgreal.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+separatoromgreal.BorderColor3 = Color3.fromRGB(255, 255, 255)
+separatoromgreal.Position = UDim2.new(0, 0, 1, 0)
+separatoromgreal.Size = UDim2.new(0, 500, 0, 0)
+
+closeomgnoway.Name = "closeomgnoway"
+closeomgnoway.Parent = mainomg
+closeomgnoway.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+closeomgnoway.BorderColor3 = Color3.fromRGB(255, 255, 255)
+closeomgnoway.BorderSizePixel = 3
+closeomgnoway.Position = UDim2.new(0.927999973, 0, -0.0460000001, 0)
+closeomgnoway.Size = UDim2.new(0, 50, 0, 50)
+closeomgnoway.Font = Enum.Font.Arcade
+closeomgnoway.Text = "X"
+closeomgnoway.TextColor3 = Color3.fromRGB(255, 0, 0)
+closeomgnoway.TextScaled = true
+closeomgnoway.TextSize = 14.000
+closeomgnoway.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+closeomgnoway.TextWrapped = true
+
+omgcustoms.Name = "omgcustoms"
+omgcustoms.Parent = mainomg
+omgcustoms.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+omgcustoms.BackgroundTransparency = 1.000
+omgcustoms.BorderColor3 = Color3.fromRGB(255, 255, 255)
+omgcustoms.BorderSizePixel = 3
+omgcustoms.Position = UDim2.new(0, 0, 0.964999974, 0)
+omgcustoms.Size = UDim2.new(0, 80, 0, 20)
+omgcustoms.ZIndex = 2
+omgcustoms.Font = Enum.Font.Arcade
+omgcustoms.Text = "Customs"
+omgcustoms.TextColor3 = Color3.fromRGB(255, 255, 255)
+omgcustoms.TextScaled = true
+omgcustoms.TextSize = 14.000
+omgcustoms.TextWrapped = true
+
+skinsfrfr.Name = "skinsfrfr"
+skinsfrfr.Parent = mainomg
+skinsfrfr.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+skinsfrfr.BackgroundTransparency = 1.000
+skinsfrfr.BorderColor3 = Color3.fromRGB(255, 255, 255)
+skinsfrfr.BorderSizePixel = 3
+skinsfrfr.Position = UDim2.new(0, 100, 0.964999974, 0)
+skinsfrfr.Size = UDim2.new(0, 80, 0, 20)
+skinsfrfr.ZIndex = 2
+skinsfrfr.Font = Enum.Font.Arcade
+skinsfrfr.Text = "Skins"
+skinsfrfr.TextColor3 = Color3.fromRGB(255, 255, 255)
+skinsfrfr.TextScaled = true
+skinsfrfr.TextSize = 14.000
+skinsfrfr.TextWrapped = true
+
+customsfolderveryreal.Name = "customsfolderveryreal"
+customsfolderveryreal.Parent = mainomg
+
+scrollingframefrfr.Name = "scrollingframefrfr"
+scrollingframefrfr.Parent = customsfolderveryreal
+scrollingframefrfr.Active = true
+scrollingframefrfr.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+scrollingframefrfr.BackgroundTransparency = 1.000
+scrollingframefrfr.Position = UDim2.new(0, 0, 0.0540000014, 0)
+scrollingframefrfr.Size = UDim2.new(0, 500, 0, 473)
+scrollingframefrfr.BottomImage = ""
+scrollingframefrfr.MidImage = ""
+scrollingframefrfr.ScrollBarThickness = 0
+scrollingframefrfr.TopImage = ""
+
+unfinishedomgwhy.Name = "unfinishedomgwhy"
+unfinishedomgwhy.Parent = scrollingframefrfr
+unfinishedomgwhy.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+unfinishedomgwhy.BorderColor3 = Color3.fromRGB(255, 255, 255)
+unfinishedomgwhy.Position = UDim2.new(0, 0, 0.402663887, 0)
+unfinishedomgwhy.Size = UDim2.new(0, 500, 0, 27)
+unfinishedomgwhy.Font = Enum.Font.Arcade
+unfinishedomgwhy.Text = "Unfinished/Canceled"
+unfinishedomgwhy.TextColor3 = Color3.fromRGB(255, 255, 255)
+unfinishedomgwhy.TextScaled = true
+unfinishedomgwhy.TextSize = 14.000
+unfinishedomgwhy.TextWrapped = true
+
+mainfolderfr.Name = "mainfolderfr"
+mainfolderfr.Parent = scrollingframefrfr
+
+real2.Name = "real2"
+real2.Parent = mainfolderfr
+real2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+real2.BorderColor3 = Color3.fromRGB(255, 255, 255)
+real2.BorderSizePixel = 3
+real2.Position = UDim2.new(0.574999988, 0, 0.200000003, 0)
+real2.Size = UDim2.new(0, 200, 0, 50)
+real2.Font = Enum.Font.Arcade
+real2.Text = "???"
+real2.TextColor3 = Color3.fromRGB(255, 255, 255)
+real2.TextScaled = true
+real2.TextSize = 14.000
+real2.TextWrapped = true
+
+lbsans.Name = "lbsans"
+lbsans.Parent = mainfolderfr
+lbsans.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+lbsans.BorderColor3 = Color3.fromRGB(66, 66, 66)
+lbsans.BorderSizePixel = 3
+lbsans.Position = UDim2.new(0.0250000004, 0, 0.200000003, 0)
+lbsans.Size = UDim2.new(0, 200, 0, 50)
+lbsans.Font = Enum.Font.Arcade
+lbsans.Text = "LB Sans (W.I.P)"
+lbsans.TextColor3 = Color3.fromRGB(0, 255, 255)
+lbsans.TextScaled = true
+lbsans.TextSize = 14.000
+lbsans.TextWrapped = true
+
+sakuya.Name = "sakuya"
+sakuya.Parent = mainfolderfr
+sakuya.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+sakuya.BorderColor3 = Color3.fromRGB(0, 0, 255)
+sakuya.BorderSizePixel = 3
+sakuya.Position = UDim2.new(0.0250000004, 0, 0.349999994, 0)
+sakuya.Size = UDim2.new(0, 200, 0, 50)
+sakuya.Font = Enum.Font.Arcade
+sakuya.Text = "Sakuya (W.I.P)"
+sakuya.TextColor3 = Color3.fromRGB(255, 0, 0)
+sakuya.TextScaled = true
+sakuya.TextSize = 14.000
+sakuya.TextWrapped = true
+
+real3.Name = "real3"
+real3.Parent = mainfolderfr
+real3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+real3.BorderColor3 = Color3.fromRGB(255, 255, 255)
+real3.BorderSizePixel = 3
+real3.Position = UDim2.new(0.574999988, 0, 0.349999994, 0)
+real3.Size = UDim2.new(0, 200, 0, 50)
+real3.Font = Enum.Font.Arcade
+real3.Text = "???"
+real3.TextColor3 = Color3.fromRGB(255, 255, 255)
+real3.TextScaled = true
+real3.TextSize = 14.000
+real3.TextWrapped = true
+
+unknown.Name = "unknown"
+unknown.Parent = mainfolderfr
+unknown.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+unknown.BorderColor3 = Color3.fromRGB(88, 88, 88)
+unknown.BorderSizePixel = 3
+unknown.Position = UDim2.new(0.0250000004, 0, 0.0500000007, 0)
+unknown.Size = UDim2.new(0, 200, 0, 50)
+unknown.Font = Enum.Font.Arcade
+unknown.Text = "Unknown"
+unknown.TextColor3 = Color3.fromRGB(88, 88, 88)
+unknown.TextScaled = true
+unknown.TextSize = 14.000
+unknown.TextWrapped = true
+
+real.Name = "real"
+real.Parent = mainfolderfr
+real.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+real.BorderColor3 = Color3.fromRGB(255, 255, 255)
+real.BorderSizePixel = 3
+real.Position = UDim2.new(0.574999988, 0, 0.0500000007, 0)
+real.Size = UDim2.new(0, 200, 0, 50)
+real.Font = Enum.Font.Arcade
+real.Text = "???"
+real.TextColor3 = Color3.fromRGB(255, 255, 255)
+real.TextScaled = true
+real.TextSize = 14.000
+real.TextWrapped = true
+
+main.Name = "main"
+main.Parent = mainfolderfr
+main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+main.BorderColor3 = Color3.fromRGB(255, 255, 255)
+main.Position = UDim2.new(0, 0, -0.00114164874, 0)
+main.Size = UDim2.new(0, 500, 0, 27)
+main.Font = Enum.Font.Arcade
+main.Text = "Main"
+main.TextColor3 = Color3.fromRGB(255, 255, 255)
+main.TextScaled = true
+main.TextSize = 14.000
+main.TextWrapped = true
+
+genericskidgomgggggg.Name = "genericskidgomgggggg"
+genericskidgomgggggg.Parent = scrollingframefrfr
+genericskidgomgggggg.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+genericskidgomgggggg.BorderColor3 = Color3.fromRGB(255, 170, 0)
+genericskidgomgggggg.BorderSizePixel = 3
+genericskidgomgggggg.Position = UDim2.new(0.0250000004, 0, 0.583720922, 0)
+genericskidgomgggggg.Size = UDim2.new(0, 200, 0, 50)
+genericskidgomgggggg.Font = Enum.Font.Arcade
+genericskidgomgggggg.Text = "Generic Skid"
+genericskidgomgggggg.TextColor3 = Color3.fromRGB(255, 170, 0)
+genericskidgomgggggg.TextScaled = true
+genericskidgomgggggg.TextSize = 14.000
+genericskidgomgggggg.TextWrapped = true
+
+real2_2.Name = "real2"
+real2_2.Parent = scrollingframefrfr
+real2_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+real2_2.BorderColor3 = Color3.fromRGB(255, 255, 255)
+real2_2.BorderSizePixel = 3
+real2_2.Position = UDim2.new(0.574999988, 0, 0.433720946, 0)
+real2_2.Size = UDim2.new(0, 200, 0, 50)
+real2_2.Font = Enum.Font.Arcade
+real2_2.Text = "???"
+real2_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+real2_2.TextScaled = true
+real2_2.TextSize = 14.000
+real2_2.TextWrapped = true
+
+real3_2.Name = "real3"
+real3_2.Parent = scrollingframefrfr
+real3_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+real3_2.BorderColor3 = Color3.fromRGB(255, 255, 255)
+real3_2.BorderSizePixel = 3
+real3_2.Position = UDim2.new(0.574999988, 0, 0.583720922, 0)
+real3_2.Size = UDim2.new(0, 200, 0, 50)
+real3_2.Font = Enum.Font.Arcade
+real3_2.Text = "???"
+real3_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+real3_2.TextScaled = true
+real3_2.TextSize = 14.000
+real3_2.TextWrapped = true
+
+real4.Name = "real4"
+real4.Parent = scrollingframefrfr
+real4.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+real4.BorderColor3 = Color3.fromRGB(255, 255, 255)
+real4.BorderSizePixel = 3
+real4.Position = UDim2.new(0.574999988, 0, 0.733720899, 0)
+real4.Size = UDim2.new(0, 200, 0, 50)
+real4.Font = Enum.Font.Arcade
+real4.Text = "???"
+real4.TextColor3 = Color3.fromRGB(255, 255, 255)
+real4.TextScaled = true
+real4.TextSize = 14.000
+real4.TextWrapped = true
+
+real_2.Name = "real"
+real_2.Parent = scrollingframefrfr
+real_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+real_2.BorderColor3 = Color3.fromRGB(255, 255, 255)
+real_2.BorderSizePixel = 3
+real_2.Position = UDim2.new(0.0250000004, 0, 0.733720899, 0)
+real_2.Size = UDim2.new(0, 200, 0, 50)
+real_2.Font = Enum.Font.Arcade
+real_2.Text = "???"
+real_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+real_2.TextScaled = true
+real_2.TextSize = 14.000
+real_2.TextWrapped = true
+
+defaultgloveoml.Name = "defaultgloveoml"
+defaultgloveoml.Parent = scrollingframefrfr
+defaultgloveoml.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+defaultgloveoml.BorderColor3 = Color3.fromRGB(255, 255, 255)
+defaultgloveoml.BorderSizePixel = 3
+defaultgloveoml.Position = UDim2.new(0.0250000004, 0, 0.433720946, 0)
+defaultgloveoml.Size = UDim2.new(0, 200, 0, 50)
+defaultgloveoml.Font = Enum.Font.Arcade
+defaultgloveoml.Text = "Default Glove"
+defaultgloveoml.TextColor3 = Color3.fromRGB(200, 200, 200)
+defaultgloveoml.TextScaled = true
+defaultgloveoml.TextSize = 14.000
+defaultgloveoml.TextWrapped = true
+
+skinsfolderomgomg.Name = "skinsfolderomgomg"
+skinsfolderomgomg.Parent = mainomg
+
+scrollingframefrfr_2.Name = "scrollingframefrfr"
+scrollingframefrfr_2.Parent = skinsfolderomgomg
+scrollingframefrfr_2.Active = true
+scrollingframefrfr_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+scrollingframefrfr_2.BackgroundTransparency = 1.000
+scrollingframefrfr_2.Position = UDim2.new(0, 0, 0.0540000014, 0)
+scrollingframefrfr_2.Size = UDim2.new(0, 500, 0, 473)
+scrollingframefrfr_2.Visible = false
+scrollingframefrfr_2.BottomImage = ""
+scrollingframefrfr_2.MidImage = ""
+scrollingframefrfr_2.ScrollBarThickness = 0
+scrollingframefrfr_2.TopImage = ""
+
+underfellfrisk.Name = "underfellfrisk"
+underfellfrisk.Parent = scrollingframefrfr_2
+underfellfrisk.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+underfellfrisk.BorderColor3 = Color3.fromRGB(255, 255, 255)
+underfellfrisk.BorderSizePixel = 3
+underfellfrisk.Position = UDim2.new(0.0250000004, 0, 0.0500000007, 0)
+underfellfrisk.Size = UDim2.new(0, 200, 0, 50)
+underfellfrisk.Font = Enum.Font.Arcade
+underfellfrisk.Text = "Underfell Frisk"
+underfellfrisk.TextColor3 = Color3.fromRGB(255, 255, 255)
+underfellfrisk.TextScaled = true
+underfellfrisk.TextSize = 14.000
+underfellfrisk.TextWrapped = true
+
+autsans.Name = "autsans"
+autsans.Parent = scrollingframefrfr_2
+autsans.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+autsans.BorderColor3 = Color3.fromRGB(255, 255, 255)
+autsans.BorderSizePixel = 3
+autsans.Position = UDim2.new(0.0250000004, 0, 0.200000003, 0)
+autsans.Size = UDim2.new(0, 200, 0, 50)
+autsans.Font = Enum.Font.Arcade
+autsans.Text = "AUT Sans (kind of a skin bc no custom attacks ig)"
+autsans.TextColor3 = Color3.fromRGB(255, 255, 255)
+autsans.TextScaled = true
+autsans.TextSize = 14.000
+autsans.TextWrapped = true
+
+wipongod.Name = "wipongod"
+wipongod.Parent = scrollingframefrfr_2
+wipongod.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+wipongod.BorderColor3 = Color3.fromRGB(255, 255, 255)
+wipongod.BorderSizePixel = 3
+wipongod.Position = UDim2.new(0.0250000004, 0, 0.349999994, 0)
+wipongod.Size = UDim2.new(0, 200, 0, 50)
+wipongod.Font = Enum.Font.Arcade
+wipongod.Text = "???"
+wipongod.TextColor3 = Color3.fromRGB(255, 255, 255)
+wipongod.TextScaled = true
+wipongod.TextSize = 14.000
+wipongod.TextWrapped = true
+
+real3_3.Name = "real3"
+real3_3.Parent = scrollingframefrfr_2
+real3_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+real3_3.BorderColor3 = Color3.fromRGB(255, 255, 255)
+real3_3.BorderSizePixel = 3
+real3_3.Position = UDim2.new(0.574999988, 0, 0.349999994, 0)
+real3_3.Size = UDim2.new(0, 200, 0, 50)
+real3_3.Font = Enum.Font.Arcade
+real3_3.Text = "???"
+real3_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+real3_3.TextScaled = true
+real3_3.TextSize = 14.000
+real3_3.TextWrapped = true
+
+real2_3.Name = "real2"
+real2_3.Parent = scrollingframefrfr_2
+real2_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+real2_3.BorderColor3 = Color3.fromRGB(255, 255, 255)
+real2_3.BorderSizePixel = 3
+real2_3.Position = UDim2.new(0.574999988, 0, 0.200000003, 0)
+real2_3.Size = UDim2.new(0, 200, 0, 50)
+real2_3.Font = Enum.Font.Arcade
+real2_3.Text = "???"
+real2_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+real2_3.TextScaled = true
+real2_3.TextSize = 14.000
+real2_3.TextWrapped = true
+
+real_3.Name = "real"
+real_3.Parent = scrollingframefrfr_2
+real_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+real_3.BorderColor3 = Color3.fromRGB(255, 255, 255)
+real_3.BorderSizePixel = 3
+real_3.Position = UDim2.new(0.574999988, 0, 0.0500000007, 0)
+real_3.Size = UDim2.new(0, 200, 0, 50)
+real_3.Font = Enum.Font.Arcade
+real_3.Text = "???"
+real_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+real_3.TextScaled = true
+real_3.TextSize = 14.000
+real_3.TextWrapped = true
+
+miscfolderfrfrfrfrfrfrfrfr.Name = "miscfolderfrfrfrfrfrfrfrfr"
+miscfolderfrfrfrfrfrfrfrfr.Parent = mainomg
+
+scrollingframefrfr_3.Name = "scrollingframefrfr"
+scrollingframefrfr_3.Parent = miscfolderfrfrfrfrfrfrfrfr
+scrollingframefrfr_3.Active = true
+scrollingframefrfr_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+scrollingframefrfr_3.BackgroundTransparency = 1.000
+scrollingframefrfr_3.Position = UDim2.new(0, 0, 0.0540000014, 0)
+scrollingframefrfr_3.Size = UDim2.new(0, 500, 0, 473)
+scrollingframefrfr_3.Visible = false
+scrollingframefrfr_3.BottomImage = ""
+scrollingframefrfr_3.MidImage = ""
+scrollingframefrfr_3.ScrollBarThickness = 0
+scrollingframefrfr_3.TopImage = ""
+
+infrangeandnocdandinfmanauwu.Name = "infrangeandnocdandinfmanauwu"
+infrangeandnocdandinfmanauwu.Parent = scrollingframefrfr_3
+infrangeandnocdandinfmanauwu.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+infrangeandnocdandinfmanauwu.BorderColor3 = Color3.fromRGB(255, 255, 255)
+infrangeandnocdandinfmanauwu.BorderSizePixel = 3
+infrangeandnocdandinfmanauwu.Position = UDim2.new(0.0250000004, 0, 0.0500000007, 0)
+infrangeandnocdandinfmanauwu.Size = UDim2.new(0, 200, 0, 50)
+infrangeandnocdandinfmanauwu.Font = Enum.Font.Arcade
+infrangeandnocdandinfmanauwu.Text = "Inf Range + No CD + Inf Mana"
+infrangeandnocdandinfmanauwu.TextColor3 = Color3.fromRGB(255, 255, 255)
+infrangeandnocdandinfmanauwu.TextScaled = true
+infrangeandnocdandinfmanauwu.TextSize = 14.000
+infrangeandnocdandinfmanauwu.TextWrapped = true
+
+nothingwa.Name = "nothingwa"
+nothingwa.Parent = scrollingframefrfr_3
+nothingwa.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+nothingwa.BorderColor3 = Color3.fromRGB(255, 255, 255)
+nothingwa.BorderSizePixel = 3
+nothingwa.Position = UDim2.new(0.0250000004, 0, 0.200000003, 0)
+nothingwa.Size = UDim2.new(0, 200, 0, 50)
+nothingwa.Font = Enum.Font.Arcade
+nothingwa.Text = "???"
+nothingwa.TextColor3 = Color3.fromRGB(255, 255, 255)
+nothingwa.TextScaled = true
+nothingwa.TextSize = 14.000
+nothingwa.TextWrapped = true
+
+wipongod_2.Name = "wipongod"
+wipongod_2.Parent = scrollingframefrfr_3
+wipongod_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+wipongod_2.BorderColor3 = Color3.fromRGB(255, 255, 255)
+wipongod_2.BorderSizePixel = 3
+wipongod_2.Position = UDim2.new(0.0250000004, 0, 0.349999994, 0)
+wipongod_2.Size = UDim2.new(0, 200, 0, 50)
+wipongod_2.Font = Enum.Font.Arcade
+wipongod_2.Text = "???"
+wipongod_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+wipongod_2.TextScaled = true
+wipongod_2.TextSize = 14.000
+wipongod_2.TextWrapped = true
+
+real3_4.Name = "real3"
+real3_4.Parent = scrollingframefrfr_3
+real3_4.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+real3_4.BorderColor3 = Color3.fromRGB(255, 255, 255)
+real3_4.BorderSizePixel = 3
+real3_4.Position = UDim2.new(0.574999988, 0, 0.349999994, 0)
+real3_4.Size = UDim2.new(0, 200, 0, 50)
+real3_4.Font = Enum.Font.Arcade
+real3_4.Text = "???"
+real3_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+real3_4.TextScaled = true
+real3_4.TextSize = 14.000
+real3_4.TextWrapped = true
+
+real2_4.Name = "real2"
+real2_4.Parent = scrollingframefrfr_3
+real2_4.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+real2_4.BorderColor3 = Color3.fromRGB(255, 255, 255)
+real2_4.BorderSizePixel = 3
+real2_4.Position = UDim2.new(0.574999988, 0, 0.200000003, 0)
+real2_4.Size = UDim2.new(0, 200, 0, 50)
+real2_4.Font = Enum.Font.Arcade
+real2_4.Text = "???"
+real2_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+real2_4.TextScaled = true
+real2_4.TextSize = 14.000
+real2_4.TextWrapped = true
+
+real_4.Name = "real"
+real_4.Parent = scrollingframefrfr_3
+real_4.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+real_4.BorderColor3 = Color3.fromRGB(255, 255, 255)
+real_4.BorderSizePixel = 3
+real_4.Position = UDim2.new(0.574999988, 0, 0.0500000007, 0)
+real_4.Size = UDim2.new(0, 200, 0, 50)
+real_4.Font = Enum.Font.Arcade
+real_4.Text = "???"
+real_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+real_4.TextScaled = true
+real_4.TextSize = 14.000
+real_4.TextWrapped = true
+
+omgmiscfr.Name = "omgmiscfr"
+omgmiscfr.Parent = mainomg
+omgmiscfr.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+omgmiscfr.BackgroundTransparency = 1.000
+omgmiscfr.BorderColor3 = Color3.fromRGB(255, 255, 255)
+omgmiscfr.BorderSizePixel = 3
+omgmiscfr.Position = UDim2.new(0, 200, 0.964999974, 0)
+omgmiscfr.Size = UDim2.new(0, 80, 0, 20)
+omgmiscfr.ZIndex = 2
+omgmiscfr.Font = Enum.Font.Arcade
+omgmiscfr.Text = "Misc"
+omgmiscfr.TextColor3 = Color3.fromRGB(255, 255, 255)
+omgmiscfr.TextScaled = true
+omgmiscfr.TextSize = 14.000
+omgmiscfr.TextWrapped = true
+
+-- Scripts:
+
+local function DZTG_fake_script() -- closeomgnoway.onclick 
+	local script = Instance.new('LocalScript', closeomgnoway)
+
+	script.Parent.MouseButton1Click:Connect(function(player)
+	script.Parent.Parent.Visible = false
+		game:GetService("Players").LocalPlayer.PlayerGui.a.mainomg.Visible = true
+	end)
+end
+coroutine.wrap(DZTG_fake_script)()
+local function EOKZQ_fake_script() -- omgcustoms.onclick 
+	local script = Instance.new('LocalScript', omgcustoms)
+
+	script.Parent.MouseButton1Click:Connect(function(player)
+		script.Parent.Parent.customsfolderveryreal.scrollingframefrfr.Visible = true
+		script.Parent.Parent.skinsfolderomgomg.scrollingframefrfr.Visible = false
+		script.Parent.Parent.miscfolderfrfrfrfrfrfrfrfr.scrollingframefrfr.Visible = false
+	end)
+end
+coroutine.wrap(EOKZQ_fake_script)()
+local function QEUHX_fake_script() -- skinsfrfr.onclick 
+	local script = Instance.new('LocalScript', skinsfrfr)
+
+	script.Parent.MouseButton1Click:Connect(function(player)
+		script.Parent.Parent.customsfolderveryreal.scrollingframefrfr.Visible = false
+		script.Parent.Parent.miscfolderfrfrfrfrfrfrfrfr.scrollingframefrfr.Visible = false
+		script.Parent.Parent.skinsfolderomgomg.scrollingframefrfr.Visible = true
+	end)
+end
+coroutine.wrap(QEUHX_fake_script)()
+-- real2.onclick is disabled.
+local function THHL_fake_script() -- lbsans.onclick 
+	local script = Instance.new('LocalScript', lbsans)
+
+	script.Parent.MouseButton1Click:Connect(function(player)
+		loadstring(game:HttpGet('https://pastebin.com/raw/sHfxK43N'))()
+	end)
+end
+coroutine.wrap(THHL_fake_script)()
+local function RBJCGD_fake_script() -- sakuya.onclick 
+	local script = Instance.new('LocalScript', sakuya)
+
+	script.Parent.MouseButton1Click:Connect(function(player)
+		loadstring(game:HttpGet('https://pastebin.com/raw/YsG2acdR'))()
+	end)
+end
+coroutine.wrap(RBJCGD_fake_script)()
+-- real3.onclick is disabled.
+local function IQLLUWC_fake_script() -- unknown.onclick 
+	local script = Instance.new('LocalScript', unknown)
+
+	script.Parent.MouseButton1Click:Connect(function(player)
+		loadstring(game:HttpGet('https://pastebin.com/raw/2UkZpL5b'))()
+	end)
+end
+coroutine.wrap(IQLLUWC_fake_script)()
+-- real.onclick is disabled.
+local function NBBB_fake_script() -- genericskidgomgggggg.onclick 
+	local script = Instance.new('LocalScript', genericskidgomgggggg)
+
+	script.Parent.MouseButton1Click:Connect(function(player)
+		loadstring(game:HttpGet('https://pastebin.com/raw/Xj9TZTgp'))()
+	end)
+end
+coroutine.wrap(NBBB_fake_script)()
+-- real2_2.onclick is disabled.
+-- real3_2.onclick is disabled.
+-- real4.onclick is disabled.
+-- real_2.onclick is disabled.
+local function PZPUT_fake_script() -- defaultgloveoml.onclick 
+	local script = Instance.new('LocalScript', defaultgloveoml)
+
+	script.Parent.MouseButton1Click:Connect(function(player)
+		loadstring(game:HttpGet('https://pastebin.com/raw/rutCA3Vk'))()
+	end)
+end
+coroutine.wrap(PZPUT_fake_script)()
+local function CWNVXY_fake_script() -- underfellfrisk.onclick 
+	local script = Instance.new('LocalScript', underfellfrisk)
+
+	script.Parent.MouseButton1Click:Connect(function(player)
+		loadstring(game:HttpGet('https://pastebin.com/raw/ZEWf96CL'))()
+	end)
+end
+coroutine.wrap(CWNVXY_fake_script)()
+local function HFLT_fake_script() -- autsans.onclick 
+	local script = Instance.new('LocalScript', autsans)
+
+	script.Parent.MouseButton1Click:Connect(function(player)
+		loadstring(game:HttpGet('https://pastebin.com/raw/jvVaHjSa'))()
+	end)
+end
+coroutine.wrap(HFLT_fake_script)()
+-- wipongod.onclick is disabled.
+-- real3_3.onclick is disabled.
+-- real2_3.onclick is disabled.
+-- real_3.onclick is disabled.
+local function PRAO_fake_script() -- infrangeandnocdandinfmanauwu.onclick 
+	local script = Instance.new('LocalScript', infrangeandnocdandinfmanauwu)
+
+	script.Parent.MouseButton1Click:Connect(function(player)
+		loadstring(game:HttpGet('https://pastebin.com/raw/As0zSZ0e'))()
+	end)
+end
+coroutine.wrap(PRAO_fake_script)()
+-- nothingwa.onclick is disabled.
+-- wipongod_2.onclick is disabled.
+-- real3_4.onclick is disabled.
+-- real2_4.onclick is disabled.
+-- real_4.onclick is disabled.
+local function TFLPQ_fake_script() -- omgmiscfr.onclick 
+	local script = Instance.new('LocalScript', omgmiscfr)
+
+	script.Parent.MouseButton1Click:Connect(function(player)
+		script.Parent.Parent.customsfolderveryreal.scrollingframefrfr.Visible = false
+		script.Parent.Parent.skinsfolderomgomg.scrollingframefrfr.Visible = false
+		script.Parent.Parent.miscfolderfrfrfrfrfrfrfrfr.scrollingframefrfr.Visible = true
+	end)
+end
+coroutine.wrap(TFLPQ_fake_script)()
+
+
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local a = Instance.new("ScreenGui")
+local mainomg = Instance.new("Frame")
+local openomlyesway = Instance.new("TextButton")
+
+--Properties:
+
+a.Name = "a"
+a.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+a.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+mainomg.Name = "mainomg"
+mainomg.Parent = a
+mainomg.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+mainomg.BackgroundTransparency = 1.000
+mainomg.BorderColor3 = Color3.fromRGB(255, 255, 255)
+mainomg.BorderSizePixel = 3
+mainomg.Position = UDim2.new(0.304381847, 0, 0.0629370511, 40)
+mainomg.Size = UDim2.new(0, 500, 0, 500)
+mainomg.Visible = false
+
+openomlyesway.Name = "openomlyesway"
+openomlyesway.Parent = mainomg
+openomlyesway.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+openomlyesway.BorderColor3 = Color3.fromRGB(255, 255, 255)
+openomlyesway.BorderSizePixel = 3
+openomlyesway.Position = UDim2.new(-0.777999997, 0, 0.972000003, 0)
+openomlyesway.Size = UDim2.new(0, 50, 0, 50)
+openomlyesway.Font = Enum.Font.Arcade
+openomlyesway.Text = "^"
+openomlyesway.TextColor3 = Color3.fromRGB(0, 255, 0)
+openomlyesway.TextScaled = true
+openomlyesway.TextSize = 14.000
+openomlyesway.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+openomlyesway.TextWrapped = true
+
+-- Scripts:
+
+local function WXSN_fake_script() -- openomlyesway.onclick 
+	local script = Instance.new('LocalScript', openomlyesway)
+
+	script.Parent.MouseButton1Click:Connect(function(player)
+	game:GetService("Players").LocalPlayer.PlayerGui.h.mainomg.Visible = true
+		script.Parent.Parent.Visible = false
+	end)
+end
+coroutine.wrap(WXSN_fake_script)()
