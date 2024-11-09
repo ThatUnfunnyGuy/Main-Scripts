@@ -14,10 +14,11 @@ end
 --// Ability Wars
 --// Slap Battles KillStreak Remake
 --// Computer Tycoon
+--// KillStreak Universe
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ThatUnfunnyGuy/Main-Scripts/refs/heads/main/Orion%20Hub%20(Fix%20Attempt)')))()
 
-local Window = OrionLib:MakeWindow({Name = "RoHub (v1.6.3)", HidePremium = false, SaveConfig = true, ConfigFolder = "RoHub", IntroEnabled = true})
+local Window = OrionLib:MakeWindow({Name = "RoHub (v1.7)", HidePremium = false, SaveConfig = true, ConfigFolder = "RoHub", IntroEnabled = true})
 
 local Chat = game:GetService("Chat")
 local SoundService = game:GetService("SoundService")
@@ -3416,7 +3417,7 @@ Tab8:AddLabel("Total Features: 141+")
 Tab8:AddLabel("Total Supported Games: 11")
 
 -- Changes
-Section13:AddParagraph("11/8/2024","[/] Re-coded some features in order to optimize them.")
+Section13:AddParagraph("11/8/2024","[/] Re-coded some features in order to optimize them\[/] Moved the Stuff Section to the Universal tab & renamed it to 'Extra'\n[/] Moved the Universal SoulHub feature to the Universal tab, in the Extra section(Universal)\n[+] Set WalkSpeed/JumpPower/Gravity/FallenPartsDestroyHeight/MaxSlopeAngle Endlessly\n[+] SoulHub\n[/] Renamed 'Semi-Fly' & 'Semi-Fly (On Click' to 'High Jump' & 'High Jump (On Click)'\n[-] Custom Animation\n[+] Orion Hub Notification + Settings\n")
 Section13:AddParagraph("Meanings","[+] = Added, [-] = Removed/Disabled, [/] = Miscellaneous Change")
 Section13:AddParagraph("Announcement (s)","None.")
 
