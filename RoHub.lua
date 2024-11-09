@@ -492,7 +492,7 @@ Section0:AddSlider({
 	Name = "Set Gravity",
 	Min = 0,
 	Max = 196.2,
-	Default = workspace.Gravity,
+	Default = workspace.Gravity or 196.2,
 	Color = Color3.fromRGB(150, 150, 150),
 	Increment = 1,
 	ValueName = "Gravity",
