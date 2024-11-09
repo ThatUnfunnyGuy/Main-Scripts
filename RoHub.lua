@@ -3314,7 +3314,7 @@ Section12:AddParagraph("Features (except the two credited ones above)","idk.#529
 
 -- Features & Games Count
 Tab8:AddLabel("Total Features: 141+")
-Tab8:AddLabel("Total Supported Games: 10")
+Tab8:AddLabel("Total Supported Games: 11")
 
 -- Changes
 Section13:AddParagraph("11/8/2024","[/] Re-coded some features in order to optimize them.")
