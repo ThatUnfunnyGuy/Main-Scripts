@@ -1552,7 +1552,7 @@ LSection:AddButton({
 	Callback = function()
 for num, item in TextTable do
 	game.Chat:Chat(game.Players.LocalPlayer.Character, item)
-	task.wait(2)
+	task.wait(1.5)
 end
 end
 })
