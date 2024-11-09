@@ -899,75 +899,23 @@ GoofySection:AddButton({
 })
 
 LSection:AddButton({
-	Name = "Custom Humanoid (BUGGY)",
+	Name = "Custom Character (DOESN'T RESPAWN YOU)",
 	Callback = function()
-local OldHumanoid = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid")
+local Players = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
+local Player = Players.LocalPlayer or Players:GetPlayers()[1]
+local Character = Player.Character or Player.CharacterAdded:Wait()
+local Humanoid = Character:WaitForChild("Humanoid")
+local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
 
-local NewHumanoid = Instance.new("Humanoid")
-NewHumanoid.MaxHealth = 100
-NewHumanoid.Health = 100
-NewHumanoid.JumpPower = 50
-NewHumanoid.WalkSpeed = 16
---NewHumanoid.RigType = Enum.HumanoidRigType.R15
-NewHumanoid.Parent = game:GetService("Players").LocalPlayer.Character
+Character.Archivable = true
+local NewCharacter = Character:Clone()
+NewCharacter.Parent = Character.Parent
+Character.Archivable = false
+Player.Character = NewCharacter
+Character:Destroy()
 
-local HumanoidDescription = Instance.new("HumanoidDescription")
-HumanoidDescription.Parent = NewHumanoid
-
--- Accessories
-HumanoidDescription.BackAccessory = OldHumanoid.HumanoidDescription.BackAccessory
-HumanoidDescription.FaceAccessory = OldHumanoid.HumanoidDescription.FaceAccessory
-HumanoidDescription.FrontAccessory = OldHumanoid.HumanoidDescription.FrontAccessory
-HumanoidDescription.HairAccessory = OldHumanoid.HumanoidDescription.HairAccessory
-HumanoidDescription.HatAccessory = OldHumanoid.HumanoidDescription.HatAccessory
-HumanoidDescription.NeckAccessory = OldHumanoid.HumanoidDescription.NeckAccessory
-HumanoidDescription.ShouldersAccessory = OldHumanoid.HumanoidDescription.ShouldersAccessory
-HumanoidDescription.WaistAccessory = OldHumanoid.HumanoidDescription.WaistAccessory
-HumanoidDescription.BodyTypeScale = OldHumanoid.HumanoidDescription.BodyTypeScale
-
--- Scales
-HumanoidDescription.DepthScale = OldHumanoid.HumanoidDescription.DepthScale
-HumanoidDescription.HeadScale = OldHumanoid.HumanoidDescription.HeadScale
-HumanoidDescription.HeightScale = OldHumanoid.HumanoidDescription.HeightScale
-HumanoidDescription.ProportionScale = OldHumanoid.HumanoidDescription.ProportionScale
-HumanoidDescription.WidthScale = OldHumanoid.HumanoidDescription.WidthScale
-
--- Animations
-HumanoidDescription.ClimbAnimation = OldHumanoid.HumanoidDescription.ClimbAnimation
-HumanoidDescription.FallAnimation = OldHumanoid.HumanoidDescription.FallAnimation
-HumanoidDescription.IdleAnimation = OldHumanoid.HumanoidDescription.IdleAnimation
-HumanoidDescription.JumpAnimation = OldHumanoid.HumanoidDescription.JumpAnimation
-HumanoidDescription.MoodAnimation = OldHumanoid.HumanoidDescription.MoodAnimation
-HumanoidDescription.RunAnimation = OldHumanoid.HumanoidDescription.RunAnimation
-HumanoidDescription.SwimAnimation = OldHumanoid.HumanoidDescription.SwimAnimation
-HumanoidDescription.WalkAnimation = OldHumanoid.HumanoidDescription.WalkAnimation
-
--- Body Parts
-HumanoidDescription.Face = OldHumanoid.HumanoidDescription.Face
-HumanoidDescription.Head = OldHumanoid.HumanoidDescription.Head
-HumanoidDescription.LeftArm = OldHumanoid.HumanoidDescription.LeftArm
-HumanoidDescription.LeftLeg = OldHumanoid.HumanoidDescription.LeftLeg
-HumanoidDescription.RightArm = OldHumanoid.HumanoidDescription.RightArm
-HumanoidDescription.RightLeg = OldHumanoid.HumanoidDescription.RightLeg
-HumanoidDescription.Torso = OldHumanoid.HumanoidDescription.Torso
-
-local Animator = OldHumanoid.Animator:Clone()
-Animator.Parent = NewHumanoid
---Animator.EvaluationThrottled = OldHumanoid.Animator.EvaluationThrottled
-
-OldHumanoid.Parent = workspace
-OldHumanoid:Destroy()
-
-workspace.CurrentCamera.CameraSubject = game:GetService("Players").LocalPlayer.Character:WaitForChild("Head")
-
-local UIS = game:GetService("UserInputService")
-
-UIS.InputBegan:Connect(function(key, typing)
-if typing then return end
-if key.KeyCode == Enum.KeyCode.Space then
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Jump = true
-end
-end)
+workspace.CurrentCamera.CameraSubject = NewCharacter:WaitForChild("Humanoid") or NewCharacter:WaitForChild("Head")
 end 
 })
 
@@ -1265,7 +1213,14 @@ end
 })
 
 LSection:AddButton({
-	Name = "Remove Humanoid (BREAKS YOUR CHARACTER)",
+	Name = "Remove HumanoidRootPart (BREAKS YOUR CHARACTER)",
+	Callback = function()
+game:GetService("Players").LocalPlayer:Destroy()
+end    
+})
+					
+LSection:AddButton({
+	Name = "Remove Humanoid (BREAKS YOUR CHARACTER TOO)",
 	Callback = function()
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):Destroy()
 end    
@@ -1279,7 +1234,7 @@ end
 })
 
 LSection:AddButton({
-	Name = "Remove Local Player (DOESN'T LET YOU DO ANYTHING)",
+	Name = "Remove LocalPlayer (DOESN'T LET YOU DO ANYTHING)",
 	Callback = function()
 game:GetService("Players").LocalPlayer:Destroy()
 end    
@@ -3424,7 +3379,7 @@ Tab8:AddLabel("Total Features: 141+")
 Tab8:AddLabel("Total Supported Games: 11")
 
 -- Changes
-Section13:AddParagraph("11/8/2024","[/] Re-coded some features in order to optimize them\[/] Moved the Stuff Section to the Universal tab & renamed it to 'Extra'\n[/] Moved the Universal SoulHub feature to the Universal tab, in the Extra section(Universal)\n[+] Set WalkSpeed/JumpPower/Gravity/FallenPartsDestroyHeight/MaxSlopeAngle Endlessly\n[+] Create Part + Activate Part Trail\n[+] SoulHub\n[/] Renamed 'Semi-Fly' & 'Semi-Fly (On Click' to 'High Jump' & 'High Jump (On Click)'\n[+] Remove Accessories\n[-] Custom Animation\n[+] Orion Hub Notification + Settings\n")
+Section13:AddParagraph("11/8/2024","[/] Re-coded some features in order to optimize them\n[/] Moved the Stuff Section to the Universal tab & renamed it to 'Extra'\n[/] Moved the Universal SoulHub feature to the Universal tab, in the Extra section(Universal)\n[+] Set WalkSpeed/JumpPower/Gravity/FallenPartsDestroyHeight/MaxSlopeAngle Endlessly\n[+] Custom Character (actually a recreation of the original script)\n[+] Remove HumanoidRootPart\n[+] Create Part + Activate Part Trail\n[+] SoulHub\n[/] Renamed 'Semi-Fly' & 'Semi-Fly (On Click' to 'High Jump' & 'High Jump (On Click)'\n[+] Remove Accessories\n[-] Custom Animation\n[+] Orion Hub Notification + Settings\n")
 Section13:AddParagraph("Meanings","[+] = Added, [-] = Removed/Disabled, [/] = Miscellaneous Change")
 Section13:AddParagraph("Announcement (s)","None.")
 
