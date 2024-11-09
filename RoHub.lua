@@ -462,26 +462,26 @@ local Section9 = Tab5:AddSection({
 })
 
 Section0:AddSlider({
-	Name = "Set Walkspeed",
+	Name = "Set WalkSpeed",
 	Min = 0,
 	Max = 100,
 	Default = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed,
 	Color = Color3.fromRGB(0, 255, 255),
 	Increment = 1,
-	ValueName = "Walkspeed",
+	ValueName = "WalkSpeed",
 	Callback = function(Value)
 		game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = Value
 	end    
 })
 
 Section0:AddSlider({
-	Name = "Set Jump Power",
+	Name = "Set JumpPower",
 	Min = 0,
 	Max = 1000,
 	Default = game.Players.LocalPlayer.Character.Humanoid.JumpPower,
 	Color = Color3.fromRGB(255, 165, 0),
 	Increment = 1,
-	ValueName = "Jump Power",
+	ValueName = "JumpPower",
 	Callback = function(Value)
 		game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").JumpPower = Value
 	end    
@@ -502,7 +502,7 @@ end
 })
 
 Section0:AddSlider({
-	Name = "Set Fallen Parts Destroy Height",
+	Name = "Set FallenPartsDestroyHeight",
 	Min = -500,
 	Max = 500,
 	Default = workspace.FallenPartsDestroyHeight,
@@ -515,7 +515,7 @@ end
 })
 
 Section0:AddSlider({
-	Name = "Set Max Slope Angle",
+	Name = "Set MaxSlopeAngle",
 	Min = 0,
 	Max = 89.9,
 	Default = game.Players.LocalPlayer.Character.Humanoid.MaxSlopeAngle,
