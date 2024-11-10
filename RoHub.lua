@@ -966,25 +966,6 @@ end
 })
 
 LSection:AddButton({
-	Name = "Dash V3",
-	Callback = function()
-		local Character = Player.Character
-		local Humanoid = Character:WaitForChild("Humanoid")
-				
-		local HRP = Character:WaitForChild("HumanoidRootPart")
-		local HRPCF = HRP.CFrame
-		local HRPLV = HRPCF.LookVector
-		
-		local LV = Instance.new("LinearVelocity")
-		LV.MaxForce = math.huge
-		LV.VectorVelocity = (HRPLV * Vector3.new(90, 90, 90))
-		LV.Attachment0 = HRP:WaitForChild("RootAttachment")
-		game.Debris:AddItem(LV, 0.125)
-		LV.Parent = HRP
-end    
-})
-
-LSection:AddButton({
 	Name = "Slide V3",
 	Callback = function()
 game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Size = Vector3.new(game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Size.X, 10, game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Size.Z)
