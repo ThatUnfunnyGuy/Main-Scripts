@@ -65,6 +65,13 @@ for num, item in MusicTable do
 end
 --]]
 
+local StaffTable = {
+	"Roblox",
+	"builderman",
+	"Lightning_Splash",
+	"SenatorBunny" -- ew a pedo
+}
+
 local TextTable = {
 	[1] = "hi",
 	[2] = "im a cool user",
@@ -774,6 +781,16 @@ game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):Change
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):SetStateEnabled("GettingUp", true)
 	end)
 end
+})
+
+WSection:AddButton({
+	Name = "Kick On Staff Join",
+	Callback = function()
+local plr = game:GetService("Players").PlayerAdded:Connect(function(player)
+if table.find(StaffTable, plr.Name) == not nil then
+game.Players.LocalPlayer:Kick("Staff joined.")
+end
+end    
 })
 
 WSection:AddToggle({
