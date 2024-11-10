@@ -1554,7 +1554,7 @@ GoofySection:AddButton({
 })
 
 LSection:AddButton({
-	Name = "Custom Humanoid (DOESN'T RESPAWN YOU)",
+	Name = "Custom Humanoid (LAGGY)",
 	Callback = function()
 local OldHumanoid = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid")
 
