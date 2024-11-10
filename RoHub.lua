@@ -2375,7 +2375,7 @@ UIS.InputBegan:Connect(function(key)
 		LV.Attachment0 = HRP:WaitForChild("RootAttachment")
 		game.Debris:AddItem(LV, Durations[1])
 		LV.Parent = HRP
-		FinalAnimation:Play()
+		--FinalAnimation:Play()
 		--[[
 		local BV = Instance.new("BodyVelocity")
 		BV.MaxForce = Vector3.new(1, 1, 1) * math.huge
