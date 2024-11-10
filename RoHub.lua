@@ -69,7 +69,7 @@ local StaffTable = {
 	"Roblox",
 	"builderman",
 	"Lightning_Splash",
-	"SenatorBunny" -- ew a pedo
+	"SenatorBunny" -- there was a label telling a fact here before but pastebin is a snowflake
 }
 
 local TextTable = {
