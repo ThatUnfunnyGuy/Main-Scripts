@@ -2302,7 +2302,7 @@ end
 })
 
 LSection:AddButton({
-	Name = "Remove Accessories",
+	Name = "Remove Accessories (NOT FE)",
 	Callback = function()
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):RemoveAccessories()
 end
