@@ -2185,12 +2185,22 @@ end
 })
 
 LSection:AddButton({
-	Name = "Say Text",
+	Name = "Say Text (Chat)",
+	Callback = function()
+for num, item in TextTable do
+game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(item, "All")
+task.wait(1.5)
+	end
+end
+})
+
+LSection:AddButton({
+	Name = "Say Text (Dialog)",
 	Callback = function()
 for num, item in TextTable do
 	game.Chat:Chat(game.Players.LocalPlayer.Character, item)
-	task.wait(1.5)
-end
+task.wait(1.5)
+	end
 end
 })
 
