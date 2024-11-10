@@ -2308,6 +2308,211 @@ game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):Remove
 end
 })
 
+LSection:AddButton({
+	Name = "Parkour Movement",
+	Callback = function()
+--print("dash script enabled") -- debugging
+local UIS = game:GetService("UserInputService")
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer or Players.PlayerAdded:Wait()
+--[[
+local Character = Player.Character or Player.CharacterAdded:Wait()
+local Humanoid = Character:WaitForChild("Humanoid")
+
+local Momentum = 1
+local LastPress = 0
+--]]
+--local AnimationId = "rbxassetid://91838645445199"
+
+--[[
+ [1] = Dash;
+ [2] = Super Jump;
+ [3] = Air Jump
+--]]
+local Debounces = {
+	[1] = false;
+	[2] = false;
+	[3] = false
+}
+local Cooldowns = {
+	[1] = 0.1;
+	[2] = 1.7;
+	[3] = 0.1
+}
+local Durations = {
+	[1] = 0.125;
+	[2] = 2.75;
+	[3] = 0.250
+}
+
+--[[
+local Debounce = false
+local Cooldown = 2.5
+--]]
+
+UIS.InputBegan:Connect(function(key)
+	-- Dash
+	if key.KeyCode == Enum.KeyCode.Q then
+		if Debounces[1] == true then return end
+		Debounces[1] = true
+		--print("execute dash") -- more debugging
+		
+		local Character = Player.Character
+		local Humanoid = Character:WaitForChild("Humanoid")
+		
+		--local Animation = script:WaitForChild("DashAnimation")
+		--Animation.AnimationId = AnimationId
+		
+		--local FinalAnimation = Humanoid:LoadAnimation(Animation)
+		
+		local HRP = Character:WaitForChild("HumanoidRootPart")
+		local HRPCF = HRP.CFrame
+		local HRPLV = HRPCF.LookVector
+		
+		local LV = Instance.new("LinearVelocity")
+		LV.MaxForce = math.huge
+		LV.VectorVelocity = (HRPLV * Vector3.new(90, 90, 90))
+		LV.Attachment0 = HRP:WaitForChild("RootAttachment")
+		game.Debris:AddItem(LV, Durations[1])
+		LV.Parent = HRP
+		FinalAnimation:Play()
+		--[[
+		local BV = Instance.new("BodyVelocity")
+		BV.MaxForce = Vector3.new(1, 1, 1) * math.huge
+		BV.Velocity = (HRPLV * Vector3.new(100, 100, 100))
+		print(BV.Name)
+		print(BV.Parent)
+			
+		BV.Parent = Humanoid.RootPart
+		print(BV.Parent)
+		task.wait(0.5)
+		BV:Destroy()
+		--]]
+		--print("dash executed") -- even more debugging
+		task.wait(Cooldowns[1])
+		Debounces[1] = false
+	-- Super Jump
+	elseif key.KeyCode == Enum.KeyCode.T then
+		if Debounces[2] == true then return end
+		Debounces[2] = true
+		--print("execute dash") -- more debugging
+
+		local Character = Player.Character
+		local Humanoid = Character:WaitForChild("Humanoid")
+		local PreviousWS = Humanoid.WalkSpeed
+		--local Animation = script:WaitForChild("DashAnimation")
+		--Animation.AnimationId = AnimationId
+
+		--local FinalAnimation = Humanoid:LoadAnimation(Animation)
+
+		local HRP = Character:WaitForChild("HumanoidRootPart")
+		local HRPCF = HRP.CFrame
+		local HRPLV = HRPCF.LookVector
+		
+		for i = 1, 10 do
+			local Incremental = 1.1
+			task.wait(0.065)
+			Incremental += 0.025
+			Humanoid.WalkSpeed *= Incremental
+		end
+		
+		task.wait(0.65)
+		
+		HRP.Velocity = (HRPLV + Vector3.new(0, 175, 0))
+
+		--[[
+		local HRPCF = HRP.CFrame
+		local HRPLV = HRPCF.LookVector
+
+		local LV = Instance.new("LinearVelocity")
+		LV.MaxForce = math.huge
+		LV.VectorVelocity = (HRPLV * Vector3.new(0, 90, 0))
+		LV.Attachment0 = HRP:WaitForChild("RootAttachment")
+		game.Debris:AddItem(LV, 0.125)
+		LV.Parent = HRP
+		--]]
+		--FinalAnimation:Play()
+		--[[
+		local BV = Instance.new("BodyVelocity")
+		BV.MaxForce = Vector3.new(1, 1, 1) * math.huge
+		BV.Velocity = (HRPLV * Vector3.new(100, 100, 100))
+		print(BV.Name)
+		print(BV.Parent)
+			
+		BV.Parent = Humanoid.RootPart
+		print(BV.Parent)
+		task.wait(0.5)
+		BV:Destroy()
+		--]]
+		--print("dash executed") -- even more debugging
+		--task.wait(Durations[2]) -- old
+		
+		HRP.Touched:Connect(function()
+			HRP.Velocity = Vector3.new(0, 0, 0)
+			Humanoid.WalkSpeed = PreviousWS
+		end)
+		task.wait(Cooldowns[2])
+		Debounces[2] = false
+		-- Air Jump
+	elseif key.KeyCode == Enum.KeyCode.F then
+		if Debounces[3] == true then return end
+		Debounces[3] = true
+		--print("execute dash") -- more debugging
+
+		local Character = Player.Character
+		local Humanoid = Character:WaitForChild("Humanoid")
+
+		--local Animation = script:WaitForChild("DashAnimation")
+		--Animation.AnimationId = AnimationId
+
+		--local FinalAnimation = Humanoid:LoadAnimation(Animation)
+
+		local HRP = Character:WaitForChild("HumanoidRootPart")
+
+		HRP.Velocity = Vector3.new(0, 90, 0)
+
+		--[[
+		local HRPCF = HRP.CFrame
+		local HRPLV = HRPCF.LookVector
+
+		local LV = Instance.new("LinearVelocity")
+		LV.MaxForce = math.huge
+		LV.VectorVelocity = (HRPLV * Vector3.new(0, 90, 0))
+		LV.Attachment0 = HRP:WaitForChild("RootAttachment")
+		game.Debris:AddItem(LV, 0.125)
+		LV.Parent = HRP
+		--]]
+		--FinalAnimation:Play()
+		--[[
+		local BV = Instance.new("BodyVelocity")
+		BV.MaxForce = Vector3.new(1, 1, 1) * math.huge
+		BV.Velocity = (HRPLV * Vector3.new(100, 100, 100))
+		print(BV.Name)
+		print(BV.Parent)
+			
+		BV.Parent = Humanoid.RootPart
+		print(BV.Parent)
+		task.wait(0.5)
+		BV:Destroy()
+		--]]
+		--print("dash executed") -- even more debugging
+		HRP.Touched:Connect(function()
+			HRP.Velocity = Vector3.new(0, 0, 0)
+			Debounces[3] = false
+		end)
+		task.wait(Durations[3])
+		HRP.Velocity = Vector3.new(0, 0, 0)
+
+		
+		--task.wait(Cooldowns[3])
+		--Debounces[3] = false
+	end
+end)
+
+--print("dash script working") -- i love debugging
+end
+})
+
 LSection:AddToggle({
 	Name = "Toggle HumanoidRootPart Anchor",
 	Default = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored,
