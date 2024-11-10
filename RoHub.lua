@@ -488,6 +488,7 @@ Section0:AddButton({
 game:GetService("RunService").Heartbeat:Connect(function()
 	game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = SetWalkSpeed
 end)
+end
 })
 
 Section0:AddSlider({
@@ -510,6 +511,7 @@ Section0:AddButton({
 game:GetService("RunService").Heartbeat:Connect(function()
 	game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").JumpPower = SetJumpPower
 end)
+end
 })
 
 Section0:AddSlider({
@@ -532,6 +534,7 @@ Section0:AddButton({
 game:GetService("RunService").Heartbeat:Connect(function()
 	workspace.Gravity = SetGravity
 end)
+end
 })
 
 Section0:AddSlider({
@@ -554,6 +557,7 @@ Section0:AddButton({
 game:GetService("RunService").Heartbeat:Connect(function()
 	workspace.FallenPartsDestroyHeight = SetFPDH
 end)
+end
 })			
 
 Section0:AddSlider({
@@ -576,6 +580,7 @@ Section0:AddButton({
 game:GetService("RunService").Heartbeat:Connect(function()
 	game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").MaxSlopeAngle = SetMaxSlopeAngle
 end)
+end
 })
 
 --[[
@@ -693,7 +698,7 @@ Character.Head.CanCollide = false
 Character.Torso.CanCollide = false
 Character.HumanoidRootPart.CanCollide = false
 end)
-wait(1)
+--task.wait(1)
 local FlingC = Instance.new("BodyThrust")
 FlingC.Parent = Character.HumanoidRootPart
 FlingC.Force = Vector3.new(FlingPower, 0, FlingPower)
@@ -709,7 +714,7 @@ local Player = game:GetService("Players").LocalPlayer
 local Character = Player.Character or Player.CharacterAdded:Wait()
 Character:WaitForChild("Torso").BodyThrust.Force = Vector3.new(0, 0, 0)
 Character:WaitForChild("HumanoidRootPart").BodyThrust.Force = Vector3.new(0, 0, 0)
-wait(2.5)
+--task.wait(2.5)
 Character:WaitForChild("Torso").BodyThrust:Destroy()
 Character:WaitForChild("HumanoidRootPart").BodyThrust:Destroy()
 end
@@ -763,11 +768,11 @@ end
 WSection:AddButton({
 	Name = "Jump Hack",
 	Callback = function()
-while wait() do
+game:GetService("RunService").RenderStepped:Connect(function()
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):SetStateEnabled("GettingUp", false)
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState("Swimming")
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):SetStateEnabled("GettingUp", true)
-	end
+	end)
 end
 })
 
@@ -955,8 +960,30 @@ LSection:AddButton({
 	BV.Velocity = (HRPLV * Vector3.new(25, 25, 25))
 
 	BV.Parent =  game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").RootPart
-	wait(1)
+	task.wait(1)
 	BV:Destroy()
+end    
+})
+
+LSection:AddButton({
+	Name = "Dash V3",
+	Callback = function()
+		local Character = Player.Character
+		local Humanoid = Character:WaitForChild("Humanoid")
+		
+		local Animation = script:WaitForChild("DashAnimation")
+		Animation.AnimationId = AnimationId
+				
+		local HRP = Character:WaitForChild("HumanoidRootPart")
+		local HRPCF = HRP.CFrame
+		local HRPLV = HRPCF.LookVector
+		
+		local LV = Instance.new("LinearVelocity")
+		LV.MaxForce = math.huge
+		LV.VectorVelocity = (HRPLV * Vector3.new(90, 90, 90))
+		LV.Attachment0 = HRP:WaitForChild("RootAttachment")
+		game.Debris:AddItem(LV, 0.125)
+		LV.Parent = HRP
 end    
 })
 
@@ -972,7 +999,7 @@ LSection:AddButton({
 	Callback = function()
 char = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
 spawn(function()
-    repeat wait()
+    repeat task.wait()
         for _, v in pairs(char:GetChildren()) do
             if v.Name == "CharacterMesh" then
                 v:Destroy()
