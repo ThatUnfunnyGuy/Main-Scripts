@@ -790,6 +790,7 @@ local plr = game:GetService("Players").PlayerAdded:Connect(function(player)
 if table.find(StaffTable, plr.Name) == not nil then
 game.Players.LocalPlayer:Kick("Staff joined.")
 end
+end)
 end    
 })
 
