@@ -970,9 +970,6 @@ LSection:AddButton({
 	Callback = function()
 		local Character = Player.Character
 		local Humanoid = Character:WaitForChild("Humanoid")
-		
-		local Animation = script:WaitForChild("DashAnimation")
-		Animation.AnimationId = AnimationId
 				
 		local HRP = Character:WaitForChild("HumanoidRootPart")
 		local HRPCF = HRP.CFrame
