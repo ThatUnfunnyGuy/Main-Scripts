@@ -2195,7 +2195,7 @@ end
 })
 
 LSection:AddButton({
-	Name = "Say Text (Dialog)",
+	Name = "Say Text (Dialog) (NOT FE)",
 	Callback = function()
 for num, item in TextTable do
 	game.Chat:Chat(game.Players.LocalPlayer.Character, item)
