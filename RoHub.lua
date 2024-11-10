@@ -1554,6 +1554,85 @@ GoofySection:AddButton({
 })
 
 LSection:AddButton({
+	Name = "Custom Humanoid (DOESN'T RESPAWN YOU)",
+	Callback = function()
+local OldHumanoid = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid")
+
+local NewHumanoid = Instance.new("Humanoid")
+NewHumanoid.MaxHealth = OldHumanoid.MaxHealth or 100
+NewHumanoid.Health = OldHumanoid.Health or 100
+NewHumanoid.JumpPower = OldHumanoid.JumpPower or 50
+NewHumanoid.WalkSpeed = OldHumanoid.WalkSpeed or 16
+NewHumanoid.RigType = OldHumanoid.RigType
+NewHumanoid.Parent = game:GetService("Players").LocalPlayer.Character
+
+local HumanoidDescription = Instance.new("HumanoidDescription")
+HumanoidDescription.Parent = NewHumanoid
+
+-- Accessories
+HumanoidDescription.BackAccessory = OldHumanoid.HumanoidDescription.BackAccessory
+HumanoidDescription.FaceAccessory = OldHumanoid.HumanoidDescription.FaceAccessory
+HumanoidDescription.FrontAccessory = OldHumanoid.HumanoidDescription.FrontAccessory
+HumanoidDescription.HairAccessory = OldHumanoid.HumanoidDescription.HairAccessory
+HumanoidDescription.HatAccessory = OldHumanoid.HumanoidDescription.HatAccessory
+HumanoidDescription.NeckAccessory = OldHumanoid.HumanoidDescription.NeckAccessory
+HumanoidDescription.ShouldersAccessory = OldHumanoid.HumanoidDescription.ShouldersAccessory
+HumanoidDescription.WaistAccessory = OldHumanoid.HumanoidDescription.WaistAccessory
+HumanoidDescription.BodyTypeScale = OldHumanoid.HumanoidDescription.BodyTypeScale
+
+-- Scales
+HumanoidDescription.DepthScale = OldHumanoid.HumanoidDescription.DepthScale
+HumanoidDescription.HeadScale = OldHumanoid.HumanoidDescription.HeadScale
+HumanoidDescription.HeightScale = OldHumanoid.HumanoidDescription.HeightScale
+HumanoidDescription.ProportionScale = OldHumanoid.HumanoidDescription.ProportionScale
+HumanoidDescription.WidthScale = OldHumanoid.HumanoidDescription.WidthScale
+
+-- Animations
+HumanoidDescription.ClimbAnimation = OldHumanoid.HumanoidDescription.ClimbAnimation
+HumanoidDescription.FallAnimation = OldHumanoid.HumanoidDescription.FallAnimation
+HumanoidDescription.IdleAnimation = OldHumanoid.HumanoidDescription.IdleAnimation
+HumanoidDescription.JumpAnimation = OldHumanoid.HumanoidDescription.JumpAnimation
+HumanoidDescription.MoodAnimation = OldHumanoid.HumanoidDescription.MoodAnimation
+HumanoidDescription.RunAnimation = OldHumanoid.HumanoidDescription.RunAnimation
+HumanoidDescription.SwimAnimation = OldHumanoid.HumanoidDescription.SwimAnimation
+HumanoidDescription.WalkAnimation = OldHumanoid.HumanoidDescription.WalkAnimation
+
+-- Body Parts
+HumanoidDescription.Face = OldHumanoid.HumanoidDescription.Face
+HumanoidDescription.Head = OldHumanoid.HumanoidDescription.Head
+HumanoidDescription.LeftArm = OldHumanoid.HumanoidDescription.LeftArm
+HumanoidDescription.LeftLeg = OldHumanoid.HumanoidDescription.LeftLeg
+HumanoidDescription.RightArm = OldHumanoid.HumanoidDescription.RightArm
+HumanoidDescription.RightLeg = OldHumanoid.HumanoidDescription.RightLeg
+HumanoidDescription.Torso = OldHumanoid.HumanoidDescription.Torso
+
+local Animator = OldHumanoid.Animator:Clone()
+Animator.Parent = NewHumanoid
+--Animator.EvaluationThrottled = OldHumanoid.Animator.EvaluationThrottled
+
+OldHumanoid.Parent = workspace
+OldHumanoid:Destroy()
+
+workspace.CurrentCamera.CameraSubject = game:GetService("Players").LocalPlayer.Character:WaitForChild("Head")
+
+local UIS = game:GetService("UserInputService")
+
+UIS.InputBegan:Connect(function(key, typing)
+if typing then return end
+if key.KeyCode == Enum.KeyCode.Space then
+game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Jump = true
+end
+end)
+
+--[[
+if UIS:IsKeyDown(Enum.KeyCode.Space) then
+    game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Jump = true
+end
+--]]
+end 
+})
+
+LSection:AddButton({
 	Name = "Custom Character (DOESN'T RESPAWN YOU)",
 	Callback = function()
 local Players = game:GetService("Players")
