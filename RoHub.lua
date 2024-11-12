@@ -2369,13 +2369,50 @@ UIS.InputBegan:Connect(function(key)
 		local HRPCF = HRP.CFrame
 		local HRPLV = HRPCF.LookVector
 		
+		local attachment = Instance.new("Attachment",Character.PrimaryPart)
+		local aligner = Instance.new("AlignOrientation",Character.PrimaryPart)
+		aligner.Attachment0 = attachment
+		aligner.Mode = Enum.OrientationAlignmentMode.OneAttachment
+		aligner.RigidityEnabled = true
+		aligner.CFrame = CFrame.new(Vector3.zero,HRPLV)
+		game.Debris:AddItem(aligner, 0.125)
+		
 		local LV = Instance.new("LinearVelocity")
 		LV.MaxForce = math.huge
-		LV.VectorVelocity = (HRPLV * Vector3.new(90, 90, 90))
+		--[[
+		local HumanoidState = Humanoid:GetState()
+		if HumanoidState == Enum.HumanoidStateType.Freefall then
+			local moveDir = Humanoid.MoveDirection
+			LV.VelocityConstraintMode = Enum.VelocityConstraintMode.Plane
+			LV.MaxPlanarAxesForce = Vector2.new(9e9, 9e9, 9e9)
+			LV.PlaneVelocity = Vector2.new(moveDir.X, moveDir.Z)*25
+			--LV.VectorVelocity = (HRPLV * Vector3.new(45, 45, 45))
+			--LV.PlaneVelocity = Vector2.new(0, -45)
+		end
+		--]]
+		if Humanoid.MoveDirection ~= Vector3.new(0,0,0) then
+			LV.VectorVelocity = Vector3.new(Humanoid.MoveDirection.X, Humanoid.MoveDirection.Y, Humanoid.MoveDirection.Z) * 90
+			Humanoid:ChangeState(Enum.HumanoidStateType.Flying)
+			--[[
+			if Humanoid.MoveDirection.X > 0 then
+				LV.VectorVelocity = (Vector3.new(Humanoid.MoveDirection.X * 25))
+			elseif Humanoid.MoveDirection.Y > 0 then
+				LV.VectorVelocity = (Vector3.new(Humanoid.MoveDirection.Y * 25))
+			elseif Humanoid.MoveDirection.Z > 0 then
+				LV.VectorVelocity = (Vector3.new(Humanoid.MoveDirection.Z * 25))
+			--]]
+		else
+			LV.VectorVelocity = (HRPLV * Vector3.new(90, 90, 90))
+			Humanoid:ChangeState(Enum.HumanoidStateType.Flying)
+		end
+		
+		--LV.VectorVelocity = (Vector3.new(Humanoid.MoveDirection.X * 25, Humanoid.MoveDirection.Y * 25, Humanoid.MoveDirection.Z * 25))
+	--LV.VectorVelocity = (HRPLV * Vector3.new(45, 45, 45))
+	--[]
 		LV.Attachment0 = HRP:WaitForChild("RootAttachment")
-		game.Debris:AddItem(LV, Durations[1])
+		game.Debris:AddItem(LV, 0.125)
 		LV.Parent = HRP
-		--FinalAnimation:Play()
+		FinalAnimation:Play()
 		--[[
 		local BV = Instance.new("BodyVelocity")
 		BV.MaxForce = Vector3.new(1, 1, 1) * math.huge
