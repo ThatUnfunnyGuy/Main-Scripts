@@ -1761,7 +1761,7 @@ end
 LSection:AddButton({
 	Name = "Loop Clone Yourself (NOT FE)",
 	Callback = function()
-	while wait() do
+	game:GetService("RunService").Heartbeat:Connect(function()
 	game:GetService("Players").LocalPlayer.Character.Archivable = true
 	Clone = game:GetService("Players").LocalPlayer.Character:Clone()
 	Clone.Name = game:GetService("Players").LocalPlayer.Name .. "'s Clone"
@@ -1770,9 +1770,9 @@ LSection:AddButton({
 	
 	-- Not working
 	Clone:WaitForChild("Animate").Enabled = false
-	wait(1)
+	task.wait(1)
 	Clone:WaitForChild("Animate").Enabled = true
-	end
+	end)
 end    
 })
 
@@ -1788,11 +1788,11 @@ end
 LSection:AddButton({
 	Name = "Loop Delete Clone",
 	Callback = function()
-	while wait() do
+	game:GetService("RunService").Heartbeat:Connect(function()
 	if workspace:FindFirstChild(game.Players.LocalPlayer.Name .. "'s Clone") then
 	workspace:WaitForChild(game.Players.LocalPlayer.Name .. "'s Clone"):Destroy()
 		end
-	end
+	end)
 end
 })
 
@@ -2013,16 +2013,15 @@ end
 })
 
 LSection:AddButton({
-	Name = "Neon Body (Head) (?) (NOT FE)",
+	Name = "Neon Body (NOT FE)",
 	Callback = function()
 local Character = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
 
-Character:WaitForChild("Torso").Material = Enum.Material.Neon
-Character.Head.Material = Enum.Material.Neon
-Character["Left Arm"].Material = Enum.Material.Neon
-Character["Left Leg"].Material = Enum.Material.Neon
-Character["Right Arm"].Material = Enum.Material.Neon
-Character["Right Leg"].Material = Enum.Material.Neon
+for num, item in Character:GetChildren() do
+	if item:IsA("Part") then
+		local part = item
+		part.Material = Enum.Material.Neon
+	end
 end
 })
 
@@ -2096,8 +2095,7 @@ BV.Velocity = Vector3.new(0, 0, -5)
 BV.P = Vector3.new(9999, 9999, 9999)
 BV.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
 BV.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
-wait(0.5)
-BV:Destroy()
+game.Debris:AddItem(BV, 0.5)
 	end)
 end
 })
@@ -2113,25 +2111,25 @@ local mouse = Player:GetMouse()
 Humanoid.WalkSpeed = 0
 Humanoid.JumpPower = 0
 
-while wait(1) do
+game:GetService("RunService").Heartbeat:Connect(function()
 local BV = Instance.new("BodyVelocity")
 BV.Velocity = Vector3.new(0, 0, -5)
 BV.P = Vector3.new(9999, 9999, 9999)
 BV.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
 BV.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
-wait(0.5)
-BV:Destroy()
-	end
+game.Debris:AddItem(BV, 0.5)
+task.wait(1)
+	end)
 end
 })
 
 LSection:AddButton({
 	Name = "Lag (Crash) Game (NOT FE)",
 	Callback = function()
-while wait() do
+game:GetService("RunService").Heartbeat:Connect(function()
 local Part = Instance.new("Part")
 Part.Parent = workspace
-	end
+	end)
 end
 })
 
@@ -2219,13 +2217,13 @@ local function RONYXQO_fake_script()
 		local function typewrite(object, text, length)
 			for i = 1, #text, 1 do
 				object.Text = string.sub(text,1,i)
-				wait(length)
+				task.wait(length)
 			end
 		end
 	
 		typewrite(Text, "* " .. message, 0.02)
 	end)
-	wait(1)
+	task.wait(1)
 	
 end
 coroutine.wrap(RONYXQO_fake_script)()
@@ -3228,11 +3226,11 @@ Section:AddButton({
 if game.PlaceId == 6839171747 then
 
 task.defer(function()
-   while wait() do
+   game:GetService("RunService").Heartbeat:Connect(function()
        pcall(function()
            workspace.CurrentRooms["0"].StarterElevator.DoorHitbox:Destroy()
        end)
-   end
+   end)
 end)
 
 game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Disabled = true
@@ -3553,45 +3551,45 @@ game:GetService("ReplicatedStorage").SpawnGalaxyBlock:FireServer()
 Section4:AddButton({
 	Name = "Loop Get Random Item (Lucky Block)",
 	Callback = function()
-	while wait() do
+	game:GetService("RunService").Heartbeat:Connect(function()
 game:GetService("ReplicatedStorage").SpawnLuckyBlock:FireServer()
-	end
+	end)
 end    
 })
 
 Section4:AddButton({
 	Name = "Loop Get Random Item (Super Block)",
 	Callback = function()
-	while wait() do
+	game:GetService("RunService").Heartbeat:Connect(function()
 game:GetService("ReplicatedStorage").SpawnSuperBlock:FireServer()
-	end
+	end)
 end    
 })
 
 Section4:AddButton({
 	Name = "Loop Get Random Item (Diamond Block)",
 	Callback = function()
-	while wait() do
+	game:GetService("RunService").Heartbeat:Connect(function()
 game:GetService("ReplicatedStorage").SpawnDiamondBlock:FireServer()
-	end
+	end)
 end    
 })
 
 Section4:AddButton({
 	Name = "Loop Get Random Item (Rainbow Block)",
 	Callback = function()
-	while wait() do
+	game:GetService("RunService").Heartbeat:Connect(function()
 game:GetService("ReplicatedStorage").SpawnRainbowBlock:FireServer()
-	end
+	end)
 end    
 })
 
 Section4:AddButton({
 	Name = "Loop Get Random Item (Galaxy Block)",
 	Callback = function()
-	while wait() do
+	game:GetService("RunService").Heartbeat:Connect(function()
 game:GetService("ReplicatedStorage").SpawnGalaxyBlock:FireServer()
-	end
+	end)
 end    
 })
 
@@ -3614,20 +3612,20 @@ Section5:AddButton({
 Section6:AddButton({
 	Name = "Auto Energy",
 	Callback = function()
-while wait() do
+game:GetService("RunService").Heartbeat:Connect(function()
 local omgnumber = 9999999999
 
 game:GetService("ReplicatedStorage").Remote.Event.Game["[C-S]PlayerPick"]:FireServer(omgnumber)
-	end
+	end)
 end
 })
 
 Section6:AddButton({
 	Name = "Auto Pick Coins (Auto Trophies)",
 	Callback = function()
-while wait() do
+game:GetService("RunService").Heartbeat:Connect(function()
 game:GetService("ReplicatedStorage").Remote.Event.Game["[C-S]PlayerPickCoin"]:FireServer()
-	end
+	end)
 end
 })
 
@@ -3696,9 +3694,9 @@ CFSSection:AddButton({
 	Name = "Energy",
 	Callback = function()
 	if game:GetService("ReplicatedStorage"):FindFirstChild("Remotes"):FindFirstChild("RE_ClickPower") then
-	while wait() do
+	game:GetService("RunService").Heartbeat:Connect(function()
 game:GetService("ReplicatedStorage").Remotes.RE_ClickPower:FireServer()
-		end
+		end)
 	end
 end  
 })
@@ -3707,10 +3705,10 @@ CFSSection:AddButton({
 	Name = "Spin (s) (?) (Requires at least 1 spin of course)",
 	Callback = function()
 	if game:GetService("ReplicatedStorage"):FindFirstChild("Remotes"):FindFirstChild("RF_Spin") and game:GetService("ReplicatedStorage"):FindFirstChild("Remotes"):FindFirstChild("RF_SpinCount") then
-	while wait() do
+	game:GetService("RunService").Heartbeat:Connect(function()
 game:GetService("ReplicatedStorage").Remotes.RF_Spin:InvokeServer()
 game:GetService("ReplicatedStorage").Remotes.RF_SpinCount:InvokeServer()
-		end
+		end)
 	end
 end  
 })
@@ -3888,9 +3886,9 @@ OMECSection:AddButton({
 	Name = "Money/Blocks",
 	Callback = function()
 	if game:GetService("ReplicatedStorage")["events-shared/network@GlobalEvents"]:FindFirstChild("placeBlock") then
-	while wait() do
+	game:GetService("RunService").Heartbeat:Connect(function()
 game:GetService("ReplicatedStorage")["events-shared/network@GlobalEvents"].placeBlock:FireServer()
-		end
+		end)
 	end
 end  
 })
@@ -3899,12 +3897,12 @@ OMECSection:AddButton({
 	Name = "Spin (Also requires at least 1 spin ofc)",
 	Callback = function()
 	if game:GetService("ReplicatedStorage")["functions-shared/network@GlobalFunctions"]:FindFirstChild("s:claimTimeGift") then
-	while wait() do
+	game:GetService("RunService").Heartbeat:Connect(function()
 local omgnumber1 = 1
 local omgnumber2 = 60
 
 game:GetService("ReplicatedStorage")["functions-shared/network@GlobalFunctions"]["s:claimTimeGift"]:FireServer(omgnumber1, omgnumber2)
-		end
+		end)
 	end
 end  
 })
@@ -4083,10 +4081,10 @@ end
 AWSection:AddButton({
 	Name = "Punch Aura (One Player)",
 	Callback = function()
-    while wait() do
+    game:GetService("RunService").Heartbeat:Connect(function()
 game:GetService("Players").LocalPlayer.Character.Hitbox.Transparency = 0
 game:GetService("Players").LocalPlayer.Character.Hitbox.Position = Vector3.new(workspace.charizardXDaaa.HumanoidRootPart.Position.X, workspace.charizardXDaaa.HumanoidRootPart.Position.Y, workspace.charizardXDaaa.HumanoidRootPart.Position.Z)
-	end
+	end)
 end    
 })
 
@@ -4171,9 +4169,9 @@ end
 CTSection2:AddButton({
 	Name = "Loop Get Money",
 	Callback = function()
-	while wait() do
+	game:GetService("RunService").Heartbeat:Connect(function()
 workspace.Idk32432895["Click For Cash"].RemoteEvent:FireServer()
-	end
+	end)
 end
 })
 
@@ -4244,24 +4242,25 @@ game:GetService("Players").LocalPlayer.PlayerGui["kill button"].TextButton.Borde
 game:GetService("Players").LocalPlayer.PlayerGui["kill button"].TextButton.TextColor3 = Color3.fromRGB(255, 0, 0)
 
 -- Error Button
-while wait() do
+game:GetService("RunService").Heartbeat:Connect(function()
 game:GetService("Players").LocalPlayer.PlayerGui.error.TextButton.Text = "Error"
-wait(0.1)
+task.wait(0.1)
 game:GetService("Players").LocalPlayer.PlayerGui.error.TextButton.Text = "eRror"
-wait(0.1)
+task.wait(0.1)
 game:GetService("Players").LocalPlayer.PlayerGui.error.TextButton.Text = "erRor"
-wait(0.1)
+task.wait(0.1)
 game:GetService("Players").LocalPlayer.PlayerGui.error.TextButton.Text = "errOr"
-wait(0.1)
+task.wait(0.1)
 game:GetService("Players").LocalPlayer.PlayerGui.error.TextButton.Text = "erroR"
+task.wait(0.1)
 end
 
 -- Godmode Button
 game:GetService("Players").LocalPlayer.PlayerGui["invinc button"].TextButton.Font = Enum.Font.Code
 
-while wait() do
+game:GetService("RunService").Heartbeat:Connect(function()
 game:GetService("Players").LocalPlayer.PlayerGui["invinc button"].TextButton.TextColor3 = Color3.fromHSV(tick()%5/5,1,1)
-end
+end)
 
 -- Glove Selector
 game:GetService("Players").LocalPlayer.PlayerGui["glove selector"].ImageButton.BorderSizePixel = 0
@@ -4279,10 +4278,10 @@ end
 AWSection:AddButton({
 	Name = "Punch Aura (All Players)",
 	Callback = function()
-    while wait() do
+    game:GetService("RunService").Heartbeat:Connect(function()
 game:GetService("Players").LocalPlayer.Character.Hitbox.Transparency = 0
 game:GetService("Players").LocalPlayer.Character.Hitbox.Position = Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(math.random(5, 10), math.random(5, 10), math.random(5, 10)))
-	end
+	end)
 end
 })
 --]]
