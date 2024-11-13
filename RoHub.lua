@@ -700,7 +700,7 @@ local mouse = Player:GetMouse()
 
 FlingPower = 25000
 
-game:GetService("RunService").Stepped:Connect(function()
+game:GetService("RunService").RenderStepped:Connect(function()
 Character.Head.CanCollide = false
 Character.Torso.CanCollide = false
 Character.HumanoidRootPart.CanCollide = false
@@ -779,6 +779,16 @@ game:GetService("RunService").RenderStepped:Connect(function()
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):SetStateEnabled("GettingUp", false)
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState("Swimming")
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):SetStateEnabled("GettingUp", true)
+	end)
+end
+})
+
+WSection:AddButton({
+	Name = "Infinite Jump",
+	Callback = function()
+game:GetService("RunService").RenderStepped:Connect(function()
+game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState("Jumping")
+game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):SetStateEnabled("Jumping", false)
 	end)
 end
 })
