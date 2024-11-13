@@ -4249,6 +4249,7 @@ game:GetService("Players").LocalPlayer.PlayerGui["kill button"].TextButton.TextC
 
 -- Error Button
 game:GetService("RunService").Heartbeat:Connect(function()
+game:GetService("Players").LocalPlayer.PlayerGui["invinc button"].TextButton.TextColor3 = Color3.fromHSV(tick()%5/5,1,1)
 game:GetService("Players").LocalPlayer.PlayerGui.error.TextButton.Text = "Error"
 task.wait(0.1)
 game:GetService("Players").LocalPlayer.PlayerGui.error.TextButton.Text = "eRror"
@@ -4259,14 +4260,10 @@ game:GetService("Players").LocalPlayer.PlayerGui.error.TextButton.Text = "errOr"
 task.wait(0.1)
 game:GetService("Players").LocalPlayer.PlayerGui.error.TextButton.Text = "erroR"
 task.wait(0.1)
-end
+end)
 
 -- Godmode Button
 game:GetService("Players").LocalPlayer.PlayerGui["invinc button"].TextButton.Font = Enum.Font.Code
-
-game:GetService("RunService").Heartbeat:Connect(function()
-game:GetService("Players").LocalPlayer.PlayerGui["invinc button"].TextButton.TextColor3 = Color3.fromHSV(tick()%5/5,1,1)
-end)
 
 -- Glove Selector
 game:GetService("Players").LocalPlayer.PlayerGui["glove selector"].ImageButton.BorderSizePixel = 0
