@@ -2138,7 +2138,7 @@ LSection:AddButton({
 	Callback = function()
 	local Character = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
 	spawn(function()
-		repeat wait()
+		repeat task.wait()
 			for _,v in pairs(Character:GetChildren()) do
 				if v:IsA("Accessory") then
 					local Handle = Instance.new("Part")
@@ -2157,14 +2157,14 @@ LSection:AddButton({
 	Callback = function()
 	local Character = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
 	spawn(function()
-		repeat wait()
+		repeat task.wait()
 			for _,v in pairs(Character:GetChildren()) do
 				if v:IsA("Accessory") then
 					local Handle = v.Handle:Clone()
 					local Tool = Instance.new("Tool", game.Players.LocalPlayer.Backpack)
 					Tool.Name = "Touch Hair"
 					Handle.Parent = Tool
-					wait(10000)
+					task.wait(9e9)
 					break
 				end
 			end
@@ -2916,15 +2916,11 @@ end
 ConsoleSection:AddButton({
 	Name = "Print all RemoveEvents",
 	Callback = function()
-		spawn(function()
-			repeat wait()
-				for _,v in pairs(game.ReplicatedStorage:GetDescendants()) do
-					if v:IsA("RemoteEvent") then
-						print("Found", v.Name, "- located in:", v.Parent)
-					end
-				end
-			until wait(1)
-		end)
+	for num, item in pairs(game.ReplicatedStorage:GetDescendants()) do
+			if item:IsA("RemoteEvent") then
+				print("Found " .. item.Name .. " - located in: " .. item.Parent)
+			end
+		end
 	end    
 })
 
@@ -3243,7 +3239,7 @@ Section:AddButton({
 	Name = "Full Bright",
 	Callback = function()
 spawn(function()
-    repeat wait()
+    repeat task.wait()
         for _,v in pairs(game:GetChildren()) do
             if v.Name == "Lighting" then
                    game:GetService("Lighting").Ambient = Color3.fromRGB(255, 255, 255)
