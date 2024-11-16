@@ -2023,6 +2023,7 @@ for num, item in Character:GetChildren() do
 	Part.Material = Enum.Material.Neon
 end
 end
+end
 })
 
 LSection:AddButton({
