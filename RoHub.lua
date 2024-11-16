@@ -2012,6 +2012,8 @@ Character.Animate.fall.FallAnim.AnimationId = "rbxassetid://"
 end
 })
 
+-- doesnt work
+--[[
 LSection:AddButton({
 	Name = "Neon Body (NOT FE)",
 	Callback = function()
@@ -2025,6 +2027,7 @@ end
 end
 end
 })
+--]]
 
 LSection:AddButton({
 	Name = "High Jump",
