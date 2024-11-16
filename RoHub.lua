@@ -2013,16 +2013,15 @@ end
 })
 
 LSection:AddButton({
-	Name = "Neon Body (Head) (?) (NOT FE)",
+	Name = "Neon Body (NOT FE)",
 	Callback = function()
 local Character = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
 
-Character:WaitForChild("Torso").Material = Enum.Material.Neon
-Character.Head.Material = Enum.Material.Neon
-Character["Left Arm"].Material = Enum.Material.Neon
-Character["Left Leg"].Material = Enum.Material.Neon
-Character["Right Arm"].Material = Enum.Material.Neon
-Character["Right Leg"].Material = Enum.Material.Neon
+for num, item in Character:GetChildren() do
+	if item:IsA("Part") item.Parent.ClassName ~= "Accessory" then
+	local Part = item
+	Part.Material = Enum.Material.Neon
+end
 end
 })
 
