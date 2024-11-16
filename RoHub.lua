@@ -2018,7 +2018,7 @@ LSection:AddButton({
 local Character = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
 
 for num, item in Character:GetChildren() do
-	if item:IsA("Part") item.Parent.ClassName ~= "Accessory" then
+	if item:IsA("Part") and item.Parent.ClassName ~= "Accessory" then
 	local Part = item
 	Part.Material = Enum.Material.Neon
 end
