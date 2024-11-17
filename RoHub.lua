@@ -938,7 +938,7 @@ WSection:AddSlider({
 end    
 })
 
-Section0:AddDropdown({
+WSection:AddDropdown({
 	Name = "MouseBehavior",
 	Default = "Default",
 	Options = {"Default", "LockCenter", "LockCurrentPosition"},
