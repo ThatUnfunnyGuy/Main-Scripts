@@ -812,7 +812,9 @@ function OrionLib:MakeWindow(WindowConfig)
 
 				local LabelFunction = {}
 				function LabelFunction:Set(ToChange)
+					if LabelFrame:FindFirstChild("Content") then
 					LabelFrame.Content.Text = ToChange
+					end
 				end
 				return LabelFunction
 			end
