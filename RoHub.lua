@@ -4577,7 +4577,7 @@ Tab8:AddLabel("Total Features: 149+")
 Tab8:AddLabel("Total Supported Games: 11")
 
 -- Changes
-Section13:AddParagraph("11/8/2024","[/] Re-coded some features in order to optimize them\n(Universal)\n[+] Set WalkSpeed/JumpPower/Gravity/FallenPartsDestroyHeight/MaxSlopeAngle Endlessly\n[+] Set FPS Cap + Setting\n[+] Custom Character (actually a recreation of the original script)\n[+] Remove HumanoidRootPart\n[+] Create Part (NOT FE) + Activate Part Trail\n[+] SoulHub\n[/] Renamed 'Semi-Fly' & 'Semi-Fly (On Click' to 'High Jump' & 'High Jump (On Click)'\n[+] Remove Accessories (NOT FE) + Loop Remove Accessories (NOT FE)\n[+] Create Team (NOT FE) + Settings\n[-] Custom Animation\n[+] Orion Hub Notification + Settings\n(Extra)\n[+] Executor")
+Section13:AddParagraph("11/8/2024","[/] Re-coded some features in order to optimize them\n(Universal)\n[+] Set WalkSpeed/JumpPower/Gravity/FallenPartsDestroyHeight/MaxSlopeAngle Endlessly\n[+] Set FPS Cap + Setting\n[+] MouseIconEnabled + Set MouseDeltaSensitivity + MouseBehavior\n[+] Custom Character (actually a recreation of the original script)\n[+] Remove HumanoidRootPart\n[+] Create Part (NOT FE) + Activate Part Trail\n[+] SoulHub\n[/] Renamed 'Semi-Fly' & 'Semi-Fly (On Click' to 'High Jump' & 'High Jump (On Click)'\n[+] Remove Accessories (NOT FE) + Loop Remove Accessories (NOT FE)\n[+] Create Team (NOT FE) + Settings\n[-] Custom Animation\n[+] Orion Hub Notification + Settings\n(Extra)\n[+] Executor")
 Section13:AddParagraph("Meanings","[+] = Added, [-] = Removed/Disabled, [/] = Miscellaneous Change")
 Section13:AddParagraph("Announcement (s)","None.")
 
