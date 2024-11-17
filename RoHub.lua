@@ -4581,11 +4581,11 @@ Section13:AddParagraph("11/8/2024","[/] Re-coded some features in order to optim
 Section13:AddParagraph("Meanings","[+] = Added, [-] = Removed/Disabled, [/] = Miscellaneous Change")
 Section13:AddParagraph("Announcement (s)","None.")
 
-OrionLib:Init()
-
 game:GetService("RunService").Heartbeat:Connect(function()
 XPosLabel:Set("Current X Position = " .. game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position.X or NewCharacter.Torso.Position.X)
 YPosLabel:Set("Current Y Position = " .. game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position.Y or NewCharacter.Torso.Position.Y)
 ZPosLabel:Set("Current Z Position = " .. game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position.Z or NewCharacter.Torso.Position.Z)
 --CurrentCharacterLabel:Set("Current Character = CurrentCharacter)
 end)
+
+OrionLib:Init()
