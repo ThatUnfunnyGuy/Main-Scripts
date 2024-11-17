@@ -3407,7 +3407,7 @@ SettingsSection:AddToggle({
 SettingsSection:AddTextbox({
 	Name = "FPS Cap",
 	Default = 0,
-	TextDisappear = true,
+	TextDisappear = false,
 	Callback = function(Value)
 		FPSCap = Value
 				OrionLib:MakeNotification({
