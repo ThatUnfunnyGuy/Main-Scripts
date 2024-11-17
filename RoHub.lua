@@ -231,6 +231,10 @@ BOLEffect.Enabled = false
 end
 --]]
 
+local TeamName
+local TeamColor
+local TeamAutoAssignable
+
 local Tab0 = Window:MakeTab({
 	Name = "Universal",
 	Icon = "rbxassetid://4483345998",
@@ -819,10 +823,18 @@ end
 })
 
 WSection:AddToggle({
-	Name = "Toggle Bubble Chat",
+	Name = "Toggle BubbleChat",
 	Default = false,
 	Callback = function(Value)
 Chat.BubbleChatEnabled = Value
+	end    
+})
+
+WSection:AddToggle({
+	Name = "Toggle GlobalShadows",
+	Default = true,
+	Callback = function(Value)
+game:GetService("Lighting").GlobalShadows = Value
 	end    
 })
 
@@ -2553,6 +2565,17 @@ end)
 end
 })
 
+LSection:AddButton({
+	Name = "Create Team (NOT FE)",
+	Callback = function()
+local Team = Instance.new("Team")
+Team.Name = TeamName
+Team.TeamColor = TeamColor
+Team.AutoAssignable = TeamAutoAssignable
+Team.Parent = game:GetService("Teams")
+end
+})
+
 LSection:AddToggle({
 	Name = "Toggle HumanoidRootPart Anchor",
 	Default = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored,
@@ -3224,6 +3247,74 @@ SettingsSection:AddTextbox({
 })
 end	  
 })
+
+SettingsSection:AddTextbox({
+	Name = "Team Name",
+	Default = TeamName,
+	TextDisappear = false,
+	Callback = function(Value)
+		TeamName = Value
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set TeamName to " .. "'" .. Value .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddDropdown({
+	Name = "Team Color",
+	Default = "1",
+	Options = {"White", "Bright red", "Sea green", "Bright blue", "Smoky grey", "Really black", "Bright violet", "Reddish brown", "Deep orange", "Bright yellow"},
+	Callback = function(Value)
+		TeamColor = BrickColor3.new(tostring(Value))
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set TeamColor to " .. "'" .. Value .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	    
+})
+
+SettingsSection:AddToggle({
+	Name = "Team AutoAssignable",
+	Default = TeamAutoAssignable,
+	Callback = function(Value)
+		TeamAutoAssignable = Value
+	end    
+})
+
+--[[
+Name = <string> - The name of the toggle.
+Default = <bool> - The default value of the toggle.
+Callback = <function> - The function of the toggle.
+]]
+
+--[[
+Name = <string> - The name of the dropdown.
+Default = <string> - The default value of the dropdown.
+Options = <table> - The options in the dropdown.
+Callback = <function> - The function of the dropdown.
+]]
+
+--[[
+SettingsSection:AddTextbox({
+	Name = "Team Color",
+	Default = TeamColor,
+	TextDisappear = false,
+	Callback = function(Value)
+		TeamColor = BrickColor3.new(tostring(Value))
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set TeamName to " .. "'" .. Value .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+--]]
 
 Section:AddButton({
 	Name = "Bypass Anti-Cheat",
