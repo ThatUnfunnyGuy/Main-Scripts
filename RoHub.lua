@@ -822,7 +822,7 @@ end
 
 WSection:AddToggle({
 	Name = "Toggle Shiftlock",
-	Default = true,
+	Default = game:GetService("Players").LocalPlayer.DevEnableMouseLock,
 	Callback = function(Value)
 local Players = game:GetService("Players")
 
@@ -849,6 +849,71 @@ WSection:AddToggle({
 	Default = game:GetService("Lighting").GlobalShadows,
 	Callback = function(Value)
 game:GetService("Lighting").GlobalShadows = Value
+	end    
+})
+
+LSection:AddToggle({
+	Name = "Toggle HumanoidRootPart Anchor",
+	Default = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored,
+	Callback = function(Value)
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = Value
+end
+})
+
+LSection:AddToggle({
+	Name = "Toggle Collision With HumanoidRootPart",
+	Default = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CanCollide,
+	Callback = function(Value)
+game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CanCollide = Value
+end
+})
+
+LSection:AddToggle({
+	Name = "Toggle AutoJump",
+	Default = game:GetService("Players").LocalPlayer.Character.Humanoid.AutoJumpEnabled,
+	Callback = function(Value)
+game:GetService("Players").LocalPlayer.Character.Humanoid.AutoJumpEnabled = Value
+game:GetService("Players").LocalPlayer.AutoJumpEnabled = Value
+end
+})
+
+LSection:AddToggle({
+	Name = "Toggle AutoRotate",
+	Default = game:GetService("Players").LocalPlayer.Character.Humanoid.AutoRotate,
+	Callback = function(Value)
+game:GetService("Players").LocalPlayer.Character.Humanoid.AutoRotate = Value
+end
+})
+
+LSection:AddToggle({
+	Name = "Platform Stand",
+	Default = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").PlatformStand,
+	Callback = function(Value)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").PlatformStand = Value
+	end    
+})
+
+LSection:AddToggle({
+	Name = "Sit",
+	Default = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Sit,
+	Callback = function(Value)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Sit = Value
+	end    
+})
+
+LSection:AddToggle({
+	Name = "BreakJointsOnDeath",
+	Default = game:GetService("Players").LocalPlayer.Character.Humanoid.BreakJointsOnDeath,
+	Callback = function(Value)
+game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").BreakJointsOnDeath = Value
+	end    
+})
+
+LSection:AddToggle({
+	Name = "CharacterAutoLoads",
+	Default = game:GetService("Players").CharacterAutoLoads,
+	Callback = function(Value)
+game:GetService("Players").CharacterAutoLoads = Value
 	end    
 })
 
@@ -2640,62 +2705,6 @@ end
 SunRays:Destroy()
 end
 end
-})
-
-LSection:AddToggle({
-	Name = "Toggle HumanoidRootPart Anchor",
-	Default = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored,
-	Callback = function(Value)
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = Value
-end
-})
-
-LSection:AddToggle({
-	Name = "Toggle Collision With HumanoidRootPart",
-	Default = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CanCollide,
-	Callback = function(Value)
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CanCollide = Value
-end
-})
-
-LSection:AddToggle({
-	Name = "Toggle AutoJump",
-	Default = game:GetService("Players").LocalPlayer.Character.Humanoid.AutoJumpEnabled,
-	Callback = function(Value)
-game:GetService("Players").LocalPlayer.Character.Humanoid.AutoJumpEnabled = Value
-end
-})
-
-LSection:AddToggle({
-	Name = "Platform Stand (Stun)",
-	Default = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").PlatformStand,
-	Callback = function(Value)
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").PlatformStand = Value
-	end    
-})
-
-LSection:AddToggle({
-	Name = "Sit",
-	Default = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Sit,
-	Callback = function(Value)
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Sit = Value
-	end    
-})
-
-LSection:AddToggle({
-	Name = "BreakJointsOnDeath",
-	Default = game:GetService("Players").LocalPlayer.Character.Humanoid.BreakJointsOnDeath,
-	Callback = function(Value)
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").BreakJointsOnDeath = Value
-	end    
-})
-
-LSection:AddToggle({
-	Name = "CharacterAutoLoads",
-	Default = game:GetService("Players").CharacterAutoLoads,
-	Callback = function(Value)
-game:GetService("Players").CharacterAutoLoads = Value
-	end    
 })
 
 if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Animate") then
