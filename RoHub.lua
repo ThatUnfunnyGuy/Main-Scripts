@@ -3397,7 +3397,7 @@ SettingsSection:AddToggle({
 		TeamAutoAssignable = Value
 							OrionLib:MakeNotification({
 	Name = "Done!",
-	Content = "Set TeamAutoAssignable to " .. "BrickColor.new(" .. Value .. ")" .. "!",
+	Content = "Set TeamAutoAssignable to " .. "BrickColor.new(" .. tostring(Value) .. ")" .. "!",
 	Image = "rbxassetid://4483345998",
 	Time = 5			
 })
