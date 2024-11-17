@@ -981,8 +981,14 @@ WSection:AddBind({
     --local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
     --local HRPCF = HumanoidRootPart.CFrame
     --local HRPLV = HRPCF.LookVector
+local Success, err = pcall(function()
 Character:SetPrimaryPartCFrame(DesiredCharacter.HumanoidRootPart.CFrame)
-	end    
+	end)
+end
+
+if not Success then
+	warn("Set Desired Character first!")
+end
 })
 
 GoofySection:AddButton({
