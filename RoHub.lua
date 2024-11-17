@@ -2063,7 +2063,7 @@ LSection:AddButton({
 	BV.P = Vector3.new(0, 100, 0)
 	BV.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
 	BV.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
-	wait(0.5)
+	task.wait(0.5)
 	BV:Destroy()
 end
 })
@@ -2079,7 +2079,7 @@ local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 	BV.P = Vector3.new(0, 100, 0)
 	BV.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
 	BV.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
-	wait(0.5)
+	task.wait(0.5)
 	BV:Destroy()
 	end)
 end
