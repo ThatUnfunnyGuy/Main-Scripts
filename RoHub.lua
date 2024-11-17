@@ -852,7 +852,7 @@ game:GetService("Lighting").GlobalShadows = Value
 	end    
 })
 
-LSection:AddToggle({
+WSection:AddToggle({
 	Name = "Toggle HumanoidRootPart Anchor",
 	Default = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored,
 	Callback = function(Value)
@@ -860,7 +860,7 @@ game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = Val
 end
 })
 
-LSection:AddToggle({
+WSection:AddToggle({
 	Name = "Toggle Collision With HumanoidRootPart",
 	Default = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CanCollide,
 	Callback = function(Value)
@@ -868,7 +868,7 @@ game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CanCollide = V
 end
 })
 
-LSection:AddToggle({
+WSection:AddToggle({
 	Name = "Toggle AutoJump",
 	Default = game:GetService("Players").LocalPlayer.Character.Humanoid.AutoJumpEnabled,
 	Callback = function(Value)
@@ -877,7 +877,7 @@ game:GetService("Players").LocalPlayer.AutoJumpEnabled = Value
 end
 })
 
-LSection:AddToggle({
+WSection:AddToggle({
 	Name = "Toggle AutoRotate",
 	Default = game:GetService("Players").LocalPlayer.Character.Humanoid.AutoRotate,
 	Callback = function(Value)
@@ -885,7 +885,7 @@ game:GetService("Players").LocalPlayer.Character.Humanoid.AutoRotate = Value
 end
 })
 
-LSection:AddToggle({
+WSection:AddToggle({
 	Name = "Platform Stand",
 	Default = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").PlatformStand,
 	Callback = function(Value)
@@ -893,7 +893,7 @@ game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Platfo
 	end    
 })
 
-LSection:AddToggle({
+WSection:AddToggle({
 	Name = "Sit",
 	Default = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Sit,
 	Callback = function(Value)
@@ -901,7 +901,7 @@ game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Sit = 
 	end    
 })
 
-LSection:AddToggle({
+WSection:AddToggle({
 	Name = "BreakJointsOnDeath",
 	Default = game:GetService("Players").LocalPlayer.Character.Humanoid.BreakJointsOnDeath,
 	Callback = function(Value)
@@ -909,11 +909,41 @@ game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").BreakJ
 	end    
 })
 
-LSection:AddToggle({
+WSection:AddToggle({
 	Name = "CharacterAutoLoads",
 	Default = game:GetService("Players").CharacterAutoLoads,
 	Callback = function(Value)
 game:GetService("Players").CharacterAutoLoads = Value
+	end    
+})
+
+WSection:AddToggle({
+	Name = "MouseIconEnabled",
+	Default = game:GetService("UserInputService").MouseIconEnabled,
+	Callback = function(Value)
+game:GetService("UserInputService").MouseIconEnabled = Value
+	end    
+})
+
+WSection:AddSlider({
+	Name = "Set MouseDeltaSensitivity",
+	Min = 1,
+	Max = 10,
+	Default = game:GetService("UserInputService").MouseDeltaSensitivity,
+	Color = Color3.fromRGB(132, 132, 132),
+	Increment = 1,
+	ValueName = "Sensitivity",
+	Callback = function(Value)
+	game:GetService("UserInputService").MouseDeltaSensitivity = Value
+end    
+})
+
+Section0:AddDropdown({
+	Name = "MouseBehavior",
+	Default = "Default",
+	Options = {"Default", "LockCenter", "LockCurrentPosition"},
+	Callback = function(Value)
+		game:GetService("UserInputService").MouseBehavior = Value
 	end    
 })
 
