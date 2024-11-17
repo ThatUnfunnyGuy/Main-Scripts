@@ -3,7 +3,7 @@ if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
 
---[[Supported Games List]]--
+--[[Supported Games]]--
 --// DOORS
 --// Lucky Block Battlegrounds
 --// Ski Race
@@ -16,6 +16,7 @@ end
 --// Computer Tycoon
 --// KillStreak Universe
 
+-- Setup the Orion library
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ThatUnfunnyGuy/Main-Scripts/refs/heads/main/Orion%20Hub%20(Fix%20Attempt)')))()
 
 local Window = OrionLib:MakeWindow({Name = "RoHub (v1.7.0)", HidePremium = false, SaveConfig = true, ConfigFolder = "RoHub", IntroEnabled = true})
@@ -102,6 +103,7 @@ local TextTable = {
 
     local Rotation = Instance.new("Animation")
         Rotation.AnimationId = "rbxassetid://136801964"
+
 -- Music
     local RelaxedScene = Instance.new("Sound", SoundService)
     RelaxedScene.Name = "RelaxedScene"
@@ -1765,7 +1767,7 @@ LSection:AddButton({
 	
 	-- Not working
 	Clone:WaitForChild("Animate").Enabled = false
-	wait(1)
+	task.wait(1)
 	Clone:WaitForChild("Animate").Enabled = true
 end    
 })
@@ -1773,7 +1775,7 @@ end
 LSection:AddButton({
 	Name = "Loop Clone Yourself (NOT FE)",
 	Callback = function()
-	while wait() do
+	while task.wait() do
 	game:GetService("Players").LocalPlayer.Character.Archivable = true
 	Clone = game:GetService("Players").LocalPlayer.Character:Clone()
 	Clone.Name = game:GetService("Players").LocalPlayer.Name .. "'s Clone"
@@ -1782,7 +1784,7 @@ LSection:AddButton({
 	
 	-- Not working
 	Clone:WaitForChild("Animate").Enabled = false
-	wait(1)
+	task.wait(1)
 	Clone:WaitForChild("Animate").Enabled = true
 	end
 end    
@@ -2229,19 +2231,20 @@ local function RONYXQO_fake_script()
 	local script = Instance.new('LocalScript', MessageText)
 
 	game.Players.LocalPlayer.Chatted:Connect(function(message)
-		local Text = script.Parent
+		Text = script.Parent
+		Text.TextTransparency = 0
 	
 		local function typewrite(object, text, length)
 			for i = 1, #text, 1 do
 				object.Text = string.sub(text,1,i)
-				wait(length)
+				task.wait(length)
 			end
 		end
 	
 		typewrite(Text, "* " .. message, 0.02)
 	end)
-	wait(1)
-	
+	task.wait(1.5)
+	Text.TextTransparency = 1
 end
 coroutine.wrap(RONYXQO_fake_script)()
 	end    
@@ -2582,6 +2585,48 @@ Team.Name = TeamName
 Team.TeamColor = TeamColor
 Team.AutoAssignable = TeamAutoAssignable
 Team.Parent = game:GetService("Teams")
+end
+})
+
+LSection:AddButton({
+	Name = "Better Graphics",
+	Callback = function(Value)
+    if not game:GetService("Lighting"):FindFirstChild("Blur") then
+    local Blur = Instance.new("BlurEffect", game.Lighting)
+    Blur.Size = 5
+
+    if not game:GetService("Lighting"):FindFirstChild("Bloom") then
+    local Bloom = Instance.new("BloomEffect", game.Lighting)
+    Bloom.Intensity = 2.5
+    Bloom.Size = 1000
+    Bloom.Threshold = 6
+
+    if not game:GetService("Lighting"):FindFirstChild("SunRays") then
+    local Bloom = Instance.new("SunRaysEffect", game.Lighting)
+    Bloom.Intensity = 1
+    Bloom.Spread = 1
+end
+end
+end
+end
+})
+
+LSection:AddButton({
+	Name = "Disable Better Graphics",
+	Callback = function(Value)
+    if game:GetService("Lighting"):FindFirstChild("Blur") then
+    local Blur = game:GetService("Lighting"):WaitForChild("Blur")
+Blur:Destroy()
+end
+    if game:GetService("Lighting"):FindFirstChild("Bloom") then
+    local Bloom = game:GetService("Lighting"):WaitForChild("Bloom")
+Bloom:Destroy()
+end
+
+    if game:GetService("Lighting"):FindFirstChild("SunRays") then
+    local SunRays = game:GetService("Lighting"):WaitForChild("SunRays")
+SunRays:Destroy()
+end
 end
 })
 
@@ -4013,48 +4058,6 @@ game:GetService("ReplicatedStorage")["functions-shared/network@GlobalFunctions"]
 end  
 })
 
-Section10:AddButton({
-	Name = "Better Graphics",
-	Callback = function(Value)
-    if not game:GetService("Lighting"):FindFirstChild("Blur") then
-    local Blur = Instance.new("BlurEffect", game.Lighting)
-    Blur.Size = 5
-
-    if not game:GetService("Lighting"):FindFirstChild("Bloom") then
-    local Bloom = Instance.new("BloomEffect", game.Lighting)
-    Bloom.Intensity = 2.5
-    Bloom.Size = 1000
-    Bloom.Threshold = 6
-
-    if not game:GetService("Lighting"):FindFirstChild("SunRays") then
-    local Bloom = Instance.new("SunRaysEffect", game.Lighting)
-    Bloom.Intensity = 1
-    Bloom.Spread = 1
-end
-end
-end
-end
-})
-
-Section10:AddButton({
-	Name = "Disable Better Graphics",
-	Callback = function(Value)
-    if game:GetService("Lighting"):FindFirstChild("Blur") then
-    local Blur = game:GetService("Lighting"):WaitForChild("Blur")
-Blur:Destroy()
-end
-    if game:GetService("Lighting"):FindFirstChild("Bloom") then
-    local Bloom = game:GetService("Lighting"):WaitForChild("Bloom")
-Bloom:Destroy()
-end
-
-    if game:GetService("Lighting"):FindFirstChild("SunRays") then
-    local SunRays = game:GetService("Lighting"):WaitForChild("SunRays")
-SunRays:Destroy()
-end
-end
-})
-
 --[[
 Section8:AddButton({
 	Name = "Equip Gun",
@@ -4470,7 +4473,7 @@ Tab8:AddLabel("Total Features: 145+")
 Tab8:AddLabel("Total Supported Games: 11")
 
 -- Changes
-Section13:AddParagraph("11/8/2024","[/] Re-coded some features in order to optimize them\n[/] Moved the Stuff Section to the Universal tab & renamed it to 'Extra'\n[/] Moved the Universal SoulHub feature to the Universal tab, in the Extra section\n(Universal)\n[+] Set WalkSpeed/JumpPower/Gravity/FallenPartsDestroyHeight/MaxSlopeAngle Endlessly\n[+] Custom Character (actually a recreation of the original script)\n[+] Remove HumanoidRootPart\n[+] Create Part + Activate Part Trail\n[+] SoulHub\n[/] Renamed 'Semi-Fly' & 'Semi-Fly (On Click' to 'High Jump' & 'High Jump (On Click)'\n[+] Remove Accessories\n[-] Custom Animation\n[+] Orion Hub Notification + Settings\n")
+Section13:AddParagraph("11/8/2024","[/] Re-coded some features in order to optimize them\n[/] Moved the Universal SoulHub feature to the Universal tab, in the Extra section\n(Universal)\n[+] Set WalkSpeed/JumpPower/Gravity/FallenPartsDestroyHeight/MaxSlopeAngle Endlessly\n[+] Custom Character (actually a recreation of the original script)\n[+] Remove HumanoidRootPart\n[+] Create Part (NOT FE) + Activate Part Trail\n[+] SoulHub\n[/] Renamed 'Semi-Fly' & 'Semi-Fly (On Click' to 'High Jump' & 'High Jump (On Click)'\n[+] Remove Accessories (NOT FE) + Loop Remove Accessories (NOT FE)\n[+] Create Team (NOT FE) + Settings\n[-] Custom Animation\n[+] Orion Hub Notification + Settings")
 Section13:AddParagraph("Meanings","[+] = Added, [-] = Removed/Disabled, [/] = Miscellaneous Change")
 Section13:AddParagraph("Announcement (s)","None.")
 
