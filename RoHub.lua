@@ -1845,7 +1845,7 @@ end
 })
 
 LSection:AddButton({
-	Name = "Get Naked (NOT FE)",
+	Name = "No Clothing (NOT FE)",
 	Callback = function()
 	game:GetService("Players").LocalPlayer.Character:WaitForChild("Shirt"):Destroy()
 	game:GetService("Players").LocalPlayer.Character:WaitForChild("Pants"):Destroy()
@@ -1853,7 +1853,7 @@ end
 })
 
 LSection:AddButton({
-	Name = "Alternative Get Naked (NOT FE)",
+	Name = "Alternative No Clothing (NOT FE)",
 	Callback = function()
 	game:GetService("Players").LocalPlayer.Character:WaitForChild("Shirt").ShirtTemplate = ""
 	game:GetService("Players").LocalPlayer.Character:WaitForChild("Pants").PantsTemplate = ""
