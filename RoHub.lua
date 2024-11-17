@@ -824,7 +824,7 @@ end
 
 WSection:AddToggle({
 	Name = "Toggle BubbleChat",
-	Default = false,
+	Default = Chat.BubbleChatEnabled,
 	Callback = function(Value)
 Chat.BubbleChatEnabled = Value
 	end    
@@ -832,7 +832,7 @@ Chat.BubbleChatEnabled = Value
 
 WSection:AddToggle({
 	Name = "Toggle GlobalShadows",
-	Default = true,
+	Default = game:GetService("Lighting").GlobalShadows,
 	Callback = function(Value)
 game:GetService("Lighting").GlobalShadows = Value
 	end    
@@ -3265,15 +3265,18 @@ end
 
 SettingsSection:AddDropdown({
 	Name = "Team Color",
-	Default = "1",
+	Default = "White",
 	Options = {"White", "Bright red", "Sea green", "Bright blue", "Smoky grey", "Really black", "Bright violet", "Reddish brown", "Deep orange", "Bright yellow"},
 	Callback = function(Value)
+		print(TeamColor)
 		TeamColor = BrickColor3.new(tostring(Value))
+		print(TeamColor)
 				OrionLib:MakeNotification({
 	Name = "Done!",
 	Content = "Set TeamColor to " .. "'" .. Value .. "'" .. "!",
 	Image = "rbxassetid://4483345998",
 	Time = 5
+					
 })
 end	    
 })
