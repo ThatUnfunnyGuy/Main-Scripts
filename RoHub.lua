@@ -983,11 +983,11 @@ WSection:AddBind({
     --local HRPLV = HRPCF.LookVector
 local Success, err = pcall(function()
 Character:SetPrimaryPartCFrame(DesiredCharacter.HumanoidRootPart.CFrame)
-	end)
-end
+end)
 
 if not Success then
 	warn("Set Desired Character first!")
+end
 end
 })
 
