@@ -3269,7 +3269,7 @@ SettingsSection:AddDropdown({
 	Options = {"White", "Bright red", "Sea green", "Bright blue", "Smoky grey", "Really black", "Bright violet", "Reddish brown", "Deep orange", "Bright yellow"},
 	Callback = function(Value)
 		print(TeamColor)
-		TeamColor = BrickColor3.new(tostring(Value))
+		TeamColor = BrickColor.new(tostring(Value))
 		print(TeamColor)
 				OrionLib:MakeNotification({
 	Name = "Done!",
