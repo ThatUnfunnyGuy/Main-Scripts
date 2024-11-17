@@ -3409,7 +3409,7 @@ SettingsSection:AddTextbox({
 	Default = 0,
 	TextDisappear = false,
 	Callback = function(Value)
-		FPSCap = Value
+		FPSCap = tonumber(Value)
 				OrionLib:MakeNotification({
 	Name = "Done!",
 	Content = "Set FPSCap to " .. "'" .. tostring(Value) .. "'" .. "!",
