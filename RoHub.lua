@@ -279,9 +279,12 @@ local SettingsSection = Tab0:AddSection({
 	Name = "Settings"
 })
 
+-- Unused
+--[[
 local Section10 = Tab0:AddSection({
 	Name = "Extra"
 })
+--]]
 
 local Tab = Window:MakeTab({
 	Name = "Doors",
@@ -3011,6 +3014,13 @@ ConsoleSection:AddButton({
 })
 
 ConsoleSection:AddButton({
+	Name = "Run UNC Environment Check",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/main/UNCCheckEnv.lua", true))()
+	end    
+})
+
+ConsoleSection:AddButton({
 	Name = "Warn",
 	Callback = function()
 	warn(WarnText)
@@ -4463,13 +4473,14 @@ Section12:AddParagraph("Infinite Yield","EdgeIY (AKA Edge, Zwolf and Moon) (GitH
 Section12:AddParagraph("Dark Dex V3","Moon (and Courtney I guess) (GitHub) (?)")
 Section12:AddParagraph("Hydroxide","Upbolt (GitHub)")
 Section12:AddParagraph("R15 Emotes GUI","Gi#7331 (Discord)")
+Section12:AddParagraph("UNC Environment Check","NamingStandard (GitHub)")
 Section12:AddParagraph("Doors Anti-Cheat Bypass","sashaa#5351 (Discord)")
-Section12:AddParagraph("Features (except the two credited ones above)","idk.#5293 (Discord)")
+Section12:AddParagraph("Features (except the ones above)","idk.#5293 (Discord)")
 
 --[[Update Log]]--
 
 -- Features & Games Count
-Tab8:AddLabel("Total Features: 145+")
+Tab8:AddLabel("Total Features: 149+")
 Tab8:AddLabel("Total Supported Games: 11")
 
 -- Changes
