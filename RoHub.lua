@@ -2266,7 +2266,7 @@ end
 })
 
 LSection:AddButton({
-	Name = "Create Part",
+	Name = "Create Part (NOT FE)",
 	Callback = function()
 local Part = Instance.new("Part")
 Part.Parent = workspace
@@ -2320,6 +2320,15 @@ LSection:AddButton({
 	Name = "Remove Accessories (NOT FE)",
 	Callback = function()
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):RemoveAccessories()
+end
+})
+
+LSection:AddButton({
+	Name = "Loop Remove Accessories (NOT FE)",
+	Callback = function()
+game:GetService("RunService").Heartbeat:Connect(function()
+game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):RemoveAccessories()
+	end)
 end
 })
 
@@ -3801,7 +3810,7 @@ end
 })
 
 CFSSection:AddButton({
-	Name = "Spin (s) (?) (Requires at least 1 spin of course)",
+	Name = "Spins (Requires at least 1 Spin)",
 	Callback = function()
 	if game:GetService("ReplicatedStorage"):FindFirstChild("Remotes"):FindFirstChild("RF_Spin") and game:GetService("ReplicatedStorage"):FindFirstChild("Remotes"):FindFirstChild("RF_SpinCount") then
 	while wait() do
@@ -3993,7 +4002,7 @@ end
 })
 
 OMECSection:AddButton({
-	Name = "Spin (Also requires at least 1 spin ofc)",
+	Name = "Spin (Also requires at least 1 Spin)",
 	Callback = function()
 	if game:GetService("ReplicatedStorage")["functions-shared/network@GlobalFunctions"]:FindFirstChild("s:claimTimeGift") then
 	while wait() do
