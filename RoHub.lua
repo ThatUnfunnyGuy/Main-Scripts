@@ -237,6 +237,8 @@ local TeamName
 local TeamColor
 local TeamAutoAssignable
 
+local FPSCap
+
 local Tab0 = Window:MakeTab({
 	Name = "Universal",
 	Icon = "rbxassetid://4483345998",
@@ -800,6 +802,13 @@ if table.find(StaffTable, plr.Name) == not nil then
 game.Players.LocalPlayer:Kick("Staff joined.")
 end
 end)
+end    
+})
+
+WSection:AddButton({
+	Name = "Set FPS Cap",
+	Callback = function()
+setfpscap(FPSCap)
 end    
 })
 
@@ -3260,7 +3269,7 @@ SettingsSection:AddTextbox({
 		NotificationIcon = Value
 				OrionLib:MakeNotification({
 	Name = "Done!",
-	Content = "Set NotificationIcon to " .. "'" .. Value .. "'" .. "!",
+	Content = "Set NotificationIcon to " .. Value .. "!",
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
@@ -3305,7 +3314,7 @@ SettingsSection:AddTextbox({
 		OHNotificationIcon = Value
 				OrionLib:MakeNotification({
 	Name = "Done!",
-	Content = "Set OHNotificationIcon to " .. "'" .. Value .. "'" .. "!",
+	Content = "Set OHNotificationIcon to " .. Value .. "!",
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
@@ -3337,8 +3346,7 @@ SettingsSection:AddDropdown({
 	Name = "Done!",
 	Content = "Set TeamColor to " .. "'" .. Value .. "'" .. "!",
 	Image = "rbxassetid://4483345998",
-	Time = 5
-					
+	Time = 5			
 })
 end	    
 })
@@ -3348,6 +3356,26 @@ SettingsSection:AddToggle({
 	Default = TeamAutoAssignable,
 	Callback = function(Value)
 		TeamAutoAssignable = Value
+							OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set TeamAutoAssignable to " .. "BrickColor.new(" .. Value .. ")" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5			
+})
+	end    
+})
+
+SettingsSection:AddToggle({
+	Name = "FPS Cap",
+	Default = 0,
+	Callback = function(Value)
+		FPSCap = Value
+							OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set FPSCap to " .. Value .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5			
+})
 	end    
 })
 
@@ -4419,6 +4447,9 @@ local XPosLabel = Section11:AddLabel("Current X Position = " .. CurrentCharacter
 local YPosLabel = Section11:AddLabel("Current Y Position = " .. CurrentCharacter.HumanoidRootPart.Position.Y)
 local ZPosLabel = Section11:AddLabel("Current Z Position = " .. CurrentCharacter.HumanoidRootPart.Position.Z)
 local CurrentCharacterLabel = Section11:AddLabel("Current Character = " .. CurrentCharacter.Name)
+if identifyexecutor() then
+local ExecutorLabel = Section11:AddLabel("Executor = " .. identifyexecutor())
+end
 
 Section11:AddParagraph("Warning!","Positions and your Current Character labels may break if you use the Custom Humanoid, Custom Character and Change Character (while you still haven't turned back to your own character) features, so if it does, re-execute the script again!")
 	
