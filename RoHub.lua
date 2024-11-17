@@ -3404,6 +3404,22 @@ SettingsSection:AddToggle({
 	end    
 })
 
+SettingsSection:AddTextbox({
+	Name = "FPS Cap",
+	Default = 0,
+	TextDisappear = true,
+	Callback = function(Value)
+		FPSCap = Value
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set FPSCap to " .. "'" .. tostring(Value) .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+--[[
 SettingsSection:AddToggle({
 	Name = "FPS Cap",
 	Default = 0,
@@ -3417,6 +3433,7 @@ SettingsSection:AddToggle({
 })
 	end    
 })
+--]]
 
 --[[
 Name = <string> - The name of the toggle.
