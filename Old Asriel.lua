@@ -28,7 +28,7 @@ game:GetService("Players").LocalPlayer.PlayerGui.UI.Ui.ManaBar:Destroy()
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").MaxHealth = 150
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health = 150
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Data").Attack.Value = 40
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Data").Attack.Value = 300
+game:GetService("Players").LocalPlayer.Character:WaitForChild("Data").Defense.Value = 200
 game:GetService("Players").LocalPlayer.Character:SetAttribute("Attack", 40)
 game:GetService("Players").LocalPlayer.Character:SetAttribute("Defense", 200)
 
