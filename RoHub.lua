@@ -2747,6 +2747,26 @@ end
 end
 })
 
+LSection:AddButton({
+	Name = "Full Bright",
+	Callback = function()
+	Lighting.Ambient = Color3.fromRGB(255, 255, 255)
+	Lighting.Brightness = 1
+	Lighting.EnvironmentDiffuseScale = 1
+	Lighting.EnvironmentSpecularScale = 1
+	Lighting.ShadowSoftness = 0
+	Lighting.ClockTime = 12
+	Lighting.TimeOfDay = "12:00:00"
+	for num, item in Lighting:GetDescendants() do
+		if item:IsA("Sky") then
+			local sky = item
+			sky:Destroy()
+		end
+	end
+  end    
+})
+
+
 if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Animate") then
 LSection:AddToggle({
 	Name = "Animations",
@@ -3495,7 +3515,7 @@ end
 })
 
 Section:AddButton({
-	Name = "Full Bright",
+	Name = "Special Full Bright",
 	Callback = function()
 spawn(function()
     repeat wait()
