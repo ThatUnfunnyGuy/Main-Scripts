@@ -19,7 +19,7 @@ end
 -- Setup the Orion library
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ThatUnfunnyGuy/Main-Scripts/refs/heads/main/Orion%20Hub%20(Fix%20Attempt)')))()
 
-local Window = OrionLib:MakeWindow({Name = "RoHub (v1.7.0)", HidePremium = true, SaveConfig = true, ConfigFolder = "RoHub", IntroEnabled = true})
+local Window = OrionLib:MakeWindow({Name = "RoHub (v1.7.1)", HidePremium = true, SaveConfig = true, ConfigFolder = "RoHub", IntroEnabled = true})
 
 local Chat = game:GetService("Chat")
 local SoundService = game:GetService("SoundService")
@@ -27,6 +27,10 @@ local SoundService = game:GetService("SoundService")
 -- Set UseJumpPower
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").UseJumpPower = true
 game:GetService("StarterPlayer").CharacterUseJumpPower = true
+
+-- Services
+local RunService = game:GetService("RunService")
+local Stats = game:GetService("Stats")
 
 -- roblox shenanigans wont allow this to work as it should
 --[[
@@ -489,7 +493,7 @@ local Section9 = Tab5:AddSection({
 Section0:AddSlider({
 	Name = "Set WalkSpeed",
 	Min = 0,
-	Max = 100,
+	Max = 200,
 	Default = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed,
 	Color = Color3.fromRGB(0, 255, 255),
 	Increment = 1,
@@ -503,7 +507,7 @@ Section0:AddSlider({
 Section0:AddButton({
 	Name = "Set WalkSpeed Endlessly",
 	Callback = function()
-game:GetService("RunService").Heartbeat:Connect(function()
+RunService.Heartbeat:Connect(function()
 	game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = SetWalkSpeed
 end)
 end
@@ -526,7 +530,7 @@ Section0:AddSlider({
 Section0:AddButton({
 	Name = "Set JumpPower Endlessly",
 	Callback = function()
-game:GetService("RunService").Heartbeat:Connect(function()
+RunService.Heartbeat:Connect(function()
 	game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").JumpPower = SetJumpPower
 end)
 end
@@ -549,7 +553,7 @@ end
 Section0:AddButton({
 	Name = "Set Gravity Endlessly",
 	Callback = function()
-game:GetService("RunService").Heartbeat:Connect(function()
+RunService.Heartbeat:Connect(function()
 	workspace.Gravity = SetGravity
 end)
 end
@@ -572,7 +576,7 @@ end
 Section0:AddButton({
 	Name = "Set FallenPartsDestroyHeight Endlessly",
 	Callback = function()
-game:GetService("RunService").Heartbeat:Connect(function()
+RunService.Heartbeat:Connect(function()
 	workspace.FallenPartsDestroyHeight = SetFPDH
 end)
 end
@@ -595,7 +599,7 @@ end
 Section0:AddButton({
 	Name = "Set MaxSlopeAngle Endlessly",
 	Callback = function()
-game:GetService("RunService").Heartbeat:Connect(function()
+RunService.Heartbeat:Connect(function()
 	game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").MaxSlopeAngle = SetMaxSlopeAngle
 end)
 end
@@ -680,7 +684,7 @@ WSection:AddButton({
 	Name = "Loop Reset",
 	Callback = function()
 	game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function()
-	game:GetService("RunService").Heartbeat:Connect(function()
+	RunService.Heartbeat:Connect(function()
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
 		end)
 	end)
@@ -711,7 +715,7 @@ local mouse = Player:GetMouse()
 
 FlingPower = 25000
 
-game:GetService("RunService").Stepped:Connect(function()
+RunService.RenderStepped:Connect(function()
 Character.Head.CanCollide = false
 Character.Torso.CanCollide = false
 Character.HumanoidRootPart.CanCollide = false
@@ -777,7 +781,7 @@ end
 WSection:AddButton({
 	Name = "Loop Force Jump (Jump)",
 	Callback = function()
-	game:GetService("RunService").Heartbeat:Connect(function()
+	RunService.Heartbeat:Connect(function()
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Jump = true
 	end)
 end    
@@ -786,7 +790,7 @@ end
 WSection:AddButton({
 	Name = "Jump Hack",
 	Callback = function()
-game:GetService("RunService").RenderStepped:Connect(function()
+RunService.RenderStepped:Connect(function()
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):SetStateEnabled("GettingUp", false)
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState("Swimming")
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):SetStateEnabled("GettingUp", true)
@@ -2366,7 +2370,7 @@ coroutine.wrap(RONYXQO_fake_script)()
 LSection:AddButton({
 	Name = "Weird Movement",
 	Callback = function()
-game:GetService("RunService").Heartbeat:Connect(function()
+game:GetService("RunService").RenderStepped:Connect(function()
 		game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Sit = not game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Sit
 	end)
 end
@@ -2375,7 +2379,7 @@ end
 LSection:AddButton({
 	Name = "Alternative Weird Movement",
 	Callback = function()
-game:GetService("RunService").Heartbeat:Connect(function()
+RunService.RenderStepped:Connect(function()
 		game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").PlatformStand = not game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").PlatformStand
 	end)
 end
@@ -2442,7 +2446,7 @@ end
 LSection:AddButton({
 	Name = "Loop Remove Accessories (NOT FE)",
 	Callback = function()
-game:GetService("RunService").Heartbeat:Connect(function()
+RunService.Heartbeat:Connect(function()
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):RemoveAccessories()
 	end)
 end
@@ -4509,9 +4513,10 @@ local XPosLabel = Section11:AddLabel("Current X Position = " .. CurrentCharacter
 local YPosLabel = Section11:AddLabel("Current Y Position = " .. CurrentCharacter.HumanoidRootPart.Position.Y)
 local ZPosLabel = Section11:AddLabel("Current Z Position = " .. CurrentCharacter.HumanoidRootPart.Position.Z)
 local CurrentCharacterLabel = Section11:AddLabel("Current Character = " .. CurrentCharacter.Name)
-if identifyexecutor() then
+if identifyexecutor() then -- Check if executor supports identifyexecutor()
 local ExecutorLabel = Section11:AddLabel("Executor = " .. identifyexecutor())
 end
+--local MemoryUsedLabel = Section11:AddLabel("Memory Used = " .. ) -- coming in the next update
 
 Section11:AddParagraph("Warning!","Positions and your Current Character labels may break if you use the Custom Humanoid, Custom Character and Change Character (while you still haven't turned back to your own character) features, so if it does, re-execute the script again!")
 	
@@ -4581,7 +4586,7 @@ Section13:AddParagraph("11/8/2024","[/] Re-coded some features in order to optim
 Section13:AddParagraph("Meanings","[+] = Added, [-] = Removed/Disabled, [/] = Miscellaneous Change")
 Section13:AddParagraph("Announcement (s)","None.")
 
-game:GetService("RunService").Heartbeat:Connect(function()
+RunService.Heartbeat:Connect(function()
 if XPosLabel and YPosLabel and ZPosLabel then
 XPosLabel:Set("Current X Position = " .. game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position.X or NewCharacter.Torso.Position.X)
 YPosLabel:Set("Current Y Position = " .. game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position.Y or NewCharacter.Torso.Position.Y)
