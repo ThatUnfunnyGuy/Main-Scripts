@@ -29,6 +29,7 @@ game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").UseJum
 game:GetService("StarterPlayer").CharacterUseJumpPower = true
 
 -- Services
+local Lighting = game:GetService("Lighting")
 local RunService = game:GetService("RunService")
 local Stats = game:GetService("Stats")
 
