@@ -4588,9 +4588,9 @@ Section13:AddParagraph("Announcement (s)","None.")
 
 RunService.Heartbeat:Connect(function()
 if XPosLabel and YPosLabel and ZPosLabel then
-XPosLabel:Set("Current X Position = " .. game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position.X or NewCharacter.Torso.Position.X)
-YPosLabel:Set("Current Y Position = " .. game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position.Y or NewCharacter.Torso.Position.Y)
-ZPosLabel:Set("Current Z Position = " .. game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position.Z or NewCharacter.Torso.Position.Z)
+XPosLabel:Set("Current X Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.X or NewCharacter.Torso.Position.X)
+YPosLabel:Set("Current Y Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.Y or NewCharacter.Torso.Position.Y)
+ZPosLabel:Set("Current Z Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.Z or NewCharacter.Torso.Position.Z)
 --CurrentCharacterLabel:Set("Current Character = CurrentCharacter)
 	end
 end)
