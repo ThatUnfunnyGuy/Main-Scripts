@@ -4621,10 +4621,11 @@ Section13:AddParagraph("Meanings","[+] = Added, [-] = Removed/Disabled, [/] = Mi
 Section13:AddParagraph("Announcement (s)","None.")
 
 RunService.Heartbeat:Connect(function()
-if XPosLabel and YPosLabel and ZPosLabel then
+if XPosLabel and YPosLabel and ZPosLabel and MemoryUsedLabel then
 XPosLabel:Set("Current X Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.X or NewCharacter.Torso.Position.X)
 YPosLabel:Set("Current Y Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.Y or NewCharacter.Torso.Position.Y)
 ZPosLabel:Set("Current Z Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.Z or NewCharacter.Torso.Position.Z)
+MemoryUsedLabel:Set("Memory Used = " .. Stats:GetTotalMemoryUsageMb())
 --CurrentCharacterLabel:Set("Current Character = CurrentCharacter)
 	end
 end)
