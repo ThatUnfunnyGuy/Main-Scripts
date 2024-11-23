@@ -24,14 +24,29 @@ local Window = OrionLib:MakeWindow({Name = "RoHub (v1.7.1)", HidePremium = true,
 local Chat = game:GetService("Chat")
 local SoundService = game:GetService("SoundService")
 
--- Set UseJumpPower
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").UseJumpPower = true
-game:GetService("StarterPlayer").CharacterUseJumpPower = true
-
 -- Services
+local Players = game:GetService("Players")
+local StarterPlayer = game:GetService("StarterPlayer")
 local Lighting = game:GetService("Lighting")
 local RunService = game:GetService("RunService")
 local Stats = game:GetService("Stats")
+local TeleportService = game:GetService("TeleportService")
+local UserInputService = game:GetService("UserInputService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+-- Get other stuff
+local Player = Players.LocalPlayer or Players:GetPlayers()[1]
+local Character = Player.Character or Player.CharacterAdded:Wait()
+local Humanoid = Character:WaitForChild("Humanoid")
+local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
+local mouse = Player:GetMouse()
+local Backpack = Player.Backpack
+
+local SayMessageRequest = ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest
+
+-- Set UseJumpPower
+Character:WaitForChild("Humanoid").UseJumpPower = true
+StarterPlayer.CharacterUseJumpPower = true
 
 -- roblox shenanigans wont allow this to work as it should
 --[[
@@ -161,7 +176,7 @@ local TextTable = {
     HappySong.Looped = true
 
 -- Character Variables
-local CurrentCharacter = game:GetService("Players").LocalPlayer.Character
+local CurrentCharacter = Character
 local DesiredCharacter
 
 -- Text Variables
@@ -209,7 +224,7 @@ local PlayerDisplayNameEnabled = true -- Self-Explaining too (true for display n
 local PlayerDisplayName
 local PlayerUserId
 
-local PlayerCharacter = game:GetService("Players").LocalPlayer.Character -- Change the character to the player's character that you want (if you want ofc, default is your character)
+local PlayerCharacter = Character -- Change the character to the player's character that you want (if you want ofc, default is your character)
 local PlayerCharacterAppearance = "0" -- Leave this the same as the user ID
 
 -- Unused
@@ -495,13 +510,13 @@ Section0:AddSlider({
 	Name = "Set WalkSpeed",
 	Min = 0,
 	Max = 200,
-	Default = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed,
+	Default = Humanoid.WalkSpeed,
 	Color = Color3.fromRGB(0, 255, 255),
 	Increment = 1,
 	ValueName = "WalkSpeed",
 	Callback = function(Value)
 		SetWalkSpeed = Value
-		game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = Value
+		Humanoid.WalkSpeed = Value
 	end    
 })
 
@@ -509,7 +524,7 @@ Section0:AddButton({
 	Name = "Set WalkSpeed Endlessly",
 	Callback = function()
 RunService.Heartbeat:Connect(function()
-	game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = SetWalkSpeed
+	Humanoid.WalkSpeed = SetWalkSpeed
 end)
 end
 })
@@ -524,7 +539,7 @@ Section0:AddSlider({
 	ValueName = "JumpPower",
 	Callback = function(Value)
 		SetJumpPower = Value		
-		game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").JumpPower = Value
+		Humanoid.JumpPower = Value
 	end    
 })
 
@@ -532,7 +547,7 @@ Section0:AddButton({
 	Name = "Set JumpPower Endlessly",
 	Callback = function()
 RunService.Heartbeat:Connect(function()
-	game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").JumpPower = SetJumpPower
+	Humanoid.JumpPower = SetJumpPower
 end)
 end
 })
@@ -593,7 +608,7 @@ Section0:AddSlider({
 	ValueName = "MSA",
 	Callback = function(Value)
 SetMaxSlopeAngle = Value
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").MaxSlopeAngle = Value
+Humanoid.MaxSlopeAngle = Value
 end    
 })
 
@@ -601,7 +616,7 @@ Section0:AddButton({
 	Name = "Set MaxSlopeAngle Endlessly",
 	Callback = function()
 RunService.Heartbeat:Connect(function()
-	game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").MaxSlopeAngle = SetMaxSlopeAngle
+	Humanoid.MaxSlopeAngle = SetMaxSlopeAngle
 end)
 end
 })
@@ -630,42 +645,42 @@ WSection:AddButton({
 WSection:AddButton({
 	Name = "Rejoin",
 	Callback = function()
-    game:GetService("TeleportService"):Teleport(game.PlaceId,game.Players.LocalPlayer)
+    TeleportService:Teleport(Player)
   	end    
 })
 
 WSection:AddButton({
 	Name = "Reset",
 	Callback = function()
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+Humanoid.Health = 0
   	end    
 })
 
 WSection:AddButton({
 	Name = "Alternative Reset",
 	Callback = function()
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Torso"):Destroy()
+Character:WaitForChild("Torso"):Destroy()
   	end    
 })
 
 WSection:AddButton({
 	Name = "Alternative Reset 2",
 	Callback = function()
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Torso").Neck:Destroy()
+Character:WaitForChild("Torso").Neck:Destroy()
   	end    
 })
 
 WSection:AddButton({
 	Name = "Alternative Reset 3",
 	Callback = function()
-game.Players.LocalPlayer.Character:BreakJoints()
+Character:BreakJoints()
   	end    
 })
 
 WSection:AddButton({
 	Name = "Alternative Reset 4",
 	Callback = function()
-	local Humanoid = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid")
+	--local Humanoid = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid")
 	if Humanoid.RigType == Enum.HumanoidRigType.R6 then
 		Humanoid.RigType = Enum.HumanoidRigType.R15
 	elseif Humanoid.RigType == Enum.HumanoidRigType.R15 then
@@ -677,7 +692,7 @@ end
 WSection:AddButton({
 	Name = "Delete Head (Reset in most games)",
 	Callback = function()
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Head"):Destroy()
+Character:WaitForChild("Head"):Destroy()
   	end    
 })
 
@@ -686,7 +701,7 @@ WSection:AddButton({
 	Callback = function()
 	game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function()
 	RunService.Heartbeat:Connect(function()
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+Humanoid.Health = 0
 		end)
 	end)
 end    
@@ -710,9 +725,8 @@ WSection:AddButton({
 WSection:AddButton({
 	Name = "Fling (VERY BUGGY)",
 	Callback = function()
-local Player = game:GetService("Players").LocalPlayer
-local Character = Player.Character or Player.CharacterAdded:Wait()
-local mouse = Player:GetMouse()
+--local Player = game:GetService("Players").LocalPlayer
+--local Character = Player.Character or Player.CharacterAdded:Wait()
 
 FlingPower = 25000
 
@@ -733,8 +747,8 @@ end
 WSection:AddButton({
 	Name = "Stop Fling",
 	Callback = function()
-local Player = game:GetService("Players").LocalPlayer
-local Character = Player.Character or Player.CharacterAdded:Wait()
+--local Player = game:GetService("Players").LocalPlayer
+--local Character = Player.Character or Player.CharacterAdded:Wait()
 Character:WaitForChild("Torso").BodyThrust.Force = Vector3.new(0, 0, 0)
 Character:WaitForChild("HumanoidRootPart").BodyThrust.Force = Vector3.new(0, 0, 0)
 --task.wait(2.5)
@@ -746,14 +760,14 @@ end
 WSection:AddButton({
 	Name = "PlatformStand",
 	Callback = function()
-game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Size = Vector3.new(game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Size.X, 5, game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Size.Z)
+HumanoidRootPart.Size = Vector3.new(HumanoidRootPart.Size.X, 5, HumanoidRootPart.Size.Z)
 end    
 })
 
 WSection:AddButton({
 	Name = "Un-PlatformStand",
 	Callback = function()
-game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Size = Vector3.new(game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Size.X, 2, game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Size.Z)
+HumanoidRootPart.Size = Vector3.new(HumanoidRootPart.Size.X, 2, HumanoidRootPart.Size.Z)
 end    
 })
 
@@ -761,21 +775,21 @@ end
 WSection:AddButton({
 	Name = "Alternative PlatformStand",
 	Callback = function()
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").HipHeight = 1.6
+Humanoid.HipHeight = 1.6
 end    
 })
 
 WSection:AddButton({
 	Name = "Alternative Un-PlatformStand",
 	Callback = function()
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").HipHeight = 0
+Humanoid.HipHeight = 0
 end    
 })
 
 WSection:AddButton({
 	Name = "Force Jump (Jump)",
 	Callback = function()
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Jump = true
+Humanoid.Jump = true
 end    
 })
 
@@ -783,7 +797,7 @@ WSection:AddButton({
 	Name = "Loop Force Jump (Jump)",
 	Callback = function()
 	RunService.Heartbeat:Connect(function()
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Jump = true
+Humanoid.Jump = true
 	end)
 end    
 })
@@ -792,9 +806,9 @@ WSection:AddButton({
 	Name = "Jump Hack",
 	Callback = function()
 RunService.RenderStepped:Connect(function()
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):SetStateEnabled("GettingUp", false)
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState("Swimming")
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):SetStateEnabled("GettingUp", true)
+Humanoid:SetStateEnabled("GettingUp", false)
+Humanoid:ChangeState("Swimming")
+Humanoid:SetStateEnabled("GettingUp", true)
 	end)
 end
 })
@@ -804,7 +818,7 @@ WSection:AddButton({
 	Callback = function()
 local plr = game:GetService("Players").PlayerAdded:Connect(function(player)
 if table.find(StaffTable, plr.Name) == not nil then
-game.Players.LocalPlayer:Kick("Staff joined.")
+Player:Kick("Staff joined.")
 end
 end)
 end    
@@ -827,22 +841,18 @@ end
 
 WSection:AddToggle({
 	Name = "Toggle Shiftlock",
-	Default = game:GetService("Players").LocalPlayer.DevEnableMouseLock,
+	Default = Player.DevEnableMouseLock,
 	Callback = function(Value)
-local Players = game:GetService("Players")
-
-
-	local Player = Players:GetPlayers()[1]
-	local Character = Player.Character or Player.CharacterAdded:Wait()
+--local Players = game:GetService("Players")
+--local Player = Players:GetPlayers()[1]
+--local Character = Player.Character or Player.CharacterAdded:Wait()
 		
-	if Character and Player then
-		Player.DevEnableMouseLock = Value
-	end
+Player.DevEnableMouseLock = Value
 end
 })
 
 WSection:AddToggle({
-	Name = "Toggle BubbleChat",
+	Name = "BubbleChat",
 	Default = Chat.BubbleChatEnabled,
 	Callback = function(Value)
 Chat.BubbleChatEnabled = Value
@@ -850,15 +860,15 @@ Chat.BubbleChatEnabled = Value
 })
 
 WSection:AddToggle({
-	Name = "Toggle GlobalShadows",
+	Name = "GlobalShadows",
 	Default = game:GetService("Lighting").GlobalShadows,
 	Callback = function(Value)
-game:GetService("Lighting").GlobalShadows = Value
+Lighting.GlobalShadows = Value
 	end    
 })
 
 WSection:AddToggle({
-	Name = "Toggle HumanoidRootPart Anchor",
+	Name = "HumanoidRootPart Anchor",
 	Default = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored,
 	Callback = function(Value)
 game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = Value
@@ -866,7 +876,7 @@ end
 })
 
 WSection:AddToggle({
-	Name = "Toggle Collision With HumanoidRootPart",
+	Name = "HumanoidRootPart CanCollide",
 	Default = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CanCollide,
 	Callback = function(Value)
 game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CanCollide = Value
@@ -874,19 +884,19 @@ end
 })
 
 WSection:AddToggle({
-	Name = "Toggle AutoJump",
+	Name = "AutoJump",
 	Default = game:GetService("Players").LocalPlayer.Character.Humanoid.AutoJumpEnabled,
 	Callback = function(Value)
-game:GetService("Players").LocalPlayer.Character.Humanoid.AutoJumpEnabled = Value
-game:GetService("Players").LocalPlayer.AutoJumpEnabled = Value
+Humanoid.AutoJumpEnabled = Value
+Player.AutoJumpEnabled = Value
 end
 })
 
 WSection:AddToggle({
-	Name = "Toggle AutoRotate",
+	Name = "AutoRotate",
 	Default = game:GetService("Players").LocalPlayer.Character.Humanoid.AutoRotate,
 	Callback = function(Value)
-game:GetService("Players").LocalPlayer.Character.Humanoid.AutoRotate = Value
+Humanoid.AutoRotate = Value
 end
 })
 
@@ -894,7 +904,7 @@ WSection:AddToggle({
 	Name = "Platform Stand",
 	Default = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").PlatformStand,
 	Callback = function(Value)
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").PlatformStand = Value
+Humanoid.PlatformStand = Value
 	end    
 })
 
@@ -902,7 +912,7 @@ WSection:AddToggle({
 	Name = "Sit",
 	Default = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Sit,
 	Callback = function(Value)
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Sit = Value
+Humanoid.Sit = Value
 	end    
 })
 
@@ -910,7 +920,7 @@ WSection:AddToggle({
 	Name = "BreakJointsOnDeath",
 	Default = game:GetService("Players").LocalPlayer.Character.Humanoid.BreakJointsOnDeath,
 	Callback = function(Value)
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").BreakJointsOnDeath = Value
+Humanoid.BreakJointsOnDeath = Value
 	end    
 })
 
@@ -918,15 +928,15 @@ WSection:AddToggle({
 	Name = "CharacterAutoLoads",
 	Default = game:GetService("Players").CharacterAutoLoads,
 	Callback = function(Value)
-game:GetService("Players").CharacterAutoLoads = Value
+Players.CharacterAutoLoads = Value
 	end    
 })
 
 WSection:AddToggle({
 	Name = "MouseIconEnabled",
-	Default = game:GetService("UserInputService").MouseIconEnabled,
+	Default = UserInputService.MouseIconEnabled,
 	Callback = function(Value)
-game:GetService("UserInputService").MouseIconEnabled = Value
+UserInputService.MouseIconEnabled = Value
 	end    
 })
 
@@ -934,12 +944,12 @@ WSection:AddSlider({
 	Name = "Set MouseDeltaSensitivity",
 	Min = 1,
 	Max = 10,
-	Default = game:GetService("UserInputService").MouseDeltaSensitivity,
+	Default = UserInputService.MouseDeltaSensitivity,
 	Color = Color3.fromRGB(132, 132, 132),
 	Increment = 1,
 	ValueName = "Sensitivity",
 	Callback = function(Value)
-	game:GetService("UserInputService").MouseDeltaSensitivity = Value
+	UserInputService.MouseDeltaSensitivity = Value
 end    
 })
 
@@ -948,7 +958,7 @@ WSection:AddDropdown({
 	Default = "Default",
 	Options = {"Default", "LockCenter", "LockCurrentPosition"},
 	Callback = function(Value)
-		game:GetService("UserInputService").MouseBehavior = Value
+		UserInputService.MouseBehavior = Value
 	end    
 })
 
@@ -957,11 +967,13 @@ WSection:AddBind({
 	Default = Enum.KeyCode.R,
 	Hold = false,
 	Callback = function()
-    local Player = game:GetService("Players").LocalPlayer
+--[[	
+local Player = game:GetService("Players").LocalPlayer
 local Character = Player.Character or Player.CharacterAdded:Wait()
 local mouse = Player:GetMouse()
-		Character:SetPrimaryPartCFrame(mouse.Hit, mouse.Hit, mouse.Hit)
-	end    
+--]]
+Character:SetPrimaryPartCFrame(mouse.Hit, mouse.Hit, mouse.Hit)
+end    
 })
 
 WSection:AddBind({
@@ -970,10 +982,10 @@ WSection:AddBind({
 	Hold = false,
 	Callback = function()
   local Character = game:GetService("Players").LocalPlayer.Character
-    local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
+    --local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
     local HRPCF = HumanoidRootPart.CFrame
     local HRPLV = HRPCF.LookVector
-game:GetService("Players").LocalPlayer.Character:SetPrimaryPartCFrame(HRPCF + (HRPLV * Vector3.new(5, 5, 5)))
+Character:SetPrimaryPartCFrame(HRPCF + (HRPLV * Vector3.new(5, 5, 5)))
 	end    
 })
 
@@ -982,7 +994,7 @@ WSection:AddBind({
 	Default = Enum.KeyCode.Y,
 	Hold = false,
 	Callback = function()
-  local Character = game:GetService("Players").LocalPlayer.Character
+  --local Character = game:GetService("Players").LocalPlayer.Character
     --local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
     --local HRPCF = HumanoidRootPart.CFrame
     --local HRPLV = HRPCF.LookVector
@@ -1696,7 +1708,7 @@ NewHumanoid.Health = OldHumanoid.Health or 100
 NewHumanoid.JumpPower = OldHumanoid.JumpPower or 50
 NewHumanoid.WalkSpeed = OldHumanoid.WalkSpeed or 16
 NewHumanoid.RigType = OldHumanoid.RigType
-NewHumanoid.Parent = game:GetService("Players").LocalPlayer.Character
+NewHumanoid.Parent = Character
 
 local HumanoidDescription = Instance.new("HumanoidDescription")
 HumanoidDescription.Parent = NewHumanoid
@@ -1745,14 +1757,14 @@ Animator.Parent = NewHumanoid
 OldHumanoid.Parent = workspace
 OldHumanoid:Destroy()
 
-workspace.CurrentCamera.CameraSubject = game:GetService("Players").LocalPlayer.Character:WaitForChild("Head")
+workspace.CurrentCamera.CameraSubject = Character:WaitForChild("Head")
 
 local UIS = game:GetService("UserInputService")
 
 UIS.InputBegan:Connect(function(key, typing)
 if typing then return end
 if key.KeyCode == Enum.KeyCode.Space then
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Jump = true
+Humanoid.Jump = true
 end
 end)
 
@@ -1767,12 +1779,12 @@ end
 LSection:AddButton({
 	Name = "Custom Character (DOESN'T RESPAWN YOU)",
 	Callback = function()
-local Players = game:GetService("Players")
-local Workspace = game:GetService("Workspace")
-local Player = Players.LocalPlayer or Players:GetPlayers()[1]
-local Character = Player.Character or Player.CharacterAdded:Wait()
-local Humanoid = Character:WaitForChild("Humanoid")
-local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
+--local Players = game:GetService("Players")
+--local Workspace = game:GetService("Workspace")
+--local Player = Players.LocalPlayer or Players:GetPlayers()[1]
+--local Character = Player.Character or Player.CharacterAdded:Wait()
+--local Humanoid = Character:WaitForChild("Humanoid")
+--local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
 
 Character.Archivable = true
 local NewCharacter = Character:Clone()
@@ -1788,8 +1800,8 @@ end
 LSection:AddButton({
 	Name = "Weird Rotation (NON-FE)",
 	Callback = function()
-local Player = game:GetService("Players").LocalPlayer or game:GetService("Players").PlayerAdded:Wait()
-local Character = Player.Character or Player.CharacterAdded:Wait()
+--local Player = game:GetService("Players").LocalPlayer or game:GetService("Players").PlayerAdded:Wait()
+--local Character = Player.Character or Player.CharacterAdded:Wait()
 
 Character:WaitForChild("Head").Position = Vector3.new(-499, -499, -499)
 Character:WaitForChild("Torso").Position = Vector3.new(-499, -499, -499)
@@ -1804,16 +1816,16 @@ end
 LSection:AddButton({
 	Name = "Sit V2/Slide",
 	Callback = function()
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Left Leg").Parent = workspace
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Right Leg").Parent = workspace
+Character:WaitForChild("Left Leg").Parent = workspace
+Character:WaitForChild("Right Leg").Parent = workspace
 end    
 })
 
 LSection:AddButton({
 	Name = "Dash/Slide V2",
 	Callback = function()
-	local HRP = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
-	local HRPCF = HRP.CFrame
+	--local HRP = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+	local HRPCF = HumanoidRootPart.CFrame
 	local HRPLV = HRPCF.LookVector
 
 	local BV = Instance.new("BodyVelocity")
@@ -1829,7 +1841,7 @@ end
 LSection:AddButton({
 	Name = "Slide V3",
 	Callback = function()
-game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Size = Vector3.new(game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Size.X, 10, game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Size.Z)
+HumanoidRootPart.Size = Vector3.new(HumanoidRootPart.Size.X, 10, HumanoidRootPart.Size.Z)
 end    
 })
 
@@ -1868,9 +1880,9 @@ end
 LSection:AddButton({
 	Name = "Better Sounds",
 	Callback = function()
-	game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Running.SoundId = "rbxassetid://1244506786"
-	game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Jumping.SoundId = "rbxassetid://9114890978"
-	game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Landing.SoundId = "rbxassetid://268933841"
+	HumanoidRootPart.Running.SoundId = "rbxassetid://1244506786"
+	HumanoidRootPart.Jumping.SoundId = "rbxassetid://9114890978"
+	HumanoidRootPart.Landing.SoundId = "rbxassetid://268933841"
 end    
 })
 
@@ -1982,7 +1994,7 @@ LSection:AddButton({
 local Explosion = Instance.new("Explosion")
 Explosion.BlastRadius = math.huge
 Explosion.ExplosionType = Enum.ExplosionType.Craters
-Explosion.Position = Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
+Explosion.Position = Vector3.new(HumanoidRootPart.CFrame)
 Explosion.Parent = workspace
 end    
 })
@@ -1994,7 +2006,7 @@ local Explosion = Instance.new("Explosion")
 Explosion.BlastRadius = 0
 DestroyJointRadiusPercent = 0
 Explosion.ExplosionType = Enum.ExplosionType.Craters
-Explosion.Position = Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
+Explosion.Position = Vector3.new(HumanoidRootPart.CFrame)
 Explosion.Parent = workspace
 end    
 })
@@ -2081,28 +2093,28 @@ end
 LSection:AddButton({
 	Name = "Remove HumanoidRootPart (BREAKS YOUR CHARACTER)",
 	Callback = function()
-game:GetService("Players").LocalPlayer:Destroy()
+HumanoidRootPart:Destroy()
 end    
 })
 					
 LSection:AddButton({
 	Name = "Remove Humanoid (BREAKS YOUR CHARACTER TOO)",
 	Callback = function()
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):Destroy()
+Humanoid:Destroy()
 end    
 })
 
 LSection:AddButton({
 	Name = "Remove Character (DOESN'T RESPAWN YOU)",
 	Callback = function()
-game:GetService("Players").LocalPlayer.Character:Destroy()
+Character:Destroy()
 end    
 })
 
 LSection:AddButton({
-	Name = "Remove LocalPlayer (DOESN'T LET YOU DO ANYTHING)",
+	Name = "Remove LocalPlayer (KICKS YOU FROM THE GAME)",
 	Callback = function()
-game:GetService("Players").LocalPlayer:Destroy()
+Player:Destroy()
 end    
 })
 
@@ -2135,7 +2147,7 @@ end
 LSection:AddButton({
 	Name = "Remove Animations",
 	Callback = function()
-local Character = game:GetService("Players").LocalPlayer.Character
+--local Character = game:GetService("Players").LocalPlayer.Character
 
 Character.Animate.idle.Animation1.AnimationId = "rbxassetid://"
 Character.Animate.idle.Animation2.AnimationId = "rbxassetid://"
@@ -2168,7 +2180,7 @@ LSection:AddButton({
 	BV.Velocity = Vector3.new(0, 100, 0)
 	BV.P = Vector3.new(0, 100, 0)
 	BV.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
-	BV.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+	BV.Parent = HumanoidRootPart
 	task.wait(0.5)
 	BV:Destroy()
 end
@@ -2184,7 +2196,7 @@ local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 	BV.Velocity = Vector3.new(0, 100, 0)
 	BV.P = Vector3.new(0, 100, 0)
 	BV.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
-	BV.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+	BV.Parent = HumanoidRootPart
 	task.wait(0.5)
 	BV:Destroy()
 	end)
@@ -2194,23 +2206,22 @@ end
 LSection:AddButton({
 	Name = "Swim",
 	Callback = function()
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):SetStateEnabled("GettingUp", false)
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState("Swimming")
+Humanoid:SetStateEnabled("GettingUp", false)
+Humanoid:ChangeState("Swimming")
 end
 })
 
 LSection:AddButton({
 	Name = "Un-Swim",
 	Callback = function()
-game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):SetStateEnabled("GettingUp", true)
-
+Humanoid:SetStateEnabled("GettingUp", true)
 end
 })
 
 LSection:AddButton({
 	Name = "Kick Yourself (With custom reason)",
 	Callback = function()
-game:GetService("Players").LocalPlayer:Kick(KickReason)
+Player:Kick(KickReason)
 end
 })
 
@@ -2230,8 +2241,8 @@ local BV = Instance.new("BodyVelocity")
 BV.Velocity = Vector3.new(0, 0, -5)
 BV.P = Vector3.new(9999, 9999, 9999)
 BV.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
-BV.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
-wait(0.5)
+BV.Parent = HumanoidRootPart
+task.wait(0.5)
 BV:Destroy()
 	end)
 end
@@ -2248,13 +2259,13 @@ local mouse = Player:GetMouse()
 Humanoid.WalkSpeed = 0
 Humanoid.JumpPower = 0
 
-while wait(1) do
+while task.wait(1) do
 local BV = Instance.new("BodyVelocity")
 BV.Velocity = Vector3.new(0, 0, -5)
 BV.P = Vector3.new(9999, 9999, 9999)
 BV.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
-BV.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
-wait(0.5)
+BV.Parent = HumanoidRootPart
+task.wait(0.5)
 BV:Destroy()
 	end
 end
@@ -2263,7 +2274,7 @@ end
 LSection:AddButton({
 	Name = "Lag (Crash) Game (NOT FE)",
 	Callback = function()
-while wait() do
+while task.wait() do
 local Part = Instance.new("Part")
 Part.Parent = workspace
 	end
@@ -2273,13 +2284,13 @@ end
 LSection:AddButton({
 	Name = "Fill Inventory",
 	Callback = function()
-	local Character = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
+	--local Character = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
 	spawn(function()
-		repeat wait()
+		repeat task.wait()
 			for _,v in pairs(Character:GetChildren()) do
 				if v:IsA("Accessory") then
 					local Handle = Instance.new("Part")
-					local Tool = Instance.new("Tool", game.Players.LocalPlayer.Backpack)
+					local Tool = Instance.new("Tool", Backpack)
 					Tool.Name = "SPAM"
 					Handle.Parent = Tool
 				end
@@ -2292,13 +2303,13 @@ end
 LSection:AddButton({
 	Name = "Touch Your Hair (NOT FE)",
 	Callback = function()
-	local Character = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
+	--local Character = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
 	spawn(function()
-		repeat wait()
+		repeat task.wait()
 			for _,v in pairs(Character:GetChildren()) do
 				if v:IsA("Accessory") then
 					local Handle = v.Handle:Clone()
-					local Tool = Instance.new("Tool", game.Players.LocalPlayer.Backpack)
+					local Tool = Instance.new("Tool", Backpack)
 					Tool.Name = "Touch Hair"
 					Handle.Parent = Tool
 					wait(10000)
@@ -2318,7 +2329,7 @@ end
 })
 
 LSection:AddButton({
-	Name = "Better Bubble Chat (Disable Bubble Chat before using)",
+	Name = "Better BubbleChat (Disable Bubble Chat before using)",
 	Callback = function()
 local TextGUI = Instance.new("BillboardGui")
 local MessageText = Instance.new("TextLabel")
@@ -2372,7 +2383,7 @@ LSection:AddButton({
 	Name = "Weird Movement",
 	Callback = function()
 game:GetService("RunService").RenderStepped:Connect(function()
-		game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Sit = not game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Sit
+		Humanoid.Sit = not Humanoid.Sit
 	end)
 end
 })
@@ -2381,7 +2392,7 @@ LSection:AddButton({
 	Name = "Alternative Weird Movement",
 	Callback = function()
 RunService.RenderStepped:Connect(function()
-		game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").PlatformStand = not game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").PlatformStand
+		Humanoid.PlatformStand = not Humanoid.PlatformStand
 	end)
 end
 })
@@ -2397,12 +2408,14 @@ end
 LSection:AddButton({
 	Name = "Activate Part Trail",
 	Callback = function()
+--[[
 local Players = game:GetService("Players")
 local Workspace = game:GetService("Workspace")
 local Player = Players.LocalPlayer or Players:GetPlayers()[1]
 local Character = Player.Character or Player.CharacterAdded:Wait()
 local Humanoid = Character:WaitForChild("Humanoid")
 local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
+--]]
 
 Humanoid.Changed:Connect(function()
 	if Humanoid.MoveDirection.Magnitude > 0 then
@@ -2421,7 +2434,7 @@ LSection:AddButton({
 	Name = "Say Text (Chat)",
 	Callback = function()
 for num, item in TextTable do
-game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(item, "All")
+SayMessageRequest:FireServer(item, "All")
 task.wait(1.5)
 	end
 end
@@ -2431,7 +2444,7 @@ LSection:AddButton({
 	Name = "Say Text (Dialog) (NOT FE)",
 	Callback = function()
 for num, item in TextTable do
-	game.Chat:Chat(game.Players.LocalPlayer.Character, item)
+	game.Chat:Chat(Character, item)
 task.wait(1.5)
 	end
 end
@@ -2708,7 +2721,7 @@ end
 
 LSection:AddButton({
 	Name = "Better Graphics",
-	Callback = function(Value)
+	Callback = function()
     if not game:GetService("Lighting"):FindFirstChild("Blur") then
     local Blur = Instance.new("BlurEffect", game.Lighting)
     Blur.Size = 5
@@ -2731,7 +2744,7 @@ end
 
 LSection:AddButton({
 	Name = "Disable Better Graphics",
-	Callback = function(Value)
+	Callback = function()
     if game:GetService("Lighting"):FindFirstChild("Blur") then
     local Blur = game:GetService("Lighting"):WaitForChild("Blur")
 Blur:Destroy()
@@ -2768,13 +2781,13 @@ LSection:AddButton({
 })
 
 
-if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Animate") then
+if Character:FindFirstChild("Animate") then
 LSection:AddToggle({
 	Name = "Animations",
-	Default = game:GetService("Players").LocalPlayer.Character.Animate.Enabled,
+	Default = Character.Animate.Enabled,
 	Callback = function(Value)
-	if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Animate") then
-game:GetService("Players").LocalPlayer.Character.Animate.Enabled = Value
+	if Character:FindFirstChild("Animate") then
+Character.Animate.Enabled = Value
 	end
 end    
 })
@@ -2784,12 +2797,12 @@ LSection:AddSlider({
 	Name = "Set Max Players (NOT FE)",
 	Min = 1,
 	Max = 100,
-	Default = game:GetService("Players").MaxPlayersInternal,
+	Default = Players.MaxPlayersInternal,
 	Color = Color3.fromRGB(200, 200, 200),
 	Increment = 1,
 	ValueName = "Max Players",
 	Callback = function(Value)
-		game:GetService("Players").MaxPlayersInternal = Value
+		Players.MaxPlayersInternal = Value
 	end    
 })
 
@@ -2827,22 +2840,22 @@ CameraSection:AddDropdown({
 CameraSection:AddButton({
 	Name = "Camera Weight",
 	Callback = function()
-	game:GetService("Players").LocalPlayer.Character.Humanoid.CameraOffset = Vector3.new(1, 0, 1)
+	Humanoid.CameraOffset = Vector3.new(1, 0, 1)
 end    
 })
 
 CameraSection:AddButton({
 	Name = "Un-Camera Weight",
 	Callback = function()
-	game:GetService("Players").LocalPlayer.Character.Humanoid.CameraOffset = Vector3.new(0, 0, 0)
+	Humanoid.CameraOffset = Vector3.new(0, 0, 0)
 end    
 })
 
 CameraSection:AddButton({
 	Name = "Weird Camera",
 	Callback = function()
-local Player = game:GetService("Players").LocalPlayer or game:GetService("Players").PlayerAdded:Wait()
-local Character = Player.Character or Player.CharacterAdded:Wait()
+--local Player = game:GetService("Players").LocalPlayer or game:GetService("Players").PlayerAdded:Wait()
+--local Character = Player.Character or Player.CharacterAdded:Wait()
 
 Character:WaitForChild("Head").Position = Vector3.new(-499, -499, -499)
 Character:WaitForChild("Torso").Position = Vector3.new(-499, -499, -499)
@@ -2862,28 +2875,28 @@ Character:WaitForChild("Left Leg").Anchored = true
 Character:WaitForChild("Right Arm").Anchored = true
 Character:WaitForChild("Right Leg").Anchored = true
 
-workspace.Camera.CameraSubject = game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+workspace.Camera.CameraSubject = HumanoidRootPart
 end    
 })
 
 CameraSection:AddButton({
 	Name = "Alternative Weird Camera",
 	Callback = function()
-	game:GetService("Players").LocalPlayer.Character.Humanoid.CameraOffset = Vector3.new(100, 100, 100)
+	Humanoid.CameraOffset = Vector3.new(100, 100, 100)
 end    
 })
 
 CameraSection:AddButton({
 	Name = "Un-Weird Camera (Can only be used with the ALT version)",
 	Callback = function()
-	game:GetService("Players").LocalPlayer.Character.Humanoid.CameraOffset = Vector3.new(0, 0, 0)
+	Humanoid.CameraOffset = Vector3.new(0, 0, 0)
 end    
 })
 
 AnimationsSection:AddButton({
 	Name = "Zombie Arms",
 	Callback = function()
-    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(ZArms)
+    local k = Humanoid:LoadAnimation(ZArms)
         k:Play()
 end 
 })
@@ -2891,7 +2904,7 @@ end
 AnimationsSection:AddButton({
 	Name = "Insanity",
 	Callback = function()
-    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Insanity)
+    local k = Humanoid:LoadAnimation(Insanity)
         k:Play()
 end   
 })
@@ -2899,7 +2912,7 @@ end
 AnimationsSection:AddButton({
 	Name = "Floating Head",
 	Callback = function()
-    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(FHead)
+    local k = Humanoid:LoadAnimation(FHead)
         k:Play()
 end    
 })
@@ -2907,7 +2920,7 @@ end
 AnimationsSection:AddButton({
 	Name = "Moon Dance",
 	Callback = function()
-    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(MoonDance)
+    local k = Humanoid:LoadAnimation(MoonDance)
         k:Play()
 end   
 })
@@ -2915,7 +2928,7 @@ end
 AnimationsSection:AddButton({
 	Name = "Charleston",
 	Callback = function()
-    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Charleston)
+    local k = Humanoid:LoadAnimation(Charleston)
         k:Play()
 end    
 })
@@ -2923,7 +2936,7 @@ end
 AnimationsSection:AddButton({
 	Name = "Insane Legs",
 	Callback = function()
-    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(InsaneLegs)
+    local k = Humanoid:LoadAnimation(InsaneLegs)
         k:Play()
 end   
 })
@@ -2931,7 +2944,7 @@ end
 AnimationsSection:AddButton({
 	Name = "Spin",
 	Callback = function()
-    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Spin)
+    local k = Humanoid:LoadAnimation(Spin)
         k:Play()
 end    
 })
@@ -2939,7 +2952,7 @@ end
 AnimationsSection:AddButton({
 	Name = "Rotation",
 	Callback = function()
-    local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Rotation)
+    local k = Humanoid:LoadAnimation(Rotation)
         k:Play()
 end    
 })
@@ -3081,13 +3094,13 @@ ConsoleSection:AddButton({
 	Name = "Print all RemoveEvents",
 	Callback = function()
 		spawn(function()
-			repeat wait()
+			repeat task.wait()
 				for _,v in pairs(game.ReplicatedStorage:GetDescendants()) do
 					if v:IsA("RemoteEvent") then
 						print("Found", v.Name, "- located in:", v.Parent)
 					end
 				end
-			until wait(1)
+			until task.wait(1)
 		end)
 	end    
 })
@@ -3499,10 +3512,10 @@ end
 Section:AddButton({
 	Name = "Bypass Anti-Cheat",
 	Callback = function()
-if game.PlaceId == 6839171747 then
+if game.PlaceId == 6839171747 then -- Check if the game you're playing is Doors
 
 task.defer(function()
-   while wait() do
+   while task.wait() do
        pcall(function()
            workspace.CurrentRooms["0"].StarterElevator.DoorHitbox:Destroy()
        end)
@@ -4599,11 +4612,11 @@ Section12:AddParagraph("Features (except the ones above)","idk.#5293 (Discord)")
 --[[Update Log]]--
 
 -- Features & Games Count
-Tab8:AddLabel("Total Features: 149+")
+Tab8:AddLabel("Total Features: 150+")
 Tab8:AddLabel("Total Supported Games: 11")
 
 -- Changes
-Section13:AddParagraph("11/8/2024","[/] Re-coded some features in order to optimize them\n(Universal)\n[+] Set WalkSpeed/JumpPower/Gravity/FallenPartsDestroyHeight/MaxSlopeAngle Endlessly\n[+] Set FPS Cap + Setting\n[+] MouseIconEnabled + Set MouseDeltaSensitivity + MouseBehavior\n[+] Custom Character (actually a recreation of the original script)\n[+] Remove HumanoidRootPart\n[+] Create Part (NOT FE) + Activate Part Trail\n[+] SoulHub\n[/] Renamed 'Semi-Fly' & 'Semi-Fly (On Click' to 'High Jump' & 'High Jump (On Click)'\n[+] Remove Accessories (NOT FE) + Loop Remove Accessories (NOT FE)\n[+] Create Team (NOT FE) + Settings\n[-] Custom Animation\n[+] Orion Hub Notification + Settings\n(Extra)\n[+] Executor")
+Section13:AddParagraph("11/8/2024","[/] Re-coded more stuff in order to make the code look prettier and also more readable\n(Universal)\n[+] Full Bright\n(Doors)[/] Renamed 'Full Bright' to 'Special Full Bright'")
 Section13:AddParagraph("Meanings","[+] = Added, [-] = Removed/Disabled, [/] = Miscellaneous Change")
 Section13:AddParagraph("Announcement (s)","None.")
 
