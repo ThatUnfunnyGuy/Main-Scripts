@@ -4616,7 +4616,7 @@ Tab8:AddLabel("Total Features: 150+")
 Tab8:AddLabel("Total Supported Games: 11")
 
 -- Changes
-Section13:AddParagraph("11/8/2024","[/] Re-coded more stuff in order to make the code look prettier and also more readable\n(Universal)\n[+] Full Bright\n(Doors)[/] Renamed 'Full Bright' to 'Special Full Bright'")
+Section13:AddParagraph("11/8/2024","[/] Re-coded more stuff in order to make the code look prettier and also more readable\n(Universal)\n[+] Full Bright\n(Doors)\n[/] Renamed 'Full Bright' to 'Special Full Bright'")
 Section13:AddParagraph("Meanings","[+] = Added, [-] = Removed/Disabled, [/] = Miscellaneous Change")
 Section13:AddParagraph("Announcement (s)","None.")
 
