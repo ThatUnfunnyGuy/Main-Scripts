@@ -964,7 +964,6 @@ WSection:AddDropdown({
 	end    
 })
 
---[[
 WSection:AddSlider({
 	Name = "Set SimulationRadius",
 	Min = 1,
@@ -977,8 +976,6 @@ WSection:AddSlider({
 	Player.SimulationRadius = Value
 end    
 })
---]]
--- ^ coming in the next update
 
 WSection:AddBind({
 	Name = "Teleport",
@@ -2796,7 +2793,7 @@ LSection:AddButton({
   end    
 })
 
-WSection:AddButton({
+LSection:AddButton({
 	Name = "Set UserId",
 	Callback = function()
 Player.UserId = UserId
