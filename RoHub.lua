@@ -259,6 +259,8 @@ local TeamAutoAssignable
 
 local FPSCap
 
+local UserId
+
 local Tab0 = Window:MakeTab({
 	Name = "Universal",
 	Icon = "rbxassetid://4483345998",
@@ -961,6 +963,22 @@ WSection:AddDropdown({
 		UserInputService.MouseBehavior = Value
 	end    
 })
+
+--[[
+WSection:AddSlider({
+	Name = "Set SimulationRadius",
+	Min = 1,
+	Max = 99999,
+	Default = Player.SimulationRadius,
+	Color = Color3.fromRGB(62, 62, 62),
+	Increment = 1,
+	ValueName = "SimulationRadius",
+	Callback = function(Value)
+	Player.SimulationRadius = Value
+end    
+})
+--]]
+-- ^ coming in the next update
 
 WSection:AddBind({
 	Name = "Teleport",
@@ -2042,8 +2060,6 @@ TLS.Parent = Player
 
 if PlayerDisplayNameEnabled == true then
 Player.DisplayName = PlayerDisplayName
-elseif PlayerDisplayNameEnabled == false then
-print("alright no display name i understand, have a good day")
 	end
 end    
 })
@@ -2780,6 +2796,12 @@ LSection:AddButton({
   end    
 })
 
+WSection:AddButton({
+	Name = "Set UserId",
+	Callback = function()
+Player.UserId = UserId
+end    
+})
 
 if Character:FindFirstChild("Animate") then
 LSection:AddToggle({
@@ -2825,6 +2847,32 @@ CameraSection:AddSlider({
 	ValueName = "FOV",
 	Callback = function(Value)
 		workspace.Camera.FieldOfView = Value
+	end    
+})
+
+CameraSection:AddSlider({
+	Name = "Set CameraMaxZoomDistance",
+	Min = 0,
+	Max = 999,
+	Default = Player.CameraMaxZoomDistance,
+	Color = Color3.fromRGB(0, 100, 100),
+	Increment = 1,
+	ValueName = "MaxZoomDistance",
+	Callback = function(Value)
+		Player.CameraMaxZoomDistance = Value
+	end    
+})
+
+CameraSection:AddSlider({
+	Name = "Set CameraMinZoomDistance",
+	Min = 0,
+	Max = 999,
+	Default = Player.CameraMinZoomDistance,
+	Color = Color3.fromRGB(0, 99, 99),
+	Increment = 1,
+	ValueName = "MinZoomDistance",
+	Callback = function(Value)
+		Player.CameraMinZoomDistance = Value
 	end    
 })
 
@@ -3457,6 +3505,21 @@ SettingsSection:AddTextbox({
 				OrionLib:MakeNotification({
 	Name = "Done!",
 	Content = "Set FPSCap to " .. "'" .. tostring(Value) .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "UserId",
+	Default = Player.UserId,
+	TextDisappear = false,
+	Callback = function(Value)
+		UserId = tonumber(Value)
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set UserId to " .. "'" .. tostring(Value) .. "'" .. "!",
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
@@ -4489,22 +4552,22 @@ game:GetService("Players").LocalPlayer.PlayerGui["kill button"].TextButton.Borde
 game:GetService("Players").LocalPlayer.PlayerGui["kill button"].TextButton.TextColor3 = Color3.fromRGB(255, 0, 0)
 
 -- Error Button
-while wait() do
+while task.wait() do
 game:GetService("Players").LocalPlayer.PlayerGui.error.TextButton.Text = "Error"
-wait(0.1)
+task.wait(0.1)
 game:GetService("Players").LocalPlayer.PlayerGui.error.TextButton.Text = "eRror"
-wait(0.1)
+task.wait(0.1)
 game:GetService("Players").LocalPlayer.PlayerGui.error.TextButton.Text = "erRor"
-wait(0.1)
+task.wait(0.1)
 game:GetService("Players").LocalPlayer.PlayerGui.error.TextButton.Text = "errOr"
-wait(0.1)
+task.wait(0.1)
 game:GetService("Players").LocalPlayer.PlayerGui.error.TextButton.Text = "erroR"
 end
 
 -- Godmode Button
 game:GetService("Players").LocalPlayer.PlayerGui["invinc button"].TextButton.Font = Enum.Font.Code
 
-while wait() do
+while task.wait() do
 game:GetService("Players").LocalPlayer.PlayerGui["invinc button"].TextButton.TextColor3 = Color3.fromHSV(tick()%5/5,1,1)
 end
 
