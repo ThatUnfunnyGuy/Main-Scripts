@@ -966,7 +966,7 @@ WSection:AddDropdown({
 
 WSection:AddSlider({
 	Name = "Set SimulationRadius",
-	Min = 1,
+	Min = 0,
 	Max = 99999,
 	Default = Player.SimulationRadius,
 	Color = Color3.fromRGB(62, 62, 62),
