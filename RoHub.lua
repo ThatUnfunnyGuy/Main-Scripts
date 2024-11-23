@@ -4550,7 +4550,7 @@ local CurrentCharacterLabel = Section11:AddLabel("Current Character = " .. Curre
 if identifyexecutor() then -- Check if executor supports identifyexecutor()
 local ExecutorLabel = Section11:AddLabel("Executor = " .. identifyexecutor())
 end
---local MemoryUsedLabel = Section11:AddLabel("Memory Used = " .. ) -- coming in the next update
+local MemoryUsedLabel = Section11:AddLabel("Memory Used = " .. Stats:GetTotalMemoryUsageMb())
 
 Section11:AddParagraph("Warning!","Positions and your Current Character labels may break if you use the Custom Humanoid, Custom Character and Change Character (while you still haven't turned back to your own character) features, so if it does, re-execute the script again!")
 	
