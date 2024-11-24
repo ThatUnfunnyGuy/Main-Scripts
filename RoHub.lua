@@ -974,6 +974,7 @@ WSection:AddSlider({
 	ValueName = "SimulationRadius",
 	Callback = function(Value)
 	Player.SimulationRadius = Value
+	Player.MaxSimulationRadius = Value
 end    
 })
 
