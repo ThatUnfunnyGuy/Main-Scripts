@@ -4610,12 +4610,12 @@ end
 local XPosLabel = Section11:AddLabel("Current X Position = " .. CurrentCharacter.HumanoidRootPart.Position.X, CurrentCharacter.HumanoidRootPart.Position.Y, CurrentCharacter.HumanoidRootPart.Position.Z)
 local YPosLabel = Section11:AddLabel("Current Y Position = " .. CurrentCharacter.HumanoidRootPart.Position.Y)
 local ZPosLabel = Section11:AddLabel("Current Z Position = " .. CurrentCharacter.HumanoidRootPart.Position.Z)
-local AccountAgeLabel = Section11:AddLabel("Account Age = " .. Player.AccountAge)
 local CurrentCharacterLabel = Section11:AddLabel("Current Character = " .. CurrentCharacter.Name)
 if identifyexecutor() then -- Check if executor supports identifyexecutor()
 local ExecutorLabel = Section11:AddLabel("Executor = " .. identifyexecutor())
 end
 local MemoryUsedLabel = Section11:AddLabel("Memory Used = " .. Stats:GetTotalMemoryUsageMb())
+local AccountAgeLabel = Section11:AddLabel("Account Age = " .. Player.AccountAge)
 
 Section11:AddParagraph("Warning!","Positions and your Current Character labels may break if you use the Custom Humanoid, Custom Character and Change Character (while you still haven't turned back to your own character) features, so if it does, re-execute the script again!")
 	
