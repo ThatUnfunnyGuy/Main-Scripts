@@ -842,7 +842,7 @@ end
 })
 
 WSection:AddToggle({
-	Name = "Toggle Shiftlock",
+	Name = "Shiftlock",
 	Default = Player.DevEnableMouseLock,
 	Callback = function(Value)
 --local Players = game:GetService("Players")
@@ -858,6 +858,14 @@ WSection:AddToggle({
 	Default = Chat.BubbleChatEnabled,
 	Callback = function(Value)
 Chat.BubbleChatEnabled = Value
+	end    
+})
+
+WSection:AddToggle({
+	Name = "Alternative Toggle BubbleChat",
+	Default = Player.PlayerScripts.BubbleChat.Disabled,
+	Callback = function(Value)
+Player.PlayerScripts.BubbleChat.Disabled = Value
 	end    
 })
 
