@@ -974,7 +974,7 @@ WSection:AddSlider({
 	ValueName = "SimulationRadius",
 	Callback = function(Value)
 	Player.SimulationRadius = Value
-	Player.MaxSimulationRadius = Value
+	--Player.MaxSimulationRadius = Value
 end    
 })
 
@@ -4598,15 +4598,19 @@ end
 --[[Information]]--
 Section11:AddLabel("Game's Name = " .. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name)
 
+--[[
 if game:GetService("SoundService").RespectFilteringEnabled == true then
 Section11:AddLabel("RespectFilteringEnabled = true")
 elseif game:GetService("SoundService").RespectFilteringEnabled == false then
 Section11:AddLabel("RespectFilteringEnabled = false")
 end
+--]]
+--^ i dont even know why i added this
 
 local XPosLabel = Section11:AddLabel("Current X Position = " .. CurrentCharacter.HumanoidRootPart.Position.X, CurrentCharacter.HumanoidRootPart.Position.Y, CurrentCharacter.HumanoidRootPart.Position.Z)
 local YPosLabel = Section11:AddLabel("Current Y Position = " .. CurrentCharacter.HumanoidRootPart.Position.Y)
 local ZPosLabel = Section11:AddLabel("Current Z Position = " .. CurrentCharacter.HumanoidRootPart.Position.Z)
+local AccountAgeLabel = Section11:AddLabel("Account Age = " .. Player.AccountAge)
 local CurrentCharacterLabel = Section11:AddLabel("Current Character = " .. CurrentCharacter.Name)
 if identifyexecutor() then -- Check if executor supports identifyexecutor()
 local ExecutorLabel = Section11:AddLabel("Executor = " .. identifyexecutor())
@@ -4673,7 +4677,7 @@ Section12:AddParagraph("Features (except the ones above)","idk.#5293 (Discord)")
 --[[Update Log]]--
 
 -- Features & Games Count
-Tab8:AddLabel("Total Features: 150+")
+Tab8:AddLabel("Total Features: 151+")
 Tab8:AddLabel("Total Supported Games: 11")
 
 -- Changes
