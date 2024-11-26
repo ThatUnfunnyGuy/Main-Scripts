@@ -129,6 +129,7 @@ local TextTable = {
         Rotation.AnimationId = "rbxassetid://136801964"
 
 -- Music
+if SoundService:FindFirstChild("RelaxedScene") then return end -- check if script has been executed before
     local RelaxedScene = Instance.new("Sound", SoundService)
     RelaxedScene.Name = "RelaxedScene"
     RelaxedScene.SoundId = "rbxassetid://1848354536"
