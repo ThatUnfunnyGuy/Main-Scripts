@@ -46,6 +46,8 @@ if ReplicatedStorage.DefaultChatSystemChatEvents:FindFirstChild("SayMessageReque
 	local SayMessageRequest = ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest
 end
 
+local RespawnTime = Players.RespawnTime
+
 -- Set UseJumpPower
 Character:WaitForChild("Humanoid").UseJumpPower = true
 StarterPlayer.CharacterUseJumpPower = true
@@ -2853,6 +2855,15 @@ end
 })
 end
 
+LSection:AddDropdown({
+	Name = "Chat Style",
+	Default = "Custom",
+	Options = {"Classic", "Bubble", "ClassicAndBubble"},
+	Callback = function(Value)
+		Players:SetChatStyle(Enum.ChatStyle.Value)
+	end    
+})
+
 LSection:AddSlider({
 	Name = "Set Max Players (NOT FE)",
 	Min = 1,
@@ -4777,6 +4788,11 @@ ZPosLabel:Set("Current Z Position = " .. game:GetService("Players").LocalPlayer.
 MemoryUsedLabel:Set("Memory Used = " .. Stats:GetTotalMemoryUsageMb())
 --CurrentCharacterLabel:Set("Current Character = CurrentCharacter)
 	end
+end)
+
+Humanoid.Died:Connect(function()
+	task.wait(RespawnTime)
+	HumanoidRootPart = Character:FindFirstChild("HumanoidRootPart")
 end)
 
 OrionLib:Init()
