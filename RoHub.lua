@@ -206,7 +206,7 @@ local TextTable = {
 
     local NoMore = Instance.new("Sound", SoundService)
     NoMore.Name = "NoMore"
-    TNoMore.SoundId = "rbxassetid://1846458016"
+    NoMore.SoundId = "rbxassetid://1846458016"
     NoMore.Looped = true
 
 -- Character Variables
