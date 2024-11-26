@@ -2857,8 +2857,9 @@ end
 })
 end
 
+--[[
 LSection:AddDropdown({
-	Name = "Chat Style",
+	Name = "ChatStyle",
 	Default = "ClassicAndBubble",
 	Options = {"Classic", "Bubble", "ClassicAndBubble"},
 	Callback = function(Value)
@@ -2869,6 +2870,8 @@ LSection:AddDropdown({
 		Players:SetChatStyle(ManipulationResult)
 	end    
 })
+--]]
+--^ idek if this works tbh
 
 LSection:AddSlider({
 	Name = "Set Max Players (NOT FE)",
