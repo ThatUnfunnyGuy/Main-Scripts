@@ -4805,6 +4805,7 @@ local ExecutorLabel = Section11:AddLabel("Executor = " .. identifyexecutor())
 end
 local MemoryUsedLabel = Section11:AddLabel("Memory Used = " .. Stats:GetTotalMemoryUsageMb())
 local AccountAgeLabel = Section11:AddLabel("Account Age = " .. Player.AccountAge)
+local MousePositionLabel = Section11:AddLabel("Mouse Position = " .. mouse.Hit.Position)
 
 Section11:AddParagraph("Warning!","Positions and your Current Character labels may break if you use the Custom Humanoid, Custom Character and Change Character (while you still haven't turned back to your own character) features, so if it does, re-execute the script again!")
 	
@@ -4880,6 +4881,7 @@ XPosLabel:Set("Current X Position = " .. game:GetService("Players").LocalPlayer.
 YPosLabel:Set("Current Y Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.Y or NewCharacter.Torso.Position.Y)
 ZPosLabel:Set("Current Z Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.Z or NewCharacter.Torso.Position.Z)
 MemoryUsedLabel:Set("Memory Used = " .. Stats:GetTotalMemoryUsageMb())
+MousePositionLabel:Set("Mouse Position = " .. mouse.Hit.Position)
 --CurrentCharacterLabel:Set("Current Character = CurrentCharacter)
 	end
 end)
