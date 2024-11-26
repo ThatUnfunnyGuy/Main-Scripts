@@ -4799,9 +4799,11 @@ MemoryUsedLabel:Set("Memory Used = " .. Stats:GetTotalMemoryUsageMb())
 	end
 end)
 
+--[[
 Humanoid.Died:Connect(function()
 	task.wait(RespawnTime)
 	HumanoidRootPart = Character:FindFirstChild("HumanoidRootPart")
 end)
+--]]
 
 OrionLib:Init()
