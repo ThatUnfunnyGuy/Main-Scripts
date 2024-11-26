@@ -2862,8 +2862,8 @@ LSection:AddDropdown({
 	Default = "ClassicAndBubble",
 	Options = {"Classic", "Bubble", "ClassicAndBubble"},
 	Callback = function(Value)
-		ChatStyle = Enum.ChatStyle .. Value
-		Players:SetChatStyle(ChatStyle)
+		ChatStyle = "Enum.ChatStyle." .. Value
+		Players:SetChatStyle(tostring(ChatStyle))
 	end    
 })
 
