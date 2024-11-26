@@ -2822,7 +2822,7 @@ LSection:AddButton({
 	Callback = function()
 local Light = Instance.new("PointLight")
 Light.Name = "ArtificialLight"
-Light.Color = Color3.new(1, 1, 1)
+Light.Color = LightColor
 Light.Brightness = LightBrightness
 Light.Range = LightRange
 Light.Parent = HumanoidRootPart
