@@ -153,6 +153,11 @@ local TextTable = {
     Chaos.Name = "Chaos"
     Chaos.SoundId = "rbxassetid://1843497734"
     Chaos.Looped = true
+
+    local SeekAndDestroy = Instance.new("Sound", SoundService)
+    SeekAndDestroy.Name = "SeekAndDestroy"
+    SeekAndDestroy.SoundId = "rbxassetid://1845149698"
+    SeekAndDestroy.Looped = true
     
     local Raining = Instance.new("Sound", SoundService)
     Raining.Name = "Raining"
@@ -178,6 +183,31 @@ local TextTable = {
     HappySong.Name = "HappySong"
     HappySong.SoundId = "rbxassetid://1843404009"
     HappySong.Looped = true
+
+    local LifeInAnElevator = Instance.new("Sound", SoundService)
+    LifeInAnElevator.Name = "LifeInAnElevator"
+    LifeInAnElevator.SoundId = "rbxassetid://1841647093"
+    LifeInAnElevator.Looped = true
+
+    local BossaMe = Instance.new("Sound", SoundService)
+    BossaMe.Name = "BossaMe"
+    BossaMe.SoundId = "rbxassetid://1837768517"
+    BossaMe.Looped = true
+
+    local CoolVibes = Instance.new("Sound", SoundService)
+    CoolVibes.Name = "CoolVibes"
+    CoolVibes.SoundId = "rbxassetid://1840684529"
+    CoolVibes.Looped = true
+
+    local TIDALWAVE = Instance.new("Sound", SoundService)
+    TIDALWAVE.Name = "TIDALWAVE"
+    TIDALWAVE.SoundId = "rbxassetid://5409360995"
+    TIDALWAVE.Looped = true
+
+    local NoMore = Instance.new("Sound", SoundService)
+    NoMore.Name = "NoMore"
+    TNoMore.SoundId = "rbxassetid://1846458016"
+    NoMore.Looped = true
 
 -- Character Variables
 local CurrentCharacter = Character
@@ -3102,11 +3132,47 @@ end
 })
 
 MusicSection:AddToggle({
+	Name = "No Smoking",
+    Default = false,
+	Callback = function(Value)
+--MusicTable[4].Playing = Value
+    NoSmoking.Playing = Value
+end    
+})
+
+MusicSection:AddToggle({
+	Name = "Cool Vibes",
+    Default = false,
+	Callback = function(Value)
+--MusicTable[8].Playing = Value
+    CoolVibes.Playing = Value
+end    
+})
+
+MusicSection:AddToggle({
 	Name = "Slow Boat",
     Default = false,
 	Callback = function(Value)
 --MusicTable[9].Playing = Value
     SlowBoat.Playing = Value
+end    
+})
+
+MusicSection:AddToggle({
+	Name = "Life in an Elevator",
+    Default = false,
+	Callback = function(Value)
+--MusicTable[7].Playing = Value
+   LifeInAnElevator.Playing = Value
+end    
+})
+
+MusicSection:AddToggle({
+	Name = "Bossa Me",
+    Default = false,
+	Callback = function(Value)
+--MusicTable[7].Playing = Value
+   BossaMe.Playing = Value
 end    
 })
 
@@ -3129,7 +3195,7 @@ end
 })
 
 MusicSection:AddToggle({
-	Name = "All Dropping 8 Bit Beats",
+	Name = "All-Dropping 8-Bit Beats",
     Default = false,
 	Callback = function(Value)
 --MusicTable[3].Playing = Value
@@ -3138,11 +3204,11 @@ end
 })
 
 MusicSection:AddToggle({
-	Name = "No Smoking",
+	Name = "Seek & Destroy",
     Default = false,
 	Callback = function(Value)
---MusicTable[4].Playing = Value
-    NoSmoking.Playing = Value
+--MusicTable[5].Playing = Value
+    SeekAndDestroy.Playing = Value
 end    
 })
 
@@ -3152,6 +3218,24 @@ MusicSection:AddToggle({
 	Callback = function(Value)
 --MusicTable[5].Playing = Value
     Chaos.Playing = Value
+end    
+})
+
+MusicSection:AddToggle({
+	Name = "Shiawase",
+    Default = false,
+	Callback = function(Value)
+--MusicTable[5].Playing = Value
+    TIDALWAVE.Playing = Value
+end    
+})
+
+MusicSection:AddToggle({
+	Name = "No More",
+    Default = false,
+	Callback = function(Value)
+--MusicTable[5].Playing = Value
+    NoMore.Playing = Value
 end    
 })
 
