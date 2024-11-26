@@ -2863,7 +2863,10 @@ LSection:AddDropdown({
 	Options = {"Classic", "Bubble", "ClassicAndBubble"},
 	Callback = function(Value)
 		ChatStyle = "Enum.ChatStyle." .. Value
-		Players:SetChatStyle(tostring(ChatStyle))
+		local ChatStyleString = tostring(ChatStyle)
+		local ManipulationResult = ChatStyleString:reverse():split(".")[1]:reverse();
+			
+		Players:SetChatStyle(ManipulationResult)
 	end    
 })
 
