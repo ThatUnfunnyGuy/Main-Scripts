@@ -129,8 +129,10 @@ local TextTable = {
         Rotation.AnimationId = "rbxassetid://136801964"
 
 -- Music
-if SoundService:FindFirstChild("RelaxedScene") then return end -- check if script has been executed before
-    local RelaxedScene = Instance.new("Sound", SoundService)
+if SoundService:FindFirstChild("RelaxedScene") then -- check if script has been executed before
+	print("Music has already been loaded.") 
+else
+local RelaxedScene = Instance.new("Sound", SoundService)
     RelaxedScene.Name = "RelaxedScene"
     RelaxedScene.SoundId = "rbxassetid://1848354536"
     RelaxedScene.Looped = true
@@ -209,6 +211,8 @@ if SoundService:FindFirstChild("RelaxedScene") then return end -- check if scrip
     NoMore.Name = "NoMore"
     NoMore.SoundId = "rbxassetid://1846458016"
     NoMore.Looped = true
+end
+    
 
 -- Character Variables
 local CurrentCharacter = Character
