@@ -269,6 +269,8 @@ local LightBrightness
 local LightRange
 local LightColor
 
+local ChatStyle
+
 local Tab0 = Window:MakeTab({
 	Name = "Universal",
 	Icon = "rbxassetid://4483345998",
@@ -2857,10 +2859,11 @@ end
 
 LSection:AddDropdown({
 	Name = "Chat Style",
-	Default = "Custom",
+	Default = "ClassicAndBubble",
 	Options = {"Classic", "Bubble", "ClassicAndBubble"},
 	Callback = function(Value)
-		Players:SetChatStyle(Enum.ChatStyle.Value)
+		ChatStyle = Enum.ChatStyle .. Value
+		Players:SetChatStyle(ChatStyle)
 	end    
 })
 
