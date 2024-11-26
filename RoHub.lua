@@ -42,7 +42,9 @@ local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
 local mouse = Player:GetMouse()
 local Backpack = Player.Backpack
 
-local SayMessageRequest = ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest
+if ReplicatedStorage.DefaultChatSystemChatEvents:FindFirstChild("SayMessageRequest") then
+	local SayMessageRequest = ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest
+end
 
 -- Set UseJumpPower
 Character:WaitForChild("Humanoid").UseJumpPower = true
@@ -260,6 +262,10 @@ local TeamAutoAssignable
 local FPSCap
 
 local UserId
+
+local LightBrightness
+local LightRange
+local LightColor
 
 local Tab0 = Window:MakeTab({
 	Name = "Universal",
@@ -2455,9 +2461,11 @@ end
 LSection:AddButton({
 	Name = "Say Text (Chat)",
 	Callback = function()
+if SayMessageRequest then
 for num, item in TextTable do
 SayMessageRequest:FireServer(item, "All")
 task.wait(1.5)
+		end
 	end
 end
 })
@@ -2806,6 +2814,30 @@ LSection:AddButton({
 	Name = "Set UserId",
 	Callback = function()
 Player.UserId = UserId
+end    
+})
+
+LSection:AddButton({
+	Name = "Add Light To Your Character",
+	Callback = function()
+local Light = Instance.new("PointLight")
+Light.Name = "ArtificialLight"
+Light.Color = Color3.new(1, 1, 1)
+Light.Brightness = LightBrightness
+Light.Range = LightRange
+Light.Parent = HumanoidRootPart
+end    
+})
+
+LSection:AddButton({
+	Name = "Remove All Lights",
+	Callback = function()
+for num, item in Character:GetDescendants() do
+	if item.Name == "ArtificialLight" then
+			local light = item
+			light:Destroy()
+		end
+	end
 end    
 })
 
@@ -3531,6 +3563,50 @@ SettingsSection:AddTextbox({
 })
 end	  
 })
+
+SettingsSection:AddTextbox({
+	Name = "Light's Brightness",
+	Default = LightBrightness,
+	TextDisappear = false,
+	Callback = function(Value)
+		LightBrightness = tonumber(Value)
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set LightBrightness to " .. "'" .. tostring(Value) .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "Light's Range",
+	Default = LightRange,
+	TextDisappear = false,
+	Callback = function(Value)
+		LightRange = tonumber(Value)
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set LightRange to " .. "'" .. tostring(Value) .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddColorpicker({
+	Name = "Light's Color",
+	Default = Color3.fromRGB(255, 255, 255),
+	Callback = function(Value)
+		LightColor = Value
+	end	  
+})
+
+--[[
+Name = <string> - The name of the colorpicker.
+Default = <color3> - The default value of the colorpicker.
+Callback = <function> - The function of the colorpicker.
+]]
 
 --[[
 SettingsSection:AddToggle({
@@ -4685,7 +4761,7 @@ Section12:AddParagraph("Features (except the ones above)","idk.#5293 (Discord)")
 --[[Update Log]]--
 
 -- Features & Games Count
-Tab8:AddLabel("Total Features: 151+")
+Tab8:AddLabel("Total Features: 152+")
 Tab8:AddLabel("Total Supported Games: 11")
 
 -- Changes
