@@ -131,6 +131,37 @@ local TextTable = {
 -- Music
 if SoundService:FindFirstChild("NoMore") then -- check if script has been executed before
 	print("Music has already been loaded.") 
+    local RelaxedScene = SoundService:WaitForChild("RelaxedScene")
+
+    local ParadiseFalls = SoundService:WaitForChild("ParadiseFalls")
+
+    local AllDropping8BitBeats = SoundService:WaitForChild("AllDropping8BitBeats")
+
+    local NoSmoking = SoundService:WaitForChild("NoSmoking")
+
+    local Chaos = SoundService:WaitForChild("Chaos")
+
+    local SeekAndDestroy = SoundService:WaitForChild("SeekAndDestroy")
+    
+    local Raining = SoundService:WaitForChild("Raining")
+
+    local LoFiChill = SoundService:WaitForChild("LoFiChill")
+    
+    local SmoothVibes = SoundService:WaitForChild("SmoothVibes")
+    
+    local SlowBoat = SoundService:WaitForChild("SlowBoat")
+
+    local HappySong = SoundService:WaitForChild("HappySong")
+
+    local LifeInAnElevator = SoundService:WaitForChild("LifeInAnElevator")
+
+    local BossaMe = SoundService:WaitForChild("BossaMe")
+
+    local CoolVibes = SoundService:WaitForChild("CoolVibes")
+
+    local TIDALWAVE = SoundService:WaitForChild("TIDALWAVE")
+
+    local NoMore = SoundService:WaitForChild("NoMore")
 else
 local RelaxedScene = Instance.new("Sound", SoundService)
     RelaxedScene.Name = "RelaxedScene"
