@@ -132,34 +132,42 @@ AnimationsFolder.Name = "AnimationsFolder"
 AnimationsFolder.Parent = Character
 
 ZArms = Instance.new("Animation")
+	ZArms.Name = "ZArms"
 	ZArms.AnimationId = "rbxassetid://183294396"
 	ZArms.Parent = AnimationsFolder
 	
 Insanity = Instance.new("Animation")
+	Insanity.Name = "Insanity"
         Insanity.AnimationId = "rbxassetid://33796059"
 	Insanity.Parent = AnimationsFolder
 
 FHead = Instance.new("Animation")
+	FHead.Name = "FHead"
         FHead.AnimationId = "rbxassetid://121572214"
 	FHead.Parent = AnimationsFolder
 
 MoonDance = Instance.new("Animation")
+	MoonDance.Name = "MoonDance"
         MoonDance.AnimationId = "rbxassetid://27789359"
 	MoonDance.Parent = AnimationsFolder
 
 Charleston = Instance.new("Animation")
+	Charleston.Name = "Charleston"
         Charleston.AnimationId = "rbxassetid://429703734"
 	Charleston.Parent = AnimationsFolder
 
 InsaneLegs = Instance.new("Animation")
+	InsaneLegs.Name = "InsaneLegs"
         InsaneLegs.AnimationId = "rbxassetid://87986341"
 	InsaneLegs.Parent = AnimationsFolder
 
 Spin = Instance.new("Animation")
+	Spin.Name = "Spin"
         Spin.AnimationId = "rbxassetid://188632011"
 	Spin.Parent = AnimationsFolder
 
 Rotation = Instance.new("Animation")
+	Rotation.Name = "Rotation"
         Rotation.AnimationId = "rbxassetid://136801964"
 	Rotation.Parent = AnimationsFolder
 
