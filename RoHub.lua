@@ -2376,7 +2376,7 @@ end
 })
 
 LSection:AddButton({
-	Name = "Kick Yourself (With custom reason)",
+	Name = "Kick Yourself",
 	Callback = function()
 Player:Kick(KickReason)
 end
