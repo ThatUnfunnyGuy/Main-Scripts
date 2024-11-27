@@ -170,7 +170,7 @@ ACheck.Parent = Character
 end
 
 -- Music
- local RelaxedScene = SoundService:WaitForChild("RelaxedScene")
+    local RelaxedScene
     local ParadiseFalls
     local AllDropping8BitBeats
     local NoSmoking
