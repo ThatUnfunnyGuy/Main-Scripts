@@ -115,7 +115,7 @@ local Rotation
 
 local AnimationsFolder
 
-if Character:FindFirstChild("ACheck") then
+if Character:FindFirstChild("A-Check") then
 	print("Animations have already been loaded.")
 	AnimationsFolder = Character:WaitForChild("AnimationsFolder")
 	ZArms = AnimationsFolder:WaitForChild("ZArms")
