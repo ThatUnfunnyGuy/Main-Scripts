@@ -42,7 +42,7 @@ local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
 local mouse = Player:GetMouse()
 local Backpack = Player.Backpack
 
-if ReplicatedStorage.DefaultChatSystemChatEvents:FindFirstChild("SayMessageRequest") then
+if ReplicatedStorage:FindFirstChild("DefaultChatSystemChatEvents") and ReplicatedStorage:FindFirstChild("SayMessageRequest") then
 	local SayMessageRequest = ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest
 end
 
