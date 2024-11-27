@@ -116,7 +116,7 @@ local Rotation
 local AnimationsFolder
 
 if Character:FindFirstChild("A-Check") then
-	print("Animations have already been loaded.")
+	--print("Animations have already been loaded.")
 	AnimationsFolder = Character:FindFirstChild("AnimationsFolder")
 	ZArms = AnimationsFolder:WaitForChild("ZArms")
 	Insanity = AnimationsFolder:WaitForChild("Insanity")
@@ -196,7 +196,7 @@ end
     local NoMore
 
 if SoundService:FindFirstChild("MusicLoaded") then -- check if script has been executed before
-	print("Music has already been loaded.") 
+	--print("Music has already been loaded.") 
     RelaxedScene = SoundService:WaitForChild("RelaxedScene")
     ParadiseFalls = SoundService:WaitForChild("ParadiseFalls")
     AllDropping8BitBeats = SoundService:WaitForChild("AllDropping8BitBeats")
