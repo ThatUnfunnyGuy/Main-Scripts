@@ -166,7 +166,7 @@ Rotation = Instance.new("Animation")
 local ACheck = Instance.new("BoolValue")
 ACheck.Name = "A-Check"
 ACheck.Value = true
-ACheck.Parent = AnimationsFolder
+ACheck.Parent = Character
 end
 
 -- Music
