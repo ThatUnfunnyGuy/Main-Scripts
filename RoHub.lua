@@ -228,7 +228,7 @@ local RelaxedScene = Instance.new("Sound", SoundService)
     NoMore.SoundId = "rbxassetid://1846458016"
     NoMore.Looped = true
 
-   local Check = Instance.new("BooleanValue") -- NO 2ND PARAMETER NOW because it is objectively mid ngl
+   local Check = Instance.new("BoolValue") -- NO 2ND PARAMETER NOW because it is objectively mid ngl
    Check.Value = true
    Check.Name = "MusicLoaded"
    Check.Parent = SoundService
