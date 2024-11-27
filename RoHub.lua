@@ -129,101 +129,118 @@ local TextTable = {
         Rotation.AnimationId = "rbxassetid://136801964"
 
 -- Music
+ local RelaxedScene = SoundService:WaitForChild("RelaxedScene")
+    local ParadiseFalls
+    local AllDropping8BitBeats
+    local NoSmoking
+    local Chaos
+    local SeekAndDestroy
+    local Raining
+    local LoFiChill
+    local SmoothVibes
+    local SlowBoat
+    local HappySong
+    local LifeInAnElevator
+    local BossaMe
+    local CoolVibes
+    local TIDALWAVE
+    local NoMore
+
 if SoundService:FindFirstChild("MusicLoaded") then -- check if script has been executed before
 	print("Music has already been loaded.") 
-    local RelaxedScene = SoundService:WaitForChild("RelaxedScene")
-    local ParadiseFalls = SoundService:WaitForChild("ParadiseFalls")
-    local AllDropping8BitBeats = SoundService:WaitForChild("AllDropping8BitBeats")
-    local NoSmoking = SoundService:WaitForChild("NoSmoking")
-    local Chaos = SoundService:WaitForChild("Chaos")
-    local SeekAndDestroy = SoundService:WaitForChild("SeekAndDestroy")
-    local Raining = SoundService:WaitForChild("Raining")
-    local LoFiChill = SoundService:WaitForChild("LoFiChill")
-    local SmoothVibes = SoundService:WaitForChild("SmoothVibes")
-    local SlowBoat = SoundService:WaitForChild("SlowBoat")
-    local HappySong = SoundService:WaitForChild("HappySong")
-    local LifeInAnElevator = SoundService:WaitForChild("LifeInAnElevator")
-    local BossaMe = SoundService:WaitForChild("BossaMe")
-    local CoolVibes = SoundService:WaitForChild("CoolVibes")
-    local TIDALWAVE = SoundService:WaitForChild("TIDALWAVE")
-    local NoMore = SoundService:WaitForChild("NoMore")
+    RelaxedScene = SoundService:WaitForChild("RelaxedScene")
+    ParadiseFalls = SoundService:WaitForChild("ParadiseFalls")
+    AllDropping8BitBeats = SoundService:WaitForChild("AllDropping8BitBeats")
+    NoSmoking = SoundService:WaitForChild("NoSmoking")
+    Chaos = SoundService:WaitForChild("Chaos")
+    SeekAndDestroy = SoundService:WaitForChild("SeekAndDestroy")
+    Raining = SoundService:WaitForChild("Raining")
+    LoFiChill = SoundService:WaitForChild("LoFiChill")
+    SmoothVibes = SoundService:WaitForChild("SmoothVibes")
+    SlowBoat = SoundService:WaitForChild("SlowBoat")
+    HappySong = SoundService:WaitForChild("HappySong")
+    LifeInAnElevator = SoundService:WaitForChild("LifeInAnElevator")
+    BossaMe = SoundService:WaitForChild("BossaMe")
+    CoolVibes = SoundService:WaitForChild("CoolVibes")
+    TIDALWAVE = SoundService:WaitForChild("TIDALWAVE")
+    NoMore = SoundService:WaitForChild("NoMore")
 else
-local RelaxedScene = Instance.new("Sound", SoundService)
+RelaxedScene = Instance.new("Sound", SoundService)
     RelaxedScene.Name = "RelaxedScene"
     RelaxedScene.SoundId = "rbxassetid://1848354536"
     RelaxedScene.Looped = true
 
-    local ParadiseFalls = Instance.new("Sound", SoundService)
+ParadiseFalls = Instance.new("Sound", SoundService)
     ParadiseFalls.Name = "ParadiseFalls"
     ParadiseFalls.SoundId = "rbxassetid://1837879082"
     ParadiseFalls.Looped = true
 
-    local AllDropping8BitBeats = Instance.new("Sound", SoundService)
+AllDropping8BitBeats = Instance.new("Sound", SoundService)
     AllDropping8BitBeats.Name = "AllDropping8BitBeats"
     AllDropping8BitBeats.SoundId = "rbxassetid://9048375035"
     AllDropping8BitBeats.Looped = true
 
-    local NoSmoking = Instance.new("Sound", SoundService)
+NoSmoking = Instance.new("Sound", SoundService)
     NoSmoking.Name = "NoSmoking"
     NoSmoking.SoundId = "rbxassetid://9047105533"
     NoSmoking.Looped = true
 
-    local Chaos = Instance.new("Sound", SoundService)
+Chaos = Instance.new("Sound", SoundService)
     Chaos.Name = "Chaos"
     Chaos.SoundId = "rbxassetid://1843497734"
     Chaos.Looped = true
 
-    local SeekAndDestroy = Instance.new("Sound", SoundService)
+SeekAndDestroy = Instance.new("Sound", SoundService)
     SeekAndDestroy.Name = "SeekAndDestroy"
     SeekAndDestroy.SoundId = "rbxassetid://1845149698"
     SeekAndDestroy.Looped = true
     
-    local Raining = Instance.new("Sound", SoundService)
+Raining = Instance.new("Sound", SoundService)
     Raining.Name = "Raining"
     Raining.SoundId = "rbxassetid://142376088"
     Raining.Looped = true
 
-    local LoFiChill = Instance.new("Sound", SoundService)
+LoFiChill = Instance.new("Sound", SoundService)
     LoFiChill.Name = "LoFiChill"
     LoFiChill.SoundId = "rbxassetid://9043887091"
     LoFiChill.Looped = true
     
-    local SmoothVibes = Instance.new("Sound", SoundService)
+SmoothVibes = Instance.new("Sound", SoundService)
     SmoothVibes.Name = "SmoothVibes"
     SmoothVibes.SoundId = "rbxassetid://9044565954"
     SmoothVibes.Looped = true
     
-    local SlowBoat = Instance.new("Sound", SoundService)
+SlowBoat = Instance.new("Sound", SoundService)
     SlowBoat.Name = "SlowBoat"
     SlowBoat.SoundId = "rbxassetid://9048518373"
     SlowBoat.Looped = true
 
-    local HappySong = Instance.new("Sound", SoundService)
+HappySong = Instance.new("Sound", SoundService)
     HappySong.Name = "HappySong"
     HappySong.SoundId = "rbxassetid://1843404009"
     HappySong.Looped = true
 
-    local LifeInAnElevator = Instance.new("Sound", SoundService)
+LifeInAnElevator = Instance.new("Sound", SoundService)
     LifeInAnElevator.Name = "LifeInAnElevator"
     LifeInAnElevator.SoundId = "rbxassetid://1841647093"
     LifeInAnElevator.Looped = true
 
-    local BossaMe = Instance.new("Sound", SoundService)
+BossaMe = Instance.new("Sound", SoundService)
     BossaMe.Name = "BossaMe"
     BossaMe.SoundId = "rbxassetid://1837768517"
     BossaMe.Looped = true
 
-    local CoolVibes = Instance.new("Sound", SoundService)
+CoolVibes = Instance.new("Sound", SoundService)
     CoolVibes.Name = "CoolVibes"
     CoolVibes.SoundId = "rbxassetid://1840684529"
     CoolVibes.Looped = true
 
-    local TIDALWAVE = Instance.new("Sound", SoundService)
+TIDALWAVE = Instance.new("Sound", SoundService)
     TIDALWAVE.Name = "TIDALWAVE"
     TIDALWAVE.SoundId = "rbxassetid://5409360995"
     TIDALWAVE.Looped = true
 
-    local NoMore = Instance.new("Sound", SoundService)
+NoMore = Instance.new("Sound", SoundService)
     NoMore.Name = "NoMore"
     NoMore.SoundId = "rbxassetid://1846458016"
     NoMore.Looped = true
