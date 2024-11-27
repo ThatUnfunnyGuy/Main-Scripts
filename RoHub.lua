@@ -993,6 +993,7 @@ Chat.BubbleChatEnabled = Value
 	end    
 })
 
+--[[
 WSection:AddToggle({
 	Name = "Alternative Toggle BubbleChat",
 	Default = Player.PlayerScripts.BubbleChat.Disabled,
@@ -1000,6 +1001,8 @@ WSection:AddToggle({
 Player.PlayerScripts.BubbleChat.Disabled = Value
 	end    
 })
+--]]
+--^ it feels like this script is actively getting hunted in order to patch as much as roblox can patch from this script
 
 WSection:AddToggle({
 	Name = "GlobalShadows",
