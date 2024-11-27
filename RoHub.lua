@@ -117,7 +117,7 @@ local AnimationsFolder
 
 if Character:FindFirstChild("A-Check") then
 	print("Animations have already been loaded.")
-	AnimationsFolder = Character:WaitForChild("AnimationsFolder")
+	AnimationsFolder = Character:FindFirstChild("AnimationsFolder")
 	ZArms = AnimationsFolder:WaitForChild("ZArms")
 	Insanity = AnimationsFolder:WaitForChild("Insanity")
 	FHead = AnimationsFolder:WaitForChild("FHead")
