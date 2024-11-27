@@ -104,29 +104,70 @@ local TextTable = {
 }
 
 -- Animations
-    local ZArms = Instance.new("Animation")
-        ZArms.AnimationId = "rbxassetid://183294396"
+local ZArms
+local Insanity
+local FHead
+local MoonDance
+local Charleston
+local InsaneLegs
+local Spin
+local Rotation
 
-    local Insanity = Instance.new("Animation")
+local AnimationsFolder
+
+if Character:FindFirstChild("ACheck") then
+	print("Animations have already been loaded.")
+	AnimationsFolder = Character:WaitForChild("AnimationsFolder")
+	ZArms = AnimationsFolder:WaitForChild("ZArms")
+	Insanity = AnimationsFolder:WaitForChild("Insanity")
+	FHead = AnimationsFolder:WaitForChild("FHead")
+	MoonDance = AnimationsFolder:WaitForChild("MoonDance")
+	Charleston = AnimationsFolder:WaitForChild("Charleston")
+	InsaneLegs = AnimationsFolder:WaitForChild("InsaneLegs")
+	Spin = AnimationsFolder:WaitForChild("Spin")
+	Rotation = AnimationsFolder:WaitForChild("Rotation")
+else
+AnimationsFolder = Instance.new("Folder")
+AnimationsFolder.Name = "AnimationsFolder"
+AnimationsFolder.Parent = Character
+
+ZArms = Instance.new("Animation")
+	ZArms.AnimationId = "rbxassetid://183294396"
+	ZArms.Parent = AnimationsFolder
+	
+Insanity = Instance.new("Animation")
         Insanity.AnimationId = "rbxassetid://33796059"
+	Insanity.Parent = AnimationsFolder
 
-    local FHead = Instance.new("Animation")
+FHead = Instance.new("Animation")
         FHead.AnimationId = "rbxassetid://121572214"
+	FHead.Parent = AnimationsFolder
 
-    local MoonDance = Instance.new("Animation")
+MoonDance = Instance.new("Animation")
         MoonDance.AnimationId = "rbxassetid://27789359"
+	MoonDance.Parent = AnimationsFolder
 
-    local Charleston = Instance.new("Animation")
+Charleston = Instance.new("Animation")
         Charleston.AnimationId = "rbxassetid://429703734"
+	Charleston.Parent = AnimationsFolder
 
-    local InsaneLegs = Instance.new("Animation")
+InsaneLegs = Instance.new("Animation")
         InsaneLegs.AnimationId = "rbxassetid://87986341"
+	InsaneLegs.Parent = AnimationsFolder
 
-    local Spin = Instance.new("Animation")
+Spin = Instance.new("Animation")
         Spin.AnimationId = "rbxassetid://188632011"
+	Spin.Parent = AnimationsFolder
 
-    local Rotation = Instance.new("Animation")
+Rotation = Instance.new("Animation")
         Rotation.AnimationId = "rbxassetid://136801964"
+	Rotation.Parent = AnimationsFolder
+
+local ACheck = Instance.new("BoolValue")
+ACheck.Name = "A-Check"
+ACheck.Value = true
+ACheck.Parent = AnimationsFolder
+end
 
 -- Music
  local RelaxedScene = SoundService:WaitForChild("RelaxedScene")
