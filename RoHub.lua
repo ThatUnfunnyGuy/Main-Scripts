@@ -5355,7 +5355,7 @@ Section12:AddParagraph("Features (except the ones above)","idk.#5293 (Discord)")
 --[[Update Log]]--
 
 -- Features & Games Count
-Tab8:AddLabel("Total Features: 152+")
+Tab8:AddLabel("Total Features: 156+")
 Tab8:AddLabel("Total Supported Games: 11")
 
 -- Changes
