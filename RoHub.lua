@@ -2992,6 +2992,18 @@ Fire.Parent = HumanoidRootPart
 end    
 })
 
+LSection:AddButton({
+	Name = "Remove Fire",
+	Callback = function()
+for num, item in Character:GetDescendants() do
+	if item.Name == "ArtificialFire" then
+			local fire = item
+			fire:Destroy()
+		end
+	end
+end    
+})
+
 if Character:FindFirstChild("Animate") then
 LSection:AddToggle({
 	Name = "Animations",
