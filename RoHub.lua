@@ -5595,17 +5595,9 @@ LabelsFrame:ClearAllChildren() -- this is just better
 --[[
 	for num, item in LabelsFrame:GetChildren() do
 item:Destroy()
+end
 --]]
 --^ old method
-end
-
---[[
-for num, item in TotalLabels do
-	local Label = Instance.new("TextLabel")
-	Label.Text = TotalLabels[num]
-	end
---]]
---^ unfinished
 end
 })
 
