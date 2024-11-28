@@ -5582,8 +5582,13 @@ end
 LabelsSection:AddButton({
 	Name = "Destroy Labels",
 	Callback = function()
+LabelsFrame:ClearAllChildren() -- this is just better
+
+--[[
 	for num, item in LabelsFrame:GetChildren() do
 item:Destroy()
+--]]
+--^ old method
 end
 
 --[[
