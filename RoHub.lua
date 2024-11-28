@@ -69,6 +69,7 @@ LabelsFrame.Parent = LabelsGUI
 UIListLayout = Instance.new("UIListLayout")
 UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Right
 UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Bottom
+UIListLayout.Parent = LabelsFrame
 
 --[[
 local LabelsFolder = Instance.new("Folder")
@@ -5518,20 +5519,28 @@ LabelsSection:AddButton({
 	for num, item in TotalLabels do
 	local Label = Instance.new("TextLabel")
 	if num == 1 then -- XPosLabel
+Label.Name = "XPosLabel"
 Label.Text = "Current X Position = " .. CurrentCharacter.HumanoidRootPart.Position.X
 	elseif num == 2 then -- YPosLabel
+Label.Name = "YPosLabel"
 Label.Text = "Current Y Position = " .. CurrentCharacter.HumanoidRootPart.Position.Y
 	elseif num == 3 then -- ZPosLabel
+Label.Name = "ZPosLabel"
 Label.Text = "Current Z Position = " .. CurrentCharacter.HumanoidRootPart.Position.Z
 	elseif num == 4 then -- CurrentCharacterLabel
+Label.Name = "CurrentCharacterLabel"
 Label.Text = "Current Character = " .. CurrentCharacter.Name
 	elseif num == 5 then -- ExecutorLabel
+Label.Name = "ExecutorLabel"
 Label.Text = "Executor = " .. identifyexecutor()
 	elseif num == 6 then -- MemoryUsedLabel
+Label.Name = "MemoryUsedLabel"
 Label.Text = "Memory Used = " .. Stats:GetTotalMemoryUsageMb()
 	elseif num == 7 then -- AccountAgeLabel
+Label.Name = "AccountAgeLabel"
 Label.Text = "Account Age = " .. Player.AccountAge
 	elseif num == 8 then -- MousePositionLabel
+Label.Name = "MousePositionLabel"
 Label.Text = "Mouse Position = " .. tostring(mouse.Hit.Position)
 	end
 Label.LayoutOrder = num
