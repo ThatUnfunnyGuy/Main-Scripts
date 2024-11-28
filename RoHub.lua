@@ -3868,7 +3868,7 @@ SettingsSection:AddColorpicker({
 
 SettingsSection:AddToggle({
 	Name = "Fire Enabled",
-	Default = FireEnabled,
+	Default = true,
 	Callback = function(Value)
 		FireEnabled = Value
 							OrionLib:MakeNotification({
