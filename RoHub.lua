@@ -5558,11 +5558,11 @@ end
 
 while LabelsFrame:FindFirstChild("XPosLabel") do
 task.wait()
-LabelsFrame:WaitForChild("XPosLabel").Text = "Current X Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.X or NewCharacter.Torso.Position.X
-LabelsFrame:WaitForChild("YPosLabel").Text = "Current Y Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.Y or NewCharacter.Torso.Position.Y
-LabelsFrame:WaitForChild("ZPosLabel").Text = "Current Z Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.Z or NewCharacter.Torso.Position.Z
-LabelsFrame:WaitForChild("MemoryUsedLabel").Text = "Memory Used = " .. Stats:GetTotalMemoryUsageMb()
-LabelsFrame:WaitForChild("MousePositionLabel").Text = "Mouse Position = " .. tostring(mouse.Hit.Position)
+LabelsFrame:FindFirstChild("XPosLabel").Text = "Current X Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.X or NewCharacter.Torso.Position.X
+LabelsFrame:FindFirstChild("YPosLabel").Text = "Current Y Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.Y or NewCharacter.Torso.Position.Y
+LabelsFrame:FindFirstChild("ZPosLabel").Text = "Current Z Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.Z or NewCharacter.Torso.Position.Z
+LabelsFrame:FindFirstChild("MemoryUsedLabel").Text = "Memory Used = " .. Stats:GetTotalMemoryUsageMb()
+LabelsFrame:FindFirstChild("MousePositionLabel").Text = "Mouse Position = " .. tostring(mouse.Hit.Position)
 --[[
 C = RunService.Heartbeat:Connect(function()
 LabelsFrame:WaitForChild("XPosLabel"):Set("Current X Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.X or NewCharacter.Torso.Position.X)
