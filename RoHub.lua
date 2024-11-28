@@ -51,8 +51,8 @@ local RespawnTime = Players.RespawnTime
 -- Create stuff
 if not Player.PlayerGui:FindFirstChild("LabelsGUI") then
 local LabelsGUI = Instance.new("ScreenGui")
-LabelsFolder.Name = "LabelsGUI"
-LabelsFolder.Parent = Player.PlayerGui
+LabelsGUI.Name = "LabelsGUI"
+LabelsGUI.Parent = Player.PlayerGui
 
 local LabelsFrame = Instance.new("Frame")
 LabelsFrame.Position = UDim2.new(0.785, 0, 0.415, 0)
