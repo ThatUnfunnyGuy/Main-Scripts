@@ -981,12 +981,14 @@ end)
 end    
 })
 
+if setfpscap then
 WSection:AddButton({
 	Name = "Set FPS Cap",
 	Callback = function()
 setfpscap(FPSCap)
 end    
 })
+end
 
 WSection:AddToggle({
 	Name = "Toggle Reset Button",
@@ -3819,6 +3821,7 @@ SettingsSection:AddToggle({
 	end    
 })
 
+if setfpscap then
 SettingsSection:AddTextbox({
 	Name = "FPS Cap",
 	Default = 0,
@@ -3833,6 +3836,7 @@ SettingsSection:AddTextbox({
 })
 end	  
 })
+end
 
 SettingsSection:AddTextbox({
 	Name = "UserId",
