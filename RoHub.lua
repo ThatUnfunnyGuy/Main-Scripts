@@ -712,6 +712,10 @@ local Section11 = Tab6:AddSection({
 	Name = "Information"
 })
 
+local LabelsSection = Tab6:AddSection({
+	Name = "Labels"
+})
+
 if game:GetService("ReplicatedStorage"):FindFirstChild("RemoveEvent") then
 local SDSection = SDTab:AddSection({
 	Name = "Settings"
