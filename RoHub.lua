@@ -5557,6 +5557,12 @@ Label.Parent = LabelsFrame
 end
 
 while LabelsFrame:FindFirstChild("XPosLabel") do
+task.wait()
+LabelsFrame:WaitForChild("XPosLabel"):Set("Current X Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.X or NewCharacter.Torso.Position.X)
+LabelsFrame:WaitForChild("YPosLabel"):Set("Current Y Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.Y or NewCharacter.Torso.Position.Y)
+LabelsFrame:WaitForChild("ZPosLabel"):Set("Current Z Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.Z or NewCharacter.Torso.Position.Z)
+LabelsFrame:WaitForChild("MemoryUsedLabel"):Set("Memory Used = " .. Stats:GetTotalMemoryUsageMb())
+--[[
 C = RunService.Heartbeat:Connect(function()
 LabelsFrame:WaitForChild("XPosLabel"):Set("Current X Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.X or NewCharacter.Torso.Position.X)
 LabelsFrame:WaitForChild("YPosLabel"):Set("Current Y Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.Y or NewCharacter.Torso.Position.Y)
@@ -5568,6 +5574,7 @@ if not LabelsFrame:FindFirstChild("XPosLabel") then
 		C:Disconnect()
 		end
 	end)
+--]]
 end
 
 --[[
