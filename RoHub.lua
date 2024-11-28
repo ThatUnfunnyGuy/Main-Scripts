@@ -3021,7 +3021,7 @@ end
 })
 
 LSection:AddButton({
-	Name = "Add Fire To Your Character (NOT FE)",
+	Name = "Add Particles To Your Character (NOT FE)",
 	Callback = function()
 local Particles = Instance.new("ParticleEmitter")
 Particles.Name = "ArtificialParticles"
