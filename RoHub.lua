@@ -3861,7 +3861,7 @@ SettingsSection:AddToggle({
 		FireEnabled = Value
 							OrionLib:MakeNotification({
 	Name = "Done!",
-	Content = "Set FireEnabled to " .. Value .. "!",
+	Content = "Set FireEnabled to " .. tostring(Value) .. "!",
 	Image = "rbxassetid://4483345998",
 	Time = 5			
 })
