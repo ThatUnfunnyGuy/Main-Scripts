@@ -19,7 +19,7 @@ end
 -- Setup the Orion library
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ThatUnfunnyGuy/Main-Scripts/refs/heads/main/Orion%20Hub%20(Fix%20Attempt)')))()
 
-local Window = OrionLib:MakeWindow({Name = "RoHub (v1.7.1)", HidePremium = true, SaveConfig = false, ConfigFolder = "RoHub", IntroEnabled = true, IntroText = "RoHub", IntroIcon = "rbxassetid://119223925296024", Icon = "rbxassetid://119223925296024"})
+local Window = OrionLib:MakeWindow({Name = "RoHub (v1.7.2)", HidePremium = true, SaveConfig = false, ConfigFolder = "RoHub", IntroEnabled = true, IntroText = "RoHub", IntroIcon = "rbxassetid://119223925296024", Icon = "rbxassetid://119223925296024"})
 
 local Chat = game:GetService("Chat")
 local SoundService = game:GetService("SoundService")
@@ -47,6 +47,25 @@ if ReplicatedStorage:FindFirstChild("DefaultChatSystemChatEvents") and Replicate
 end
 
 local RespawnTime = Players.RespawnTime
+
+-- Create stuff
+if not Player.PlayerGui:FindFirstChild("LabelsGUI") then
+local LabelsGUI = Instance.new("ScreenGui")
+LabelsFolder.Name = "LabelsGUI"
+LabelsFolder.Parent = Player.PlayerGui
+
+local LabelsFrame = Instance.new("Frame")
+LabelsFrame.Position = UDim2.new(0.785, 0, 0.415, 0)
+LabelsFrame.Size = UDim2.new(0.215, 0, 0.585, 0)
+LabelsFrame.BackgroundTransparency = 1
+LabelsFrame.Parent = LabelsGUI
+
+--[[
+local LabelsFolder = Instance.new("Folder")
+LabelsFolder.Name = "LabelsFolder"
+LabelsFolder.Parent = LabelsGUI
+--]]
+end
 
 -- Set UseJumpPower
 Character:WaitForChild("Humanoid").UseJumpPower = true
@@ -5436,16 +5455,26 @@ end
 --]]
 --^ i dont even know why i added this
 
-local XPosLabel = Section11:AddLabel("Current X Position = " .. CurrentCharacter.HumanoidRootPart.Position.X, CurrentCharacter.HumanoidRootPart.Position.Y, CurrentCharacter.HumanoidRootPart.Position.Z)
+local TotalLabels = {}
+
+local XPosLabel = Section11:AddLabel("Current X Position = " .. CurrentCharacter.HumanoidRootPart.Position.X)
+table.insert(TotalLabels, XPosLabel)
 local YPosLabel = Section11:AddLabel("Current Y Position = " .. CurrentCharacter.HumanoidRootPart.Position.Y)
+table.insert(TotalLabels, YPosLabel)
 local ZPosLabel = Section11:AddLabel("Current Z Position = " .. CurrentCharacter.HumanoidRootPart.Position.Z)
+table.insert(TotalLabels, ZPosLabel)
 local CurrentCharacterLabel = Section11:AddLabel("Current Character = " .. CurrentCharacter.Name)
+table.insert(TotalLabels, CurrentCharacterLabel)
 if identifyexecutor() then -- Check if executor supports identifyexecutor()
 local ExecutorLabel = Section11:AddLabel("Executor = " .. identifyexecutor())
+table.insert(TotalLabels, ExecutorLabel)
 end
 local MemoryUsedLabel = Section11:AddLabel("Memory Used = " .. Stats:GetTotalMemoryUsageMb())
+table.insert(TotalLabels, MemoryUsedLabel)
 local AccountAgeLabel = Section11:AddLabel("Account Age = " .. Player.AccountAge)
+table.insert(TotalLabels, AccountAgeLabel)
 local MousePositionLabel = Section11:AddLabel("Mouse Position = " .. tostring(mouse.Hit.Position))
+table.insert(TotalLabels, MousePositionLabel)
 
 Section11:AddParagraph("Warning!","Positions and your Current Character labels may break if you use the Custom Humanoid, Custom Character and Change Character (while you still haven't turned back to your own character) features, so if it does, re-execute the script again!")
 	
@@ -5463,6 +5492,68 @@ warn("DesiredCharacter = nil!")
 elseif DesiredCharacter == not nil then
 Section11:AddLabel("DesiredCharacter = " .. DesiredCharacter)
 end
+
+--[[Labels]]--
+LabelsSection:AddButton({
+	Name = "Create Labels",
+	Callback = function()
+	for num, item in TotalLabels do
+	local Label = Instance.new("TextLabel")
+	if num == 1 then -- XPosLabel
+Label.Text = "Current X Position = " .. CurrentCharacter.HumanoidRootPart.Position.X
+	elseif num == 2 then -- YPosLabel
+Label.Text = "Current Y Position = " .. CurrentCharacter.HumanoidRootPart.Position.Y
+	elseif num == 3 then -- ZPosLabel
+Label.Text = "Current Z Position = " .. CurrentCharacter.HumanoidRootPart.Position.Z
+	elseif num == 4 then -- CurrentCharacterLabel
+Label.Text = "Current Character = " .. CurrentCharacter.Name
+	elseif num == 5 then -- ExecutorLabel
+Label.Text = "Executor = " .. identifyexecutor()
+	elseif num == 6 then -- MemoryUsedLabel
+Label.Text = "Memory Used = " .. Stats:GetTotalMemoryUsageMb()
+	elseif num == 7 then -- AccountAgeLabel
+Label.Text = "Account Age = " .. Player.AccountAge
+	elseif num == 8 then -- MousePositionLabel
+Label.Text = "Mouse Position = " .. tostring(mouse.Hit.Position)
+	end
+Label.TextScaled = true
+Label.TextColor3 = Color3.new(255, 255, 255)
+Label.BackgroundTransparency = 1
+Label.TextStrokeTransparency = 0
+--Label.TextStrokeColor3 = Color3.new(0, 0, 0)
+--Label.Position = UDim2.new(0.781, 0, 0.954, 0)
+--Label.Size = UDim2.new(0.219, 0, 0.046, 0)
+Label.Size = UDim2.new(1, 0, 0.07, 0)
+Label.TextXAlignment = Enum.TextXAlignment.Right
+Label.Parent = LabelsFrame
+end
+
+--[[
+for num, item in TotalLabels do
+	local Label = Instance.new("TextLabel")
+	Label.Text = TotalLabels[num]
+	end
+--]]
+--^ unfinished
+end
+})
+
+LabelsSection:AddButton({
+	Name = "Destroy Labels",
+	Callback = function()
+	for num, item in LabelsFrame:GetChildren() do
+item:Destroy()
+end
+
+--[[
+for num, item in TotalLabels do
+	local Label = Instance.new("TextLabel")
+	Label.Text = TotalLabels[num]
+	end
+--]]
+--^ unfinished
+end
+})
 
 --[[
 if BlurOnLeave then
@@ -5507,7 +5598,7 @@ Section12:AddParagraph("Features (except the ones above)","idk.#5293 (Discord)")
 --[[Update Log]]--
 
 -- Features & Games Count
-Tab8:AddLabel("Total Features: 156+")
+Tab8:AddLabel("Total Features: 158+")
 Tab8:AddLabel("Total Supported Games: 11")
 
 -- Changes
