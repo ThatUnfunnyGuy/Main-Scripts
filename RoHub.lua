@@ -1888,6 +1888,13 @@ GoofySection:AddButton({
     end    
 })
 
+GoofySection:AddButton({
+	Name = "Customizable Hints Creator",
+	Callback = function()
+    	loadstring(game:HttpGet("https://pastebin.com/raw/g3CbRDKq"))()  	
+    end    
+})
+
 LSection:AddButton({
 	Name = "Custom Humanoid (LAGGY)",
 	Callback = function()
