@@ -5495,7 +5495,7 @@ table.insert(TotalLabels, AccountAgeLabel)
 local MousePositionLabel = Section11:AddLabel("Mouse Position = " .. tostring(mouse.Hit.Position))
 table.insert(TotalLabels, MousePositionLabel)
 
-Section11:AddParagraph("Warning!","Positions and your Current Character labels may break if you use the Custom Humanoid, Custom Character and Change Character (while you still haven't turned back to your own character) features, so if it does, re-execute the script again!")
+Section11:AddParagraph("Warning!","Some labels may break if you use the Custom Humanoid, Custom Character and Change Character (while you still haven't turned back to your own character) features, so if it does, re-execute the script again!")
 	
 --[[
 if CurrentCharacter == nil and DesiredCharacter == nil then
