@@ -4011,7 +4011,8 @@ SettingsSection:AddColorpicker({
 	Name = "Particles Color",
 	Default = Color3.fromRGB(255, 255, 255),
 	Callback = function(Value)
-		ParticlesColor = Value
+		print(Value)
+		--ParticlesColor = Value
 	end	  
 })
 
