@@ -3025,8 +3025,8 @@ LSection:AddButton({
 	Callback = function()
 local Particles = Instance.new("ParticleEmitter")
 Particles.Name = "ArtificialParticles"
-Particles.Enabled = FireEnabled
-Particles.Color = FireColor
+Particles.Enabled = ParticlesEnabled
+--Particles.Color = ParticlesColor
 Particles.EmissionDirection = ParticlesEmissionDirection
 Particles.Lifetime = ParticlesLifetime
 Particles.Size = ParticlesSize
@@ -4007,6 +4007,7 @@ SettingsSection:AddToggle({
 	end    
 })
 
+--[[
 SettingsSection:AddColorpicker({
 	Name = "Particles Color",
 	Default = Color3.fromRGB(255, 255, 255),
@@ -4015,6 +4016,8 @@ SettingsSection:AddColorpicker({
 		--ParticlesColor = Value
 	end	  
 })
+--]]
+--^ ill continue this later, im tired rn
 
 SettingsSection:AddDropdown({
 	Name = "Particles EmissionDirection",
@@ -4218,22 +4221,6 @@ SettingsSection:AddTextbox({
 })
 end	  
 })
-
-local ParticlesEnabled
-local ParticlesColor
-local ParticlesEmissionDirection
-local ParticlesLifetime
-local ParticlesSize
-local ParticlesSpeed
-local ParticlesTexture
-local ParticlesRate
-local ParticlesRotation
-local ParticlesShape
-local ParticlesSpreadAngle
-local ParticlesTimeScale
-local ParticlesTransparency
-local ParticlesLightInfluence
-local ParticlesBrightness
 
 Section:AddButton({
 	Name = "Bypass Anti-Cheat",
