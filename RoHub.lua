@@ -49,12 +49,17 @@ end
 local RespawnTime = Players.RespawnTime
 
 -- Create stuff
+
+local LabelsGUI
+local LabelsFrame
+
 if not Player.PlayerGui:FindFirstChild("LabelsGUI") then
-local LabelsGUI = Instance.new("ScreenGui")
+LabelsGUI = Instance.new("ScreenGui")
 LabelsGUI.Name = "LabelsGUI"
 LabelsGUI.Parent = Player.PlayerGui
 
-local LabelsFrame = Instance.new("Frame")
+LabelsFrame = Instance.new("Frame")
+LabelsFrame.Name = "LabelsFrame"
 LabelsFrame.Position = UDim2.new(0.785, 0, 0.415, 0)
 LabelsFrame.Size = UDim2.new(0.215, 0, 0.585, 0)
 LabelsFrame.BackgroundTransparency = 1
@@ -65,6 +70,9 @@ local LabelsFolder = Instance.new("Folder")
 LabelsFolder.Name = "LabelsFolder"
 LabelsFolder.Parent = LabelsGUI
 --]]
+else
+LabelsGUI = Player.PlayerGui:WaitForChild("LabelsGUI")
+LabelsFrame = LabelsGUI:WaitForChild("LabelsFrame")
 end
 
 -- Set UseJumpPower
