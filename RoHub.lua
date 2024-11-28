@@ -52,6 +52,7 @@ local RespawnTime = Players.RespawnTime
 
 local LabelsGUI
 local LabelsFrame
+local UIListLayout
 
 if not Player.PlayerGui:FindFirstChild("LabelsGUI") then
 LabelsGUI = Instance.new("ScreenGui")
@@ -65,6 +66,10 @@ LabelsFrame.Size = UDim2.new(0.215, 0, 0.585, 0)
 LabelsFrame.BackgroundTransparency = 1
 LabelsFrame.Parent = LabelsGUI
 
+UIListLayout = Instance.new("UIListLayout")
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Right
+UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Bottom
+
 --[[
 local LabelsFolder = Instance.new("Folder")
 LabelsFolder.Name = "LabelsFolder"
@@ -73,6 +78,7 @@ LabelsFolder.Parent = LabelsGUI
 else
 LabelsGUI = Player.PlayerGui:WaitForChild("LabelsGUI")
 LabelsFrame = LabelsGUI:WaitForChild("LabelsFrame")
+UIListLayout = LabelsFrame:WaitForChild("UIListLayout")
 end
 
 -- Set UseJumpPower
@@ -5528,6 +5534,7 @@ Label.Text = "Account Age = " .. Player.AccountAge
 	elseif num == 8 then -- MousePositionLabel
 Label.Text = "Mouse Position = " .. tostring(mouse.Hit.Position)
 	end
+Label.LayoutOrder = num
 Label.TextScaled = true
 Label.TextColor3 = Color3.new(255, 255, 255)
 Label.BackgroundTransparency = 1
