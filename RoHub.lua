@@ -990,6 +990,13 @@ end
 })
 end
 
+WSection:AddButton({
+	Name = "Destroy UI",
+	Callback = function()
+OrionLib:Destroy()
+end    
+})
+
 WSection:AddToggle({
 	Name = "Toggle Reset Button",
     Default = true,
