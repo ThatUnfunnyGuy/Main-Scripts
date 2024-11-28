@@ -400,6 +400,22 @@ local FireTimeScale
 
 local ChatStyle
 
+local ParticlesEnabled
+local ParticlesColor
+local ParticlesEmissionDirection
+local ParticlesLifetime
+local ParticlesSize
+local ParticlesSpeed
+local ParticlesTexture
+local ParticlesRate
+local ParticlesRotation
+local ParticlesShape
+local ParticlesSpreadAngle
+local ParticlesTimeScale
+local ParticlesTransparency
+local ParticlesLightInfluence
+local ParticlesBrightness
+
 local Tab0 = Window:MakeTab({
 	Name = "Universal",
 	Icon = "rbxassetid://4483345998",
@@ -3004,6 +3020,42 @@ for num, item in Character:GetDescendants() do
 end    
 })
 
+LSection:AddButton({
+	Name = "Add Fire To Your Character (NOT FE)",
+	Callback = function()
+local Particles = Instance.new("ParticleEmitter")
+Particles.Name = "ArtificialParticles"
+Particles.Enabled = FireEnabled
+Particles.Color = FireColor
+Particles.EmissionDirection = ParticlesEmissionDirection
+Particles.Lifetime = ParticlesLifetime
+Particles.Size = ParticlesSize
+Particles.Speed = ParticlesSpeed
+Particles.Texture = ParticlesTexture
+Particles.Rate = ParticlesRate
+Particles.Rotation = ParticlesRotation
+Particles.Shape = ParticlesShape
+Particles.SpreadAngle = ParticlesSpreadAngle
+Particles.TimeScale = ParticlesTimeScale
+Particles.Transparency = ParticlesTransparency
+Particles.LightInfluence = ParticlesLightInfluence
+Particles.Brightness = ParticlesBrightness
+Particles.Parent = HumanoidRootPart
+end    
+})
+
+LSection:AddButton({
+	Name = "Remove Particles",
+	Callback = function()
+for num, item in Character:GetDescendants() do
+	if item.Name == "ArtificialParticles" then
+			local particles = item
+			particles:Destroy()
+		end
+	end
+end    
+})
+
 if Character:FindFirstChild("Animate") then
 LSection:AddToggle({
 	Name = "Animations",
@@ -3941,10 +3993,251 @@ SettingsSection:AddTextbox({
 end	  
 })
 
+SettingsSection:AddToggle({
+	Name = "Particles Enabled",
+	Default = true,
+	Callback = function(Value)
+		ParticlesEnabled = Value
+							OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set ParticlesEnabled to " .. tostring(Value) .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5			
+})
+	end    
+})
+
+SettingsSection:AddColorpicker({
+	Name = "Particles Color",
+	Default = Color3.fromRGB(255, 255, 255),
+	Callback = function(Value)
+		ParticlesColor = Value
+	end	  
+})
+
+SettingsSection:AddDropdown({
+	Name = "Particles EmissionDirection",
+	Default = "Top",
+	Options = {"Top", "Front", "Back", "Left", "Right", "Bottom"},
+	Callback = function(Value)
+		ParticlesEmissionDirection = "Enum.NormalId." .. Value
+		local ParticlesEmissionDirectionString = tostring(ParticlesEmissionDirection)
+		local ManipulationResult = ParticlesEmissionDirectionString:reverse():split(".")[1]:reverse();
+			
+		ParticlesEmissionDirection = ManipulationResult
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set ParticlesEmissionDirection to " .. "'" .. Value .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5			
+})
+end	    
+})
+
+SettingsSection:AddTextbox({
+	Name = "Particles Lifetime",
+	Default = ParticlesLifetime,
+	TextDisappear = false,
+	Callback = function(Value)
+		ParticlesLifetime = NumberRange.new(tonumber(Value))
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set ParticlesLifetime to " .. "'" .. tostring(Value) .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "Particles Size",
+	Default = ParticlesSize,
+	TextDisappear = false,
+	Callback = function(Value)
+		ParticlesSize = NumberSequence.new(tonumber(Value))
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set ParticlesSize to " .. "'" .. tostring(Value) .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "Particles Speed",
+	Default = ParticlesSpeed,
+	TextDisappear = false,
+	Callback = function(Value)
+		ParticlesSpeed = NumberRange.new(tonumber(Value))
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set ParticlesSpeed to " .. "'" .. tostring(Value) .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "Particles Texture",
+	Default = ParticlesTexture,
+	TextDisappear = false,
+	Callback = function(Value)
+		ParticlesTexture = Value
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set ParticlesTexture to " .. "'" .. tostring(Value) .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "Particles Rate",
+	Default = ParticlesRate,
+	TextDisappear = false,
+	Callback = function(Value)
+		ParticlesRate = tonumber(Value)
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set ParticlesRate to " .. "'" .. tostring(Value) .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "Particles Rotation",
+	Default = ParticlesRotation,
+	TextDisappear = false,
+	Callback = function(Value)
+		ParticlesRotation = NumberRange.new(tonumber(Value))
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set ParticlesRotation to " .. "'" .. tostring(Value) .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddDropdown({
+	Name = "Particles Shape",
+	Default = "Box",
+	Options = {"Box", "Disc", "Sphere", "Cylinder"},
+	Callback = function(Value)
+		ParticlesShape = "Enum.ParticleEmitterShape." .. Value
+		local ParticlesShapeString = tostring(ParticlesEmissionDirection)
+		local ManipulationResult = ParticlesShapeString:reverse():split(".")[1]:reverse();
+			
+		ParticlesShape = ManipulationResult
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set ParticlesShape to " .. "'" .. Value .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5			
+})
+end	    
+})
+
+SettingsSection:AddTextbox({
+	Name = "Particles SpreadAngle",
+	Default = ParticlesSpreadAngle,
+	TextDisappear = false,
+	Callback = function(Value)
+		ParticlesSpreadAngle = Vector2.new(tonumber(Value), tonumber(Value))
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set ParticlesSpreadAngle to " .. "'" .. tostring(Value) .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "Particles Transparency",
+	Default = ParticlesTransparency,
+	TextDisappear = false,
+	Callback = function(Value)
+		ParticlesTransparency = NumberSequence.new(tonumber(Value))
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set ParticlesTransparency to " .. "'" .. tostring(Value) .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "Particles TimeScale",
+	Default = ParticlesTimeScale,
+	TextDisappear = false,
+	Callback = function(Value)
+		ParticlesTimeScale = tonumber(Value)
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set ParticlesTimeScale to " .. "'" .. tostring(Value) .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "Particles LightInfluence",
+	Default = ParticlesLightInfluence,
+	TextDisappear = false,
+	Callback = function(Value)
+		ParticlesLightInfluence = tonumber(Value)
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set ParticlesLightInfluence to " .. "'" .. tostring(Value) .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "Particles Brightness",
+	Default = ParticlesBrightness,
+	TextDisappear = false,
+	Callback = function(Value)
+		ParticlesBrightness = tonumber(Value)
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set ParticlesBrightness to " .. "'" .. tostring(Value) .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+local ParticlesEnabled
+local ParticlesColor
+local ParticlesEmissionDirection
+local ParticlesLifetime
+local ParticlesSize
+local ParticlesSpeed
+local ParticlesTexture
+local ParticlesRate
+local ParticlesRotation
+local ParticlesShape
+local ParticlesSpreadAngle
+local ParticlesTimeScale
+local ParticlesTransparency
+local ParticlesLightInfluence
+local ParticlesBrightness
+
 Section:AddButton({
 	Name = "Bypass Anti-Cheat",
 	Callback = function()
-if game.PlaceId == 6839171747 then -- Check if the game you're playing is Doors
+if game.PlaceId == 6839171747 then -- Check if the game you're playing is DOORS
 
 task.defer(function()
    while task.wait() do
