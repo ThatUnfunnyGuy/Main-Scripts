@@ -416,6 +416,64 @@ local ParticlesTransparency
 local ParticlesLightInfluence
 local ParticlesBrightness
 
+local HintText
+local MessageText
+
+local UseDefaultTables = true -- change this if you want to
+
+if UseDefaultTables then
+	HintText = { -- edit this if you want to
+	"Hello World!",
+	"insert text here",
+	"lol",
+	"this is a message",
+	"message here",
+	"Deprecated: With the introduction of Roblox's GUI features hints have been deprecated and TextLabels should be used instead for new work. The TextLabel object offers a wide range of features for displaying and customizing text that hints do not.",
+	"hints are deprecated but they look cool",
+	"hint text",
+	"imagine this is splash text yeah",
+	"THE CAKE IS A LIE!!!",
+	"When will it end?",
+	"messages my beloved"
+}
+
+MessageText = { -- edit this if you want to
+    "Hello World!",
+    "insert text here",
+    "lol",
+    "this is a hint",
+    "hint here",
+    "Deprecated: With the introduction of Roblox's GUI features hints have been deprecated and TextLabels should be used instead for new work. The TextLabel object offers a wide range of features for displaying and customizing text that hints do not.",
+    "hints are deprecated but they look cool",
+    "hint text",
+    "imagine this is splash text yeah",
+    "THE CAKE IS A LIE!!!",
+    "When will it end?",
+    "hints my beloved"
+}
+else
+	HintText = {} -- edit this if you want to
+	MessageText = {} -- edit this if you want to, too
+end
+
+local HintsDuration
+
+local MessageText = { -- edit this if you want to
+    "Hello World!",
+    "insert text here",
+    "lol",
+    "this is a hint",
+    "hint here",
+    "Deprecated: With the introduction of Roblox's GUI features hints have been deprecated and TextLabels should be used instead for new work. The TextLabel object offers a wide range of features for displaying and customizing text that hints do not.",
+    "hints are deprecated but they look cool",
+    "hint text",
+    "imagine this is splash text yeah",
+    "THE CAKE IS A LIE!!!",
+    "When will it end?",
+    "hints my beloved"
+}
+local MessageDuration
+
 local Tab0 = Window:MakeTab({
 	Name = "Universal",
 	Icon = "rbxassetid://4483345998",
@@ -994,6 +1052,20 @@ WSection:AddButton({
 	Name = "Destroy UI",
 	Callback = function()
 OrionLib:Destroy()
+end    
+})
+
+WSection:AddButton({
+	Name = "Move to Origin",
+	Callback = function()
+Humanoid:MoveTo(Vector3.new(0, 0, 0))
+end    
+})
+
+WSection:AddButton({
+	Name = "Teleport to Origin",
+	Callback = function()
+Character:SetPrimaryPartCFrame(CFrame.new(0, 0, 0))
 end    
 })
 
@@ -1891,15 +1963,35 @@ GoofySection:AddButton({
 GoofySection:AddButton({
 	Name = "Customizable Hints Creator",
 	Callback = function()
-    	loadstring(game:HttpGet("https://pastebin.com/raw/g3CbRDKq"))()  	
-    end    
+    	--loadstring(game:HttpGet("https://pastebin.com/raw/g3CbRDKq"))()
+	while true do
+	local ChooseText = math.random(#HintText)
+
+	local h = Instance.new("Hint")
+	h.Name = "Hint"
+	h.Parent = workspace -- could also add an option to change this but it'd still be not fe so it doesn't matter
+	h.Text = HintText[ChooseText]
+	task.wait(HintDuration)
+	h:Destroy()
+	end
+end    
 })
 
 GoofySection:AddButton({
 	Name = "Customizable Messages Creator",
 	Callback = function()
-    	loadstring(game:HttpGet("https://pastebin.com/raw/bCVHZbNb"))()  	
-    end    
+    	--loadstring(game:HttpGet("https://pastebin.com/raw/bCVHZbNb"))()
+-- customizable hints creator but it's messages instead (hints are also named "message" by default)
+while true do
+	local ChooseMText = math.random(#MessageText)
+
+	local m = Instance.new("Message")
+	m.Parent = workspace -- could also add an option to change this but it'd still be not fe so it doesn't matter
+	m.Text = MessageText[ChooseMText]
+	task.wait(MessageDuration)
+	m:Destroy()
+	end
+end    
 })
 
 LSection:AddButton({
@@ -4247,6 +4339,66 @@ SettingsSection:AddTextbox({
 end	  
 })
 
+SettingsSection:AddTextbox({
+	Name = "Add Hint Text",
+	Default = ParticlesTimeScale,
+	TextDisappear = false,
+	Callback = function(Value)
+		table.insert(HintText, tostring(Value))
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Inserted " .. "'" .. tostring(Value) .. "'" .. " into the HintText table!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "Hint Duration",
+	Default = ParticlesTimeScale,
+	TextDisappear = false,
+	Callback = function(Value)
+		HintsDuration = tonumber(Value)
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set HintsDuration to " .. "'" .. tostring(Value) .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "Message Duration",
+	Default = ParticlesTimeScale,
+	TextDisappear = false,
+	Callback = function(Value)
+		MessagesDuration = tonumber(Value)
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set MessagesDuration to " .. "'" .. tostring(Value) .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "Add Message Text",
+	Default = ParticlesTimeScale,
+	TextDisappear = false,
+	Callback = function(Value)
+		table.insert(MessageText, tostring(Value))
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Inserted " .. "'" .. tostring(Value) .. "'" .. " into the MessageText table!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
 Section:AddButton({
 	Name = "Bypass Anti-Cheat",
 	Callback = function()
@@ -4269,8 +4421,8 @@ end
 Section:AddButton({
 	Name = "Special Full Bright",
 	Callback = function()
-spawn(function()
-    repeat wait()
+task.spawn(function()
+    repeat task.wait()
         for _,v in pairs(game:GetChildren()) do
             if v.Name == "Lighting" then
                    game:GetService("Lighting").Ambient = Color3.fromRGB(255, 255, 255)
