@@ -5566,8 +5566,9 @@ LabelsFrame:WaitForChild("MousePositionLabel"):Set("Mouse Position = " .. tostri
 --CurrentCharacterLabel:Set("Current Character = CurrentCharacter)
 if not LabelsFrame:FindFirstChild("XPosLabel") then
 		C:Disconnect()
-	end
-end)
+		end
+	end)
+end
 
 --[[
 for num, item in TotalLabels do
