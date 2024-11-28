@@ -15,7 +15,7 @@ end
 --// Slap Battles KillStreak Remake
 --// Computer Tycoon
 --// KillStreak Universe
-
+--/////
 -- Setup the Orion library
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ThatUnfunnyGuy/Main-Scripts/refs/heads/main/Orion%20Hub%20(Fix%20Attempt)')))()
 
@@ -23,7 +23,7 @@ local Window = OrionLib:MakeWindow({Name = "RoHub (v1.7.2)", HidePremium = true,
 
 local Chat = game:GetService("Chat")
 local SoundService = game:GetService("SoundService")
-
+--/////
 -- Services
 local Players = game:GetService("Players")
 local StarterPlayer = game:GetService("StarterPlayer")
@@ -33,7 +33,7 @@ local Stats = game:GetService("Stats")
 local TeleportService = game:GetService("TeleportService")
 local UserInputService = game:GetService("UserInputService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-
+--/////
 -- Get other stuff
 local Player = Players.LocalPlayer or Players:GetPlayers()[1]
 local Character = Player.Character or Player.CharacterAdded:Wait()
@@ -48,8 +48,9 @@ end
 
 local RespawnTime = Players.RespawnTime
 
+local C 
+--/////
 -- Create stuff
-
 local LabelsGUI
 local LabelsFrame
 local UIListLayout
@@ -81,7 +82,7 @@ LabelsGUI = Player.PlayerGui:WaitForChild("LabelsGUI")
 LabelsFrame = LabelsGUI:WaitForChild("LabelsFrame")
 UIListLayout = LabelsFrame:WaitForChild("UIListLayout")
 end
-
+--/////
 -- Set UseJumpPower
 Character:WaitForChild("Humanoid").UseJumpPower = true
 StarterPlayer.CharacterUseJumpPower = true
@@ -123,7 +124,7 @@ for num, item in MusicTable do
 	Song.Parent = SoundService
 end
 --]]
-
+--/////
 local StaffTable = {
 	"Roblox",
 	"builderman",
@@ -136,7 +137,7 @@ local TextTable = {
 	[2] = "im a cool user",
 	[3] = "how r u doing?"
 }
-
+--/////
 -- Animations
 local ZArms
 local Insanity
@@ -210,7 +211,7 @@ ACheck.Name = "A-Check"
 ACheck.Value = true
 ACheck.Parent = Character
 end
-
+--/////
 -- Music
     local RelaxedScene
     local ParadiseFalls
@@ -332,14 +333,13 @@ NoMore = Instance.new("Sound", SoundService)
    Check.Value = true
    Check.Name = "MusicLoaded"
    Check.Parent = SoundService
-end
-    
-
+end 
+--/////
 -- Character Variables
 local CurrentCharacter = Character
 local DesiredCharacter
-
--- Text Variables
+--/////
+-- Settings
 
 -- Old
 --local PrintText = "YOUR TEXT HERE" -- Self-Explaining
@@ -5555,6 +5555,19 @@ Label.Size = UDim2.new(1, 0, 0.07, 0)
 Label.TextXAlignment = Enum.TextXAlignment.Right
 Label.Parent = LabelsFrame
 end
+
+while LabelsFrame:FindFirstChild("XPosLabel") do
+C = RunService.Heartbeat:Connect(function()
+LabelsFrame:WaitForChild("XPosLabel"):Set("Current X Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.X or NewCharacter.Torso.Position.X)
+LabelsFrame:WaitForChild("YPosLabel"):Set("Current Y Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.Y or NewCharacter.Torso.Position.Y)
+LabelsFrame:WaitForChild("ZPosLabel"):Set("Current Z Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.Z or NewCharacter.Torso.Position.Z)
+LabelsFrame:WaitForChild("MemoryUsedLabel"):Set("Memory Used = " .. Stats:GetTotalMemoryUsageMb())
+LabelsFrame:WaitForChild("MousePositionLabel"):Set("Mouse Position = " .. tostring(mouse.Hit.Position))
+--CurrentCharacterLabel:Set("Current Character = CurrentCharacter)
+if not LabelsFrame:FindFirstChild("XPosLabel") then
+		C:Disconnect()
+	end
+end)
 
 --[[
 for num, item in TotalLabels do
