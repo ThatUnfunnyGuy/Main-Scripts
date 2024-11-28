@@ -15,7 +15,7 @@ end
 --// Slap Battles KillStreak Remake
 --// Computer Tycoon
 --// KillStreak Universe
---/////
+
 -- Setup the Orion library
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ThatUnfunnyGuy/Main-Scripts/refs/heads/main/Orion%20Hub%20(Fix%20Attempt)')))()
 
@@ -23,7 +23,7 @@ local Window = OrionLib:MakeWindow({Name = "RoHub (v1.7.2)", HidePremium = true,
 
 local Chat = game:GetService("Chat")
 local SoundService = game:GetService("SoundService")
---/////
+
 -- Services
 local Players = game:GetService("Players")
 local StarterPlayer = game:GetService("StarterPlayer")
@@ -33,7 +33,7 @@ local Stats = game:GetService("Stats")
 local TeleportService = game:GetService("TeleportService")
 local UserInputService = game:GetService("UserInputService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
---/////
+
 -- Get other stuff
 local Player = Players.LocalPlayer or Players:GetPlayers()[1]
 local Character = Player.Character or Player.CharacterAdded:Wait()
@@ -49,7 +49,7 @@ end
 local RespawnTime = Players.RespawnTime
 
 local C 
---/////
+
 -- Create stuff
 local LabelsGUI
 local LabelsFrame
@@ -82,7 +82,7 @@ LabelsGUI = Player.PlayerGui:WaitForChild("LabelsGUI")
 LabelsFrame = LabelsGUI:WaitForChild("LabelsFrame")
 UIListLayout = LabelsFrame:WaitForChild("UIListLayout")
 end
---/////
+
 -- Set UseJumpPower
 Character:WaitForChild("Humanoid").UseJumpPower = true
 StarterPlayer.CharacterUseJumpPower = true
@@ -124,7 +124,7 @@ for num, item in MusicTable do
 	Song.Parent = SoundService
 end
 --]]
---/////
+
 local StaffTable = {
 	"Roblox",
 	"builderman",
@@ -137,7 +137,7 @@ local TextTable = {
 	[2] = "im a cool user",
 	[3] = "how r u doing?"
 }
---/////
+
 -- Animations
 local ZArms
 local Insanity
@@ -211,7 +211,7 @@ ACheck.Name = "A-Check"
 ACheck.Value = true
 ACheck.Parent = Character
 end
---/////
+
 -- Music
     local RelaxedScene
     local ParadiseFalls
@@ -334,11 +334,11 @@ NoMore = Instance.new("Sound", SoundService)
    Check.Name = "MusicLoaded"
    Check.Parent = SoundService
 end 
---/////
+
 -- Character Variables
 local CurrentCharacter = Character
 local DesiredCharacter
---/////
+
 -- Settings
 
 -- Old
@@ -5590,14 +5590,11 @@ end
 LabelsSection:AddButton({
 	Name = "Destroy Labels",
 	Callback = function()
-LabelsFrame:ClearAllChildren() -- this is just better
 
---[[
-	for num, item in LabelsFrame:GetChildren() do
-item:Destroy()
-end
---]]
---^ old method
+for num, item in LabelsFrame:GetChildren() do
+	if item:IsA("TextLabel") then
+		item:Destroy()
+	end
 end
 })
 
