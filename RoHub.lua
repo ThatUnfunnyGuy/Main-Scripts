@@ -5595,6 +5595,7 @@ LabelsSection:AddButton({
 for num, item in LabelsFrame:GetChildren() do
 	if item:IsA("TextLabel") then
 		item:Destroy()
+		end
 	end
 end
 })
