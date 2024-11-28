@@ -391,6 +391,13 @@ local LightBrightness
 local LightRange
 local LightColor
 
+local FireEnabled
+local FireColor
+local FireColor2
+local FireHeat
+local FireSize
+local FireTimeScale
+
 local ChatStyle
 
 local Tab0 = Window:MakeTab({
@@ -2947,7 +2954,7 @@ end
 })
 
 LSection:AddButton({
-	Name = "Add Light To Your Character",
+	Name = "Add Light To Your Character (NOT FE)",
 	Callback = function()
 local Light = Instance.new("PointLight")
 Light.Name = "ArtificialLight"
@@ -2967,6 +2974,21 @@ for num, item in Character:GetDescendants() do
 			light:Destroy()
 		end
 	end
+end    
+})
+
+LSection:AddButton({
+	Name = "Add Fire To Your Character (NOT FE)",
+	Callback = function()
+local Fire = Instance.new("Fire")
+Fire.Name = "ArtificialFire"
+Fire.Enabled = FireEnabled
+Fire.Color = FireColor
+Fire.SecondaryColor = FireColor2
+Fire.Heat = FireHeat
+Fire.Size = FireSize
+Fire.TimeScale = FireTimeScale
+Fire.Parent = HumanoidRootPart
 end    
 })
 
@@ -3763,50 +3785,6 @@ SettingsSection:AddTextbox({
 end	  
 })
 
-SettingsSection:AddTextbox({
-	Name = "Light's Brightness",
-	Default = LightBrightness,
-	TextDisappear = false,
-	Callback = function(Value)
-		LightBrightness = tonumber(Value)
-				OrionLib:MakeNotification({
-	Name = "Done!",
-	Content = "Set LightBrightness to " .. "'" .. tostring(Value) .. "'" .. "!",
-	Image = "rbxassetid://4483345998",
-	Time = 5
-})
-end	  
-})
-
-SettingsSection:AddTextbox({
-	Name = "Light's Range",
-	Default = LightRange,
-	TextDisappear = false,
-	Callback = function(Value)
-		LightRange = tonumber(Value)
-				OrionLib:MakeNotification({
-	Name = "Done!",
-	Content = "Set LightRange to " .. "'" .. tostring(Value) .. "'" .. "!",
-	Image = "rbxassetid://4483345998",
-	Time = 5
-})
-end	  
-})
-
-SettingsSection:AddColorpicker({
-	Name = "Light's Color",
-	Default = Color3.fromRGB(255, 255, 255),
-	Callback = function(Value)
-		LightColor = Value
-	end	  
-})
-
---[[
-Name = <string> - The name of the colorpicker.
-Default = <color3> - The default value of the colorpicker.
-Callback = <function> - The function of the colorpicker.
-]]
-
 --[[
 SettingsSection:AddToggle({
 	Name = "FPS Cap",
@@ -3821,22 +3799,7 @@ SettingsSection:AddToggle({
 })
 	end    
 })
---]]
 
---[[
-Name = <string> - The name of the toggle.
-Default = <bool> - The default value of the toggle.
-Callback = <function> - The function of the toggle.
-]]
-
---[[
-Name = <string> - The name of the dropdown.
-Default = <string> - The default value of the dropdown.
-Options = <table> - The options in the dropdown.
-Callback = <function> - The function of the dropdown.
-]]
-
---[[
 SettingsSection:AddTextbox({
 	Name = "Team Color",
 	Default = TeamColor,
@@ -3852,6 +3815,119 @@ SettingsSection:AddTextbox({
 end	  
 })
 --]]
+
+SettingsSection:AddTextbox({
+	Name = "Light Brightness",
+	Default = LightBrightness,
+	TextDisappear = false,
+	Callback = function(Value)
+		LightBrightness = tonumber(Value)
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set LightBrightness to " .. "'" .. tostring(Value) .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "Light Range",
+	Default = LightRange,
+	TextDisappear = false,
+	Callback = function(Value)
+		LightRange = tonumber(Value)
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set LightRange to " .. "'" .. tostring(Value) .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddColorpicker({
+	Name = "Light Color",
+	Default = Color3.fromRGB(255, 255, 255),
+	Callback = function(Value)
+		LightColor = Value
+	end	  
+})
+
+SettingsSection:AddToggle({
+	Name = "Fire Enabled",
+	Default = FireEnabled,
+	Callback = function(Value)
+		FireEnabled = Value
+							OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set FireEnabled to " .. Value .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5			
+})
+	end    
+})
+
+SettingsSection:AddColorpicker({
+	Name = "Fire Color",
+	Default = Color3.fromRGB(255, 255, 255),
+	Callback = function(Value)
+		FireColor = Value
+	end	  
+})
+
+SettingsSection:AddColorpicker({
+	Name = "Secondary Fire Color",
+	Default = Color3.fromRGB(255, 255, 255),
+	Callback = function(Value)
+		FireColor2 = Value
+	end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "Fire Heat",
+	Default = FireHeat,
+	TextDisappear = false,
+	Callback = function(Value)
+		FireHeat = tonumber(Value)
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set FireHeat to " .. "'" .. tostring(Value) .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "Fire Size",
+	Default = FireSize,
+	TextDisappear = false,
+	Callback = function(Value)
+		FireHeat = tonumber(Value)
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set FireSize to " .. "'" .. tostring(Value) .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "Fire TimeScale",
+	Default = FireTimeScale,
+	TextDisappear = false,
+	Callback = function(Value)
+		FireTimeScale = tonumber(Value)
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set FireTimeScale to " .. "'" .. tostring(Value) .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
 
 Section:AddButton({
 	Name = "Bypass Anti-Cheat",
