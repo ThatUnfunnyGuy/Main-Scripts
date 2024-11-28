@@ -4085,7 +4085,7 @@ end
 
 SettingsSection:AddTextbox({
 	Name = "Particles Texture",
-	Default = ParticlesTexture,
+	Default = "rbxasset://textures/particles/sparkles_main.dds",
 	TextDisappear = false,
 	Callback = function(Value)
 		ParticlesTexture = Value
@@ -4134,7 +4134,7 @@ SettingsSection:AddDropdown({
 	Options = {"Box", "Disc", "Sphere", "Cylinder"},
 	Callback = function(Value)
 		ParticlesShape = "Enum.ParticleEmitterShape." .. Value
-		local ParticlesShapeString = tostring(ParticlesEmissionDirection)
+		local ParticlesShapeString = tostring(ParticlesShape)
 		local ManipulationResult = ParticlesShapeString:reverse():split(".")[1]:reverse();
 			
 		ParticlesShape = ManipulationResult
