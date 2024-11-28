@@ -4370,21 +4370,6 @@ end
 })
 
 SettingsSection:AddTextbox({
-	Name = "Message Duration",
-	Default = ParticlesTimeScale,
-	TextDisappear = false,
-	Callback = function(Value)
-		MessagesDuration = tonumber(Value)
-				OrionLib:MakeNotification({
-	Name = "Done!",
-	Content = "Set MessagesDuration to " .. "'" .. tostring(Value) .. "'" .. "!",
-	Image = "rbxassetid://4483345998",
-	Time = 5
-})
-end	  
-})
-
-SettingsSection:AddTextbox({
 	Name = "Add Message Text",
 	Default = ParticlesTimeScale,
 	TextDisappear = false,
@@ -4393,6 +4378,21 @@ SettingsSection:AddTextbox({
 				OrionLib:MakeNotification({
 	Name = "Done!",
 	Content = "Inserted " .. "'" .. tostring(Value) .. "'" .. " into the MessageText table!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
+SettingsSection:AddTextbox({
+	Name = "Message Duration",
+	Default = ParticlesTimeScale,
+	TextDisappear = false,
+	Callback = function(Value)
+		MessagesDuration = tonumber(Value)
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set MessagesDuration to " .. "'" .. tostring(Value) .. "'" .. "!",
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
