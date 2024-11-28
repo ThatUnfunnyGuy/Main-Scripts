@@ -439,7 +439,7 @@ local CameraSection = Tab0:AddSection({
 })
 
 local GoofySection = Tab0:AddSection({
-	Name = "GUIs"
+	Name = "Scripts"
 })
 
 local AnimationsSection = Tab0:AddSection({
@@ -1194,7 +1194,7 @@ Character:SetPrimaryPartCFrame(DesiredCharacter.HumanoidRootPart.CFrame)
 end)
 
 if not Success then
-	warn("Set Desired Character first!")
+	warn("Set DesiredCharacter first!")
 end
 end
 })
@@ -1243,7 +1243,7 @@ GoofySection:AddButton({
 })
 
 GoofySection:AddButton({
-	Name = "R15 Emotes",
+	Name = "R15 Emotes GUI",
 	Callback = function()
 --keybind to open is comma
 --made by Gi#7331
@@ -1892,6 +1892,13 @@ GoofySection:AddButton({
 	Name = "Customizable Hints Creator",
 	Callback = function()
     	loadstring(game:HttpGet("https://pastebin.com/raw/g3CbRDKq"))()  	
+    end    
+})
+
+GoofySection:AddButton({
+	Name = "Customizable Messages Creator",
+	Callback = function()
+    	loadstring(game:HttpGet("https://pastebin.com/raw/bCVHZbNb"))()  	
     end    
 })
 
