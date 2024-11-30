@@ -1094,14 +1094,21 @@ end
 })
 
 WSection:AddButton({
-	Name = "Move to Origin",
+	Name = "Move To Origin",
 	Callback = function()
 Humanoid:MoveTo(Vector3.new(0, 0, 0))
 end    
 })
 
 WSection:AddButton({
-	Name = "Teleport to Origin",
+	Name = "Move To Desired Character",
+	Callback = function()
+Humanoid:MoveTo(DesiredCharacter.HumanoidRootPart.Position)
+end    
+})
+
+WSection:AddButton({
+	Name = "Teleport To Origin",
 	Callback = function()
 Character:SetPrimaryPartCFrame(CFrame.new(0, 0, 0))
 end    
