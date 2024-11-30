@@ -1117,10 +1117,12 @@ Success, err = pcall(function()
 Humanoid:MoveTo(DesiredCharacter.HumanoidRootPart.Position)
 end)
 
+--[[
 if not Success then
-	repeat task.wait() until DesiredCharacter ~= nil
+	--repeat task.wait() until DesiredCharacter ~= nil
 	--warn("Set DesiredCharacter first!")
 end
+--]]
 end)
 end
 })
