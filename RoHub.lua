@@ -5507,7 +5507,13 @@ end
 --]]
 
 if DesiredCharacter == nil then
-warn("DesiredCharacter = nil!")
+--warn("DesiredCharacter = nil!")
+OrionLib:MakeNotification({
+	Name = "DesiredCharacter is undefined and/or nil",
+	Content = "DesiredCharacter = nil. Please define DesiredCharacter!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
 elseif DesiredCharacter == not nil then
 Section11:AddLabel("DesiredCharacter = " .. DesiredCharacter)
 end
