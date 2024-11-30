@@ -1134,7 +1134,7 @@ end
 WSection:AddButton({
 	Name = "Teleport To A Random Position",
 	Callback = function()
-Character:SetPrimaryPartCFrame(CFrame.new(HumanoidRootPart.CFrame + Vector3.new(math.random(1, 15), 0, math.random(1, 15))))
+Character:SetPrimaryPartCFrame(CFrame.new(HumanoidRootPart.Position + Vector3.new(math.random(1, 15), 0, math.random(1, 15))))
 end    
 })
 
