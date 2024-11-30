@@ -2002,7 +2002,6 @@ GoofySection:AddButton({
 	Name = "Customizable Hints Creator",
 	Callback = function()
     	--loadstring(game:HttpGet("https://pastebin.com/raw/g3CbRDKq"))()
-	while true do
 	local ChooseText = math.random(#HintText)
 
 	local h = Instance.new("Hint")
@@ -2011,7 +2010,6 @@ GoofySection:AddButton({
 	h.Text = HintText[ChooseText]
 	task.wait(HintDuration)
 	h:Destroy()
-	end
 end    
 })
 
@@ -2020,7 +2018,6 @@ GoofySection:AddButton({
 	Callback = function()
     	--loadstring(game:HttpGet("https://pastebin.com/raw/bCVHZbNb"))()
 -- customizable hints creator but it's messages instead (hints are also named "message" by default)
-while true do
 	local ChooseMText = math.random(#MessageText)
 
 	local m = Instance.new("Message")
@@ -2028,7 +2025,6 @@ while true do
 	m.Text = MessageText[ChooseMText]
 	task.wait(MessageDuration)
 	m:Destroy()
-	end
 end    
 })
 
