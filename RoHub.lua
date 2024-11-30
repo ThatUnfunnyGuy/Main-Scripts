@@ -2001,15 +2001,17 @@ GoofySection:AddButton({
 GoofySection:AddButton({
 	Name = "Customizable Hints Creator",
 	Callback = function()
-    	--loadstring(game:HttpGet("https://pastebin.com/raw/g3CbRDKq"))()
-	local ChooseText = math.random(#HintText)
-
-	local h = Instance.new("Hint")
-	h.Name = "Hint"
-	h.Parent = workspace -- could also add an option to change this but it'd still be not fe so it doesn't matter
-	h.Text = HintText[ChooseText]
-	task.wait(HintDuration)
-	h:Destroy()
+    	--loadstring(game:HttpGet("https://pastebin.com/raw/g3CbRDKq"))()		
+	while true do
+    local ChooseText = math.random(#HintText)
+ 
+    local h = Instance.new("Hint")
+    h.Name = "Hint"
+    h.Parent = workspace -- could also add an option to change this but it'd still be not fe so it doesn't matter
+    h.Text = HintText[ChooseText]
+    task.wait(HintDuration)
+    h:Destroy()
+end
 end    
 })
 
@@ -2018,13 +2020,15 @@ GoofySection:AddButton({
 	Callback = function()
     	--loadstring(game:HttpGet("https://pastebin.com/raw/bCVHZbNb"))()
 -- customizable hints creator but it's messages instead (hints are also named "message" by default)
-	local ChooseMText = math.random(#MessageText)
+	while true do
+	local ChooseText = math.random(#MessageText)
 
 	local m = Instance.new("Message")
 	m.Parent = workspace -- could also add an option to change this but it'd still be not fe so it doesn't matter
-	m.Text = MessageText[ChooseMText]
+	m.Text = MessageText[ChooseText]
 	task.wait(MessageDuration)
 	m:Destroy()
+end
 end    
 })
 
