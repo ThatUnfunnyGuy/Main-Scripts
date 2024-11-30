@@ -1104,10 +1104,10 @@ WSection:AddButton({
 	Name = "Move To Desired Character",
 	Callback = function()
 local Success, err = pcall(function()
-Humanoid:MoveTo(DesiredCharacter.HumanoidRootPart.Position)				
+Humanoid:MoveTo(DesiredCharacter.HumanoidRootPart.Position)
 end)
-
---[[
+})
+	
 WSection:AddButton({
 	Name = "Move To Desired Character Endlessly",
 	Callback = function()
@@ -1122,7 +1122,6 @@ end
 end)
 end
 })
---]]
 
 WSection:AddButton({
 	Name = "Teleport To Origin",
