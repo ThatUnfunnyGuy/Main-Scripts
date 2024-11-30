@@ -3688,6 +3688,7 @@ SettingsSection:AddTextbox({
 		for num, item in workspace:GetDescendants() do
 			if item.Name == DesiredCharacter then
 				DesiredCharacter = item
+			end
 		end
 				OrionLib:MakeNotification({
 	Name = "Done!",
