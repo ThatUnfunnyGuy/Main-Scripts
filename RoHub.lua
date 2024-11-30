@@ -3685,7 +3685,10 @@ SettingsSection:AddTextbox({
 	Default = DesiredCharacter,
 	TextDisappear = false,
 	Callback = function(Value)
-		DesiredCharacter = workspace:WaitForChild(Value)
+		for num, item in workspace:GetDescendants() do
+			if item.Name == DesiredCharacter then
+				DesiredCharacter = item
+		end
 				OrionLib:MakeNotification({
 	Name = "Done!",
 	Content = "Set DesiredCharacter to " .. Value .. "!",
@@ -3758,7 +3761,7 @@ end
 SettingsSection:AddTextbox({
 	Name = "Custom Player's User ID",
 	Default = PlayerUserId,
-	TextDisappear = false,
+	TextDisappear = true,
 	Callback = function(Value)
 		PlayerUserId = Value
 				OrionLib:MakeNotification({
@@ -3788,7 +3791,7 @@ end
 SettingsSection:AddTextbox({
 	Name = "Print Text",
 	Default = "Hello World!",
-	TextDisappear = false,
+	TextDisappear = true,
 	Callback = function(Value)
 		PrintText = Value
 				OrionLib:MakeNotification({
@@ -3803,7 +3806,7 @@ end
 SettingsSection:AddTextbox({
 	Name = "Warn Text",
 	Default = WarnText,
-	TextDisappear = false,
+	TextDisappear = true,
 	Callback = function(Value)
 		WarnText = Value
 				OrionLib:MakeNotification({
@@ -3818,7 +3821,7 @@ end
 SettingsSection:AddTextbox({
 	Name = "Error Text",
 	Default = ErrorText,
-	TextDisappear = false,
+	TextDisappear = true,
 	Callback = function(Value)
 		ErrorText = Value
 				OrionLib:MakeNotification({
@@ -3923,7 +3926,7 @@ end
 SettingsSection:AddTextbox({
 	Name = "Orion Hub Notification Icon",
 	Default = OHNotificationIcon,
-	TextDisappear = false,
+	TextDisappear = true,
 	Callback = function(Value)
 		OHNotificationIcon = Value
 				OrionLib:MakeNotification({
@@ -3983,7 +3986,7 @@ if setfpscap then
 SettingsSection:AddTextbox({
 	Name = "FPS Cap",
 	Default = 0,
-	TextDisappear = false,
+	TextDisappear = true,
 	Callback = function(Value)
 		FPSCap = tonumber(Value)
 				OrionLib:MakeNotification({
@@ -4386,8 +4389,8 @@ end
 
 SettingsSection:AddTextbox({
 	Name = "Add Hint Text",
-	Default = ParticlesTimeScale,
-	TextDisappear = false,
+	Default = "",
+	TextDisappear = true,
 	Callback = function(Value)
 		table.insert(HintText, tostring(Value))
 				OrionLib:MakeNotification({
@@ -4401,7 +4404,7 @@ end
 
 SettingsSection:AddTextbox({
 	Name = "Hint Duration",
-	Default = ParticlesTimeScale,
+	Default = HintsDuration,
 	TextDisappear = false,
 	Callback = function(Value)
 		HintsDuration = tonumber(Value)
@@ -4416,8 +4419,8 @@ end
 
 SettingsSection:AddTextbox({
 	Name = "Add Message Text",
-	Default = ParticlesTimeScale,
-	TextDisappear = false,
+	Default = "",
+	TextDisappear = true,
 	Callback = function(Value)
 		table.insert(MessageText, tostring(Value))
 				OrionLib:MakeNotification({
@@ -4431,7 +4434,7 @@ end
 
 SettingsSection:AddTextbox({
 	Name = "Message Duration",
-	Default = ParticlesTimeScale,
+	Default = MessagesDuration,
 	TextDisappear = false,
 	Callback = function(Value)
 		MessagesDuration = tonumber(Value)
