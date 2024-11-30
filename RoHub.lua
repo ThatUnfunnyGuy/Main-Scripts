@@ -950,7 +950,7 @@ Character:WaitForChild("Head"):Destroy()
 })
 
 WSection:AddButton({
-	Name = "Loop Reset",
+	Name = "Reset Endlessly",
 	Callback = function()
 	game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function()
 	RunService.Heartbeat:Connect(function()
@@ -1107,10 +1107,19 @@ local Success, err = pcall(function()
 Humanoid:MoveTo(DesiredCharacter.HumanoidRootPart.Position)				
 end)
 
+WSection:AddButton({
+	Name = "Move To Desired Character Endlessly",
+	Callback = function()
+RunService.Hearbeat:Connect(function()
+local Success, err = pcall(function()
+Humanoid:MoveTo(DesiredCharacter.HumanoidRootPart.Position)
+end)
+
 if not Success then
 	warn("Set DesiredCharacter first!")
 end
-end    
+end)
+end
 })
 
 WSection:AddButton({
