@@ -1107,11 +1107,12 @@ local Success, err = pcall(function()
 Humanoid:MoveTo(DesiredCharacter.HumanoidRootPart.Position)				
 end)
 
+--[[
 WSection:AddButton({
 	Name = "Move To Desired Character Endlessly",
 	Callback = function()
 RunService.Hearbeat:Connect(function()
-local Success, err = pcall(function()
+Success, err = pcall(function()
 Humanoid:MoveTo(DesiredCharacter.HumanoidRootPart.Position)
 end)
 
@@ -1121,11 +1122,19 @@ end
 end)
 end
 })
+--]]
 
 WSection:AddButton({
 	Name = "Teleport To Origin",
 	Callback = function()
 Character:SetPrimaryPartCFrame(CFrame.new(0, 0, 0))
+end    
+})
+
+WSection:AddButton({
+	Name = "Teleport To A Random Position",
+	Callback = function()
+Character:SetPrimaryPartCFrame(CFrame.new(HumanoidRootPart.CFrame + Vector3.new(math.random(1, 15), 0, math.random(1, 15))))
 end    
 })
 
