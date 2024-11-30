@@ -1112,7 +1112,7 @@ end
 WSection:AddButton({
 	Name = "Move To Desired Character Endlessly",
 	Callback = function()
-RunService.Hearbeat:Connect(function()
+RunService.Heartbeat:Connect(function()
 Success, err = pcall(function()
 Humanoid:MoveTo(DesiredCharacter.HumanoidRootPart.Position)
 end)
