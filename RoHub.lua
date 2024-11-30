@@ -1106,6 +1106,7 @@ WSection:AddButton({
 local Success, err = pcall(function()
 Humanoid:MoveTo(DesiredCharacter.HumanoidRootPart.Position)
 end)
+end
 })
 	
 WSection:AddButton({
