@@ -1103,7 +1103,13 @@ end
 WSection:AddButton({
 	Name = "Move To Desired Character",
 	Callback = function()
-Humanoid:MoveTo(DesiredCharacter.HumanoidRootPart.Position)
+local Success, err = pcall(function()
+Humanoid:MoveTo(DesiredCharacter.HumanoidRootPart.Position)				
+end)
+
+if not Success then
+	warn("Set DesiredCharacter first!")
+end
 end    
 })
 
@@ -3686,7 +3692,7 @@ SettingsSection:AddTextbox({
 	TextDisappear = false,
 	Callback = function(Value)
 		for num, item in workspace:GetDescendants() do
-			if item.Name == DesiredCharacter then
+			if item.Name == Value then
 				DesiredCharacter = item
 			end
 		end
