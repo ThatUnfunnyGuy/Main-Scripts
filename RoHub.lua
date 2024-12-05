@@ -535,9 +535,6 @@ local MessageText = { -- edit this if you want to
 }
 local MessageDuration
 
-local CleaningStrength
-
--- Tabs & Sections
 local Tab0 = Window:MakeTab({
 	Name = "Universal",
 	Icon = "rbxassetid://4483345998",
@@ -3723,15 +3720,6 @@ ConsoleSection:AddButton({
 })
 
 ConsoleSection:AddButton({
-	Name = "Clear Console",
-	Callback = function()
-	for i, CleaningStrength do
-		print("\n")
-	end
-end    
-})
-
-ConsoleSection:AddButton({
 	Name = "Run UNC Environment Check",
 	Callback = function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/main/UNCCheckEnv.lua", true))()
@@ -4537,21 +4525,6 @@ SettingsSection:AddTextbox({
 				OrionLib:MakeNotification({
 	Name = "Done!",
 	Content = "Set MessagesDuration to " .. "'" .. tostring(Value) .. "'" .. "!",
-	Image = "rbxassetid://4483345998",
-	Time = 5
-})
-end	  
-})
-
-SettingsSection:AddTextbox({
-	Name = "Cleaning Strength",
-	Default = CleaningStrength,
-	TextDisappear = false,
-	Callback = function(Value)
-		CleaningStrength = tonumber(Value)
-				OrionLib:MakeNotification({
-	Name = "Done!",
-	Content = "Set CleaningStrength to " .. "'" .. tostring(Value) .. "'" .. "!",
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
