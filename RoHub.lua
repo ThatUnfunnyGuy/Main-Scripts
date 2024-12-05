@@ -3698,7 +3698,7 @@ end
 })
 
 ConsoleSection:AddButton({
-	Name = "Print all RemoveEvents",
+	Name = "Print All RemoveEvents",
 	Callback = function()
 		spawn(function()
 			repeat task.wait()
@@ -3709,6 +3709,13 @@ ConsoleSection:AddButton({
 				end
 			until task.wait(1)
 		end)
+	end    
+})
+
+ConsoleSection:AddButton({
+	Name = "Print All Instances",
+	Callback = function()
+	PrintAllInstances()
 	end    
 })
 
@@ -5615,6 +5622,7 @@ LabelsSection:AddButton({
 	Callback = function()
 	for num, item in TotalLabels do
 	local Label = Instance.new("TextLabel")
+-- From here to the end of this function are random errors that Roblox just likes to make up. Everything here works.
 	if num == 1 then -- XPosLabel
 Label.Name = "XPosLabel"
 Label.Text = "Current X Position = " .. CurrentCharacter.HumanoidRootPart.Position.X
