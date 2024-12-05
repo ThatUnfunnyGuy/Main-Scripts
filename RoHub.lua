@@ -3722,6 +3722,15 @@ ConsoleSection:AddButton({
 })
 
 ConsoleSection:AddButton({
+	Name = "Clear Console",
+	Callback = function()
+	for i = 1, CleaningStrength do
+		print("\n")
+	end
+end    
+})
+
+ConsoleSection:AddButton({
 	Name = "Run UNC Environment Check",
 	Callback = function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/main/UNCCheckEnv.lua", true))()
