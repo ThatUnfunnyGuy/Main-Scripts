@@ -3724,9 +3724,14 @@ ConsoleSection:AddButton({
 ConsoleSection:AddButton({
 	Name = "Clear Console",
 	Callback = function()
+	local Success, err = pcall(function()
 	for i = 1, CleaningStrength do
 		print("\n")
 	end
+if not Success then
+warn("Set CleaningStrength first!")
+end
+end)
 end    
 })
 
