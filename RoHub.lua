@@ -51,6 +51,32 @@ local RespawnTime = Players.RespawnTime
 
 local C 
 
+local TotalInstancesNumber = 0
+local TotalPInstancesNumber = 0
+
+-- Functions
+local function CountInstances()
+for num, item in game:GetDescendants() do
+--print("Name: " .. item.Name .. "; " .. "Parent: " .. tostring(item.Parent) .. "; " .. "Number: " .. num)
+TotalInstancesNumber += 1
+--[[
+print("Item's Parent: " .. tostring(item.Parent))
+print("Item's Number: " .. num)
+--]]
+end
+end
+
+CountInstances()
+
+local function PrintAllInstances()
+for num, item in game:GetDescendants() do
+print("Name: " .. item.Name .. "; " .. "Parent: " .. tostring(item.Parent) .. "; " .. "Number: " .. num)
+TotalPInstancesNumber += 1
+end
+
+print("Total Instances: " .. tostring(TotalPInstancesNumber))
+end
+
 -- Create stuff
 local LabelsGUI
 local LabelsFrame
@@ -5555,6 +5581,8 @@ local AccountAgeLabel = Section11:AddLabel("Account Age = " .. Player.AccountAge
 table.insert(TotalLabels, AccountAgeLabel)
 local MousePositionLabel = Section11:AddLabel("Mouse Position = " .. tostring(mouse.Hit.Position))
 table.insert(TotalLabels, MousePositionLabel)
+local TotalInstancesLabel = Section11:AddLabel("Total Instances = " .. tostring(TotalInstancesNumber))
+table.insert(TotalLabels, TotalInstancesLabel)
 
 Section11:AddParagraph("Warning!","Some labels may break if you use the Custom Humanoid, Custom Character and Change Character (while you still haven't turned back to your own character) features, so if it does, re-execute the script again!")
 	
