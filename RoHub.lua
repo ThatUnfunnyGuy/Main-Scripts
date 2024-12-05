@@ -3301,7 +3301,8 @@ CameraSection:AddDropdown({
 	Callback = function(Value)
 		local DevCameraOcclusionModeString = Value
 		local ManipulationResult0 = DevCameraOcclusionModeString:reverse():split(".")[1]:reverse();
-			
+
+		Player.DevCameraOcclusionMode = ManipulationResult0
 		StarterPlayer.DevCameraOcclusionMode = ManipulationResult0
 	end    
 })
