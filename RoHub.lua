@@ -5641,7 +5641,13 @@ Label.Name = "MousePositionLabel"
 Label.Text = "Mouse Position = " .. tostring(mouse.Hit.Position)
 	elseif num == 9 then -- TotalInstancesLabel
 Label.Name = "TotalInstancesLabel"
-Label.Text = "Total Instances = " .. tostring(TotalInstancesNumber)
+local Success, err = pcall(function()
+	Label.Text = "Total Instances = " .. tostring(TotalInstancesNumber)		
+end)
+	
+if not Success then
+warn("If you're seeing this, it means that Roblox's shenanigans took action." .. " Original error: " .. "'" .. err .. "'")
+end
 	end
 Label.LayoutOrder = num
 Label.TextScaled = true
