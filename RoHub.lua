@@ -535,6 +535,8 @@ local MessageText = { -- edit this if you want to
 }
 local MessageDuration
 
+local CleaningStrength
+
 local Tab0 = Window:MakeTab({
 	Name = "Universal",
 	Icon = "rbxassetid://4483345998",
