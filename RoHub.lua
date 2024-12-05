@@ -3282,6 +3282,18 @@ LSection:AddSlider({
 })
 
 CameraSection:AddDropdown({
+	Name = "DevCameraOcclusionMode",
+	Default = "Custom",
+	Options = {"Zoom", "Invisicam"},
+	Callback = function(Value)
+		local DevCameraOcclusionModeString = Value
+		local ManipulationResult0 = DevCameraOcclusionModeString:reverse():split(".")[1]:reverse();
+			
+		StarterPlayer.DevCameraOcclusionMode = ManipulationResult0
+	end    
+})
+
+CameraSection:AddDropdown({
 	Name = "Camera Type",
 	Default = "Custom",
 	Options = {"Attach", "Custom", "Fixed", "Follow", "Orbital", "Scriptable", "Trach", "Watch"},
