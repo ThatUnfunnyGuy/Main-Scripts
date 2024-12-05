@@ -4542,6 +4542,21 @@ SettingsSection:AddTextbox({
 end	  
 })
 
+SettingsSection:AddTextbox({
+	Name = "Cleaning Strength",
+	Default = CleaningStrength,
+	TextDisappear = false,
+	Callback = function(Value)
+		CleaningStrength = tonumber(Value)
+				OrionLib:MakeNotification({
+	Name = "Done!",
+	Content = "Set CleaningStrength to " .. "'" .. tostring(Value) .. "'" .. "!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end	  
+})
+
 Section:AddButton({
 	Name = "Bypass Anti-Cheat",
 	Callback = function()
