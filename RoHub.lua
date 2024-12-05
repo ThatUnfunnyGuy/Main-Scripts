@@ -33,6 +33,7 @@ local Stats = game:GetService("Stats")
 local TeleportService = game:GetService("TeleportService")
 local UserInputService = game:GetService("UserInputService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local MarketplaceService = game:GetService("MarketplaceService")
 
 -- Get other stuff
 local Player = Players.LocalPlayer or Players:GetPlayers()[1]
@@ -1273,10 +1274,22 @@ end
 
 WSection:AddDropdown({
 	Name = "MouseBehavior",
-	Default = "Default",
+	Default = UserInputService.MouseBehavior,
 	Options = {"Default", "LockCenter", "LockCurrentPosition"},
 	Callback = function(Value)
 		UserInputService.MouseBehavior = Value
+	end    
+})
+
+WSection:AddDropdown({
+	Name = "Lighting Technology",
+	Default = Lighting.Technology,
+	Options = {"Voxel", "Future", "ShadowMap", "Legacy"},
+	Callback = function(Value)
+		local TechnologyString = Value
+		local ManipulationResult01 = TechnologyString:reverse():split(".")[1]:reverse();
+					
+		Lighting.Technology = ManipulationResult01
 	end    
 })
 
@@ -5510,7 +5523,7 @@ end
 --(Extra)--
 
 --[[Information]]--
-Section11:AddLabel("Game's Name = " .. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name)
+Section11:AddLabel("Game's Name = " .. MarketplaceService:GetProductInfo(game.PlaceId).Name)
 
 --[[
 if game:GetService("SoundService").RespectFilteringEnabled == true then
@@ -5554,13 +5567,15 @@ end
 --]]
 
 if DesiredCharacter == nil then
---warn("DesiredCharacter = nil!")
+warn("DesiredCharacter = nil!")
+--[[
 OrionLib:MakeNotification({
 	Name = "DesiredCharacter is undefined and/or nil",
-	Content = "DesiredCharacter = nil. Please define DesiredCharacter!",
+	Content = "DesiredCharacter = nil and/or undefined. Please define DesiredCharacter!",
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
+--]]
 elseif DesiredCharacter == not nil then
 Section11:AddLabel("DesiredCharacter = " .. DesiredCharacter)
 end
