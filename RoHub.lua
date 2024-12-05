@@ -5639,6 +5639,9 @@ Label.Text = "Account Age = " .. Player.AccountAge
 	elseif num == 8 then -- MousePositionLabel
 Label.Name = "MousePositionLabel"
 Label.Text = "Mouse Position = " .. tostring(mouse.Hit.Position)
+	elseif num == 9 then -- TotalInstancesLabel
+Label.Name = "TotalInstancesLabel"
+Label.Text = "Total Instances = " .. tostring(TotalInstancesNumber)
 	end
 Label.LayoutOrder = num
 Label.TextScaled = true
