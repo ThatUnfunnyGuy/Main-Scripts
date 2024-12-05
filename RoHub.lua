@@ -3283,7 +3283,7 @@ LSection:AddSlider({
 
 CameraSection:AddDropdown({
 	Name = "DevCameraOcclusionMode",
-	Default = "Custom",
+	Default = StarterPlayer.DevCameraOcclusionMode,
 	Options = {"Zoom", "Invisicam"},
 	Callback = function(Value)
 		local DevCameraOcclusionModeString = Value
