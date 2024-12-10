@@ -19,7 +19,7 @@ end
 -- Setup the Orion library
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ThatUnfunnyGuy/Main-Scripts/refs/heads/main/Orion%20Hub%20(Fix%20Attempt)')))()
 
-local Window = OrionLib:MakeWindow({Name = "RoHub (v1.7.2)", HidePremium = true, SaveConfig = false, ConfigFolder = "RoHub", IntroEnabled = true, IntroText = "RoHub", IntroIcon = "rbxassetid://119223925296024", Icon = "rbxassetid://119223925296024"})
+local Window = OrionLib:MakeWindow({Name = "RoHub (v1.7.3)", HidePremium = true, SaveConfig = false, ConfigFolder = "RoHub", IntroEnabled = true, IntroText = "RoHub", IntroIcon = "rbxassetid://119223925296024", Icon = "rbxassetid://119223925296024"})
 
 local Chat = game:GetService("Chat")
 local SoundService = game:GetService("SoundService")
