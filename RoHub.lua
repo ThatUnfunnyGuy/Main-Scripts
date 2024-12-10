@@ -2550,6 +2550,43 @@ end
 --]]
 
 LSection:AddButton({
+	Name = "Stop Animations",
+	Callback = function()
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
+local Character = Player.Character or Player.CharacterAdded:Wait()
+local Humanoid = Character:WaitForChild("Humanoid")
+local Animator = Humanoid:WaitForChild("Animator")
+
+local Animations = Animator:GetPlayingAnimationTracks()
+
+for num, item in Animations do
+    item:Stop()
+end
+end
+})
+
+LSection:AddButton({
+	Name = "Stop Animations Endlessly",
+	Callback = function()
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
+local Character = Player.Character or Player.CharacterAdded:Wait()
+local Humanoid = Character:WaitForChild("Humanoid")
+local Animator = Humanoid:WaitForChild("Animator")
+
+local RunService = game:GetService("RunService")
+
+RunService.Heartbeat:Connect(function()
+    local Animations = Animator:GetPlayingAnimationTracks()
+    for num, item in Animations do
+        item:Stop()
+    end
+end)
+end
+})
+
+LSection:AddButton({
 	Name = "Remove Animations",
 	Callback = function()
 --local Character = game:GetService("Players").LocalPlayer.Character
