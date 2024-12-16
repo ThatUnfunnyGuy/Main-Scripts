@@ -19,7 +19,7 @@ end
 -- Setup the Orion library
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ThatUnfunnyGuy/Main-Scripts/refs/heads/main/Orion%20Hub%20(Fix%20Attempt)')))()
 
-local Window = OrionLib:MakeWindow({Name = "RoHub (v1.7.3)", HidePremium = true, SaveConfig = false, ConfigFolder = "RoHub", IntroEnabled = true, IntroText = "RoHub", IntroIcon = "rbxassetid://119223925296024", Icon = "rbxassetid://119223925296024"})
+local Window = OrionLib:MakeWindow({Name = "RoHub (v1.7.4)", HidePremium = true, SaveConfig = false, ConfigFolder = "RoHub", IntroEnabled = true, IntroText = "RoHub", IntroIcon = "rbxassetid://119223925296024", Icon = "rbxassetid://119223925296024"})
 
 local Chat = game:GetService("Chat")
 local SoundService = game:GetService("SoundService")
@@ -519,20 +519,16 @@ end
 
 local HintsDuration
 
-local MessageText = { -- edit this if you want to
-    "Hello World!",
-    "insert text here",
-    "lol",
-    "this is a hint",
-    "hint here",
-    "Deprecated: With the introduction of Roblox's GUI features hints have been deprecated and TextLabels should be used instead for new work. The TextLabel object offers a wide range of features for displaying and customizing text that hints do not.",
-    "hints are deprecated but they look cool",
-    "hint text",
-    "imagine this is splash text yeah",
-    "THE CAKE IS A LIE!!!",
-    "When will it end?",
-    "hints my beloved"
-}
+local TextMetatables = {}
+setmetatable(MessageText, TextMetatables)
+setmetatable(HintText, TextMetatables)
+
+TextMetatables.__newindex = function(table, key, value)
+	if typeof(value) ~= "string" then
+		warn("Please use strings.")
+	end
+end
+
 local MessageDuration
 
 local CleaningStrength
@@ -5829,7 +5825,7 @@ Tab8:AddLabel("Total Features: 159+")
 Tab8:AddLabel("Total Supported Games: 11")
 
 -- Changes
-Section13:AddParagraph("11/8/2024","(Universal)\n[+] Add Light/Fire/Particles To Your Character\n[+]Customizable Hints/Messages Creator\n[+] New Music")
+Section13:AddParagraph("11/8/2024","[/] Added metatables in order to fully stop non-string values from being added to the MessageText and HintText tables")
 Section13:AddParagraph("Meanings","[+] = Added, [-] = Removed/Disabled, [/] = Miscellaneous Change")
 Section13:AddParagraph("Announcement (s)","None.")
 
