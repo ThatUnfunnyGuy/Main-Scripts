@@ -777,7 +777,7 @@ local Tab8 = Window:MakeTab({
 })
 
 local Section13 = Tab8:AddSection({
-	Name = "Changes"
+	Name = "Changes & More"
 })
 
 local Section9 = Tab5:AddSection({
@@ -5825,7 +5825,7 @@ Tab8:AddLabel("Total Features: 159+")
 Tab8:AddLabel("Total Supported Games: 11")
 
 -- Changes
-Section13:AddParagraph("11/8/2024","[/] Added metatables in order to fully stop non-string values from being added to the MessageText and HintText tables")
+Section13:AddParagraph("16/12/2024","[/] Added metatables in order to fully stop non-string values from being added to the MessageText and HintText tables")
 Section13:AddParagraph("Meanings","[+] = Added, [-] = Removed/Disabled, [/] = Miscellaneous Change")
 Section13:AddParagraph("Announcement (s)","None.")
 
