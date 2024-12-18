@@ -3356,7 +3356,7 @@ LSection:AddButton({
 for num, item in game:GetDescendants() do
     if item:IsA("Part") or item:IsA("MeshPart") or item:IsA("UnionOperation") or item:IsA("Decal") or item:IsA("Texture") then
         local Part = item
-        Part.Transparency = 0
+        Part.Transparency = 1
     end
 end
 end    
