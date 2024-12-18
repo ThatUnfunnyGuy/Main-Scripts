@@ -2836,6 +2836,17 @@ end
 })
 
 LSection:AddButton({
+	Name = "Weird Movement V2",
+	Callback = function()
+Humanoid.Changed:Connect(function()
+	if Humanoid.MoveDirection.Magnitude > 0 then
+		Character:MoveTo(HumanoidRootPart.Position + (HumanoidRootPart.CFrame.LookVector * 3))
+	end
+end)
+end
+})
+
+LSection:AddButton({
 	Name = "Create Part (NOT FE)",
 	Callback = function()
 local Part = Instance.new("Part")
@@ -3325,6 +3336,31 @@ Character.Animate.Enabled = Value
 end    
 })
 end
+
+
+LSection:AddButton({
+	Name = "Make Everything Visible",
+	Callback = function()
+for num, item in game:GetDescendants() do
+    if item:IsA("Part") or item:IsA("MeshPart") or item:IsA("UnionOperation") or item:IsA("Decal") or item:IsA("Texture") then
+        local Part = item
+        Part.Transparency = 0
+    end
+end
+end    
+})
+
+LSection:AddButton({
+	Name = "Make Everything Invisible",
+	Callback = function()
+for num, item in game:GetDescendants() do
+    if item:IsA("Part") or item:IsA("MeshPart") or item:IsA("UnionOperation") or item:IsA("Decal") or item:IsA("Texture") then
+        local Part = item
+        Part.Transparency = 0
+    end
+end
+end    
+})
 
 --[[
 LSection:AddDropdown({
