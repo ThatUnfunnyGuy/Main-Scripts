@@ -1214,7 +1214,7 @@ WSection:AddToggle({
 	Name = "HumanoidRootPart Anchor",
 	Default = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored,
 	Callback = function(Value)
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = Value
+HumanoidRootPart.Anchored = Value
 end
 })
 
@@ -1222,8 +1222,17 @@ WSection:AddToggle({
 	Name = "HumanoidRootPart CanCollide",
 	Default = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CanCollide,
 	Callback = function(Value)
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CanCollide = Value
+HumanoidRootPart.CanCollide = Value
 end
+})
+
+WSection:AddTextbox({
+	Name = "HumanoidRootPart Transparency",
+	Default = HumanoidRootPart.Transparency,
+	TextDisappear = false,
+	Callback = function(Value)
+	HumanoidRootPart.Transparency = Value
+end	  
 })
 
 WSection:AddToggle({
