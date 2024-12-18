@@ -19,7 +19,7 @@ end
 -- Setup the Orion library
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ThatUnfunnyGuy/Main-Scripts/refs/heads/main/Orion%20Hub%20(Fix%20Attempt)')))()
 
-local Window = OrionLib:MakeWindow({Name = "RoHub (v1.7.4)", HidePremium = true, SaveConfig = false, ConfigFolder = "RoHub", IntroEnabled = true, IntroText = "RoHub", IntroIcon = "rbxassetid://119223925296024", Icon = "rbxassetid://119223925296024"})
+local Window = OrionLib:MakeWindow({Name = "RoHub (v1.8.0)", HidePremium = true, SaveConfig = false, ConfigFolder = "RoHub", IntroEnabled = true, IntroText = "RoHub", IntroIcon = "rbxassetid://119223925296024", Icon = "rbxassetid://119223925296024"})
 
 local Chat = game:GetService("Chat")
 local SoundService = game:GetService("SoundService")
@@ -5866,11 +5866,11 @@ Section12:AddParagraph("Features (except the ones above)","idk.#5293 (Discord)")
 --[[Update Log]]--
 
 -- Features & Games Count
-Tab8:AddLabel("Total Features: 159+")
+Tab8:AddLabel("Total Features: 162+")
 Tab8:AddLabel("Total Supported Games: 11")
 
 -- Changes
-Section13:AddParagraph("16/12/2024","[/] Added metatables in order to fully stop non-string values from being added to the MessageText and HintText tables")
+Section13:AddParagraph("18/12/2024","(Universal)\n[+] HumanoidRootPart Transparency\n[+] Make Everything Visible + Make Everything Invisible")
 Section13:AddParagraph("Meanings","[+] = Added, [-] = Removed/Disabled, [/] = Miscellaneous Change")
 Section13:AddParagraph("Announcement (s)","None.")
 
