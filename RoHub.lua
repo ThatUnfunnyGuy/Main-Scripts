@@ -3399,7 +3399,7 @@ LSection:AddButton({
 	Name = "Toggle EvaluateStateMachine Endlessly",
 	Callback = function()
 RunService.RenderStepped:Connect(function()
-Humanoid.EvaluateStateMachine.Value = not Humanoid.EvaluateStateMachine.Value
+Humanoid.EvaluateStateMachine = not Humanoid.EvaluateStateMachine
 end)
 end
 })
