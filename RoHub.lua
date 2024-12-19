@@ -3379,7 +3379,7 @@ end
 })
 
 LSection:AddButton({
-	Name = "Clone Humanoid Endlessly (BUGGY)",
+	Name = "Clone Humanoid Endlessly (BUGGY & LAGGY)",
 	Callback = function()
 RunService.RenderStepped:Connect(function()
 Humanoid:Clone().Parent = Character
