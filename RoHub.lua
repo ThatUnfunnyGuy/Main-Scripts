@@ -34,6 +34,7 @@ local TeleportService = game:GetService("TeleportService")
 local UserInputService = game:GetService("UserInputService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local MarketplaceService = game:GetService("MarketplaceService")
+local LocalizationService = game:GetService("LocalizationService")
 
 -- Get other stuff
 local Player = Players.LocalPlayer or Players:GetPlayers()[1]
@@ -5732,6 +5733,8 @@ local MousePositionLabel = Section11:AddLabel("Mouse Position = " .. tostring(mo
 table.insert(TotalLabels, MousePositionLabel)
 local TotalInstancesLabel = Section11:AddLabel("Total Instances = " .. tostring(TotalInstancesNumber))
 table.insert(TotalLabels, TotalInstancesLabel)
+local ServerRegionLabel = Section11:AddLabel("Server Region = " .. tostring(LocalizationService:GetCountryRegionForPlayerAsync(Player)))
+table.insert(TotalLabels, ServerRegionLabel)
 
 Section11:AddParagraph("Warning!","Some labels may break if you use the Custom Humanoid, Custom Character and Change Character (while you still haven't turned back to your own character) features, so if it does, re-execute the script again!")
 	
@@ -5798,6 +5801,8 @@ end)
 if not Success then
 warn("If you're seeing this, it means that Roblox's shenanigans took action." .. " Original error: " .. "'" .. err .. "'")
 end
+	elseif num == 10 then -- ServerRegionLabel
+Label.Name = "ServerRegionLabel"
 	end
 Label.LayoutOrder = num
 Label.TextScaled = true
@@ -5819,6 +5824,8 @@ LabelsFrame:FindFirstChild("YPosLabel").Text = "Current Y Position = " .. game:G
 LabelsFrame:FindFirstChild("ZPosLabel").Text = "Current Z Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.Z or NewCharacter.Torso.Position.Z
 LabelsFrame:FindFirstChild("MemoryUsedLabel").Text = "Memory Used = " .. Stats:GetTotalMemoryUsageMb()
 LabelsFrame:FindFirstChild("MousePositionLabel").Text = "Mouse Position = " .. tostring(mouse.Hit.Position)
+LabelsFrame:FindFirstChild("TotalInstancesLabel").Text = "Total Instances = " .. tostring(TotalInstancesNumber)
+LabelsFrame:FindFirstChild("ServerRegionLabel").Text = "Server Region = " .. tostring(LocalizationService:GetCountryRegionForPlayerAsync(Player))
 --[[
 C = RunService.Heartbeat:Connect(function()
 LabelsFrame:WaitForChild("XPosLabel"):Set("Current X Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.X or NewCharacter.Torso.Position.X)
@@ -5907,7 +5914,7 @@ Section13:AddParagraph("18/12/2024","(Universal)\n[+] HumanoidRootPart Transpare
 Section13:AddParagraph("Meanings","[+] = Added, [-] = Removed/Disabled, [/] = Miscellaneous Change")
 Section13:AddParagraph("Announcement (s)","None.")
 
-RunService.Heartbeat:Connect(function()
+RunService.RenderStepped:Connect(function()
 if XPosLabel and YPosLabel and ZPosLabel and MemoryUsedLabel then
 XPosLabel:Set("Current X Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.X or NewCharacter.Torso.Position.X)
 YPosLabel:Set("Current Y Position = " .. game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position.Y or NewCharacter.Torso.Position.Y)
