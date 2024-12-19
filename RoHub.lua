@@ -1072,7 +1072,7 @@ end
 })
 
 WSection:AddButton({
-	Name = "Loop Force Jump (Jump)",
+	Name = "Force Jump (Jump) Endlessly",
 	Callback = function()
 	RunService.Heartbeat:Connect(function()
 Humanoid.Jump = true
@@ -1273,6 +1273,14 @@ WSection:AddToggle({
 	Default = game:GetService("Players").LocalPlayer.Character.Humanoid.BreakJointsOnDeath,
 	Callback = function(Value)
 Humanoid.BreakJointsOnDeath = Value
+	end    
+})
+
+WSection:AddToggle({
+	Name = "EvaluateStateMachine",
+	Default = game:GetService("Players").LocalPlayer.Character.Humanoid.BreakJointsOnDeath,
+	Callback = function(Value)
+Humanoid.EvaluateStateMachine = Value
 	end    
 })
 
@@ -2315,7 +2323,7 @@ end
 })
 
 LSection:AddButton({
-	Name = "Loop Clone Yourself (NOT FE)",
+	Name = "Clone Yourself (NOT FE) Endlessly",
 	Callback = function()
 	while task.wait() do
 	game:GetService("Players").LocalPlayer.Character.Archivable = true
@@ -2342,7 +2350,7 @@ end
 })
 
 LSection:AddButton({
-	Name = "Loop Delete Clone",
+	Name = "Delete Clone Endlessly",
 	Callback = function()
 	while wait() do
 	if workspace:FindFirstChild(game.Players.LocalPlayer.Name .. "'s Clone") then
@@ -2371,7 +2379,7 @@ end
 })
 
 LSection:AddButton({
-	Name = "Loop Trigger Dialog",
+	Name = "Trigger Dialog Endlessly",
 	Callback = function()
 	local Dialog = game:GetService("Players").LocalPlayer.Character.Head:WaitForChild("Dialog")
 	Dialog.TriggerDistance += 1
@@ -2918,7 +2926,7 @@ end
 })
 
 LSection:AddButton({
-	Name = "Loop Remove Accessories (NOT FE)",
+	Name = "Remove Accessories (NOT FE) Endlessly",
 	Callback = function()
 RunService.Heartbeat:Connect(function()
 game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):RemoveAccessories()
@@ -3383,6 +3391,15 @@ LSection:AddButton({
 	Callback = function()
 RunService.RenderStepped:Connect(function()
 Humanoid:Clone().Parent = Character
+end)
+end
+})
+
+LSection:AddButton({
+	Name = "Toggle EvaluateStateMachine Endlessly",
+	Callback = function()
+RunService.RenderStepped:Connect(function()
+Humanoid.EvaluateStateMachine.Value = not Humanoid.EvaluateStateMachine.Value
 end)
 end
 })
@@ -4985,7 +5002,7 @@ game:GetService("ReplicatedStorage").SpawnGalaxyBlock:FireServer()
 })
 
 Section4:AddButton({
-	Name = "Loop Get Random Item (Lucky Block)",
+	Name = "Get Random Item (Lucky Block) Endlessly",
 	Callback = function()
 	while wait() do
 game:GetService("ReplicatedStorage").SpawnLuckyBlock:FireServer()
@@ -4994,7 +5011,7 @@ end
 })
 
 Section4:AddButton({
-	Name = "Loop Get Random Item (Super Block)",
+	Name = "Get Random Item (Super Block) Endlessly",
 	Callback = function()
 	while wait() do
 game:GetService("ReplicatedStorage").SpawnSuperBlock:FireServer()
@@ -5003,7 +5020,7 @@ end
 })
 
 Section4:AddButton({
-	Name = "Loop Get Random Item (Diamond Block)",
+	Name = "Get Random Item (Diamond Block) Endlessly",
 	Callback = function()
 	while wait() do
 game:GetService("ReplicatedStorage").SpawnDiamondBlock:FireServer()
@@ -5012,7 +5029,7 @@ end
 })
 
 Section4:AddButton({
-	Name = "Loop Get Random Item (Rainbow Block)",
+	Name = "Get Random Item (Rainbow Block) Endlessly",
 	Callback = function()
 	while wait() do
 game:GetService("ReplicatedStorage").SpawnRainbowBlock:FireServer()
@@ -5021,7 +5038,7 @@ end
 })
 
 Section4:AddButton({
-	Name = "Loop Get Random Item (Galaxy Block)",
+	Name = "Get Random Item (Galaxy Block) Endlessly",
 	Callback = function()
 	while wait() do
 game:GetService("ReplicatedStorage").SpawnGalaxyBlock:FireServer()
@@ -5561,9 +5578,9 @@ end
 })
 
 CTSection2:AddButton({
-	Name = "Loop Get Money",
+	Name = "Get Money Endlessly",
 	Callback = function()
-	while wait() do
+	while task.wait() do
 workspace.Idk32432895["Click For Cash"].RemoteEvent:FireServer()
 	end
 end
