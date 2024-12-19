@@ -3378,6 +3378,15 @@ Humanoid:Clone().Parent = Character
 end
 })
 
+LSection:AddButton({
+	Name = "Clone Humanoid Endlessly (BUGGY)",
+	Callback = function()
+RunService.Heartbeat:Connect(function()
+Humanoid:Clone().Parent = Character
+end)
+end
+})
+
 --[[
 LSection:AddDropdown({
 	Name = "ChatStyle",
