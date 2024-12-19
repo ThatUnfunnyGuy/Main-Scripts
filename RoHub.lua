@@ -3371,6 +3371,13 @@ end
 end    
 })
 
+LSection:AddButton({
+	Name = "Clone Humanoid (BUGGY)",
+	Callback = function()
+Humanoid:Clone().Parent = Character
+end
+})
+
 --[[
 LSection:AddDropdown({
 	Name = "ChatStyle",
